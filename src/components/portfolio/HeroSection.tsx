@@ -7,8 +7,8 @@ import { Cpu, Send } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
-import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
+import { GradientButton } from "../ui/gradient-button";
 
 interface HeroSectionProps {
   npcInput: string;
@@ -106,9 +106,9 @@ export default function HeroSection({
                 placeholder="Type your question..."
                 disabled={isNpcLoading}
               />
-              <Button type="submit" size="icon" disabled={isNpcLoading}>
+              <GradientButton type="submit" size="icon" disabled={isNpcLoading}>
                 <Send size={18} />
-              </Button>
+              </GradientButton>
             </form>
           </CardContent>
         </Card>

@@ -17,7 +17,9 @@ const GradientButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         {...props}
       >
-        <span className="relative z-10">{children}</span>
+        <span className="relative z-10 inline-flex items-center justify-center gap-2">
+          {children}
+        </span>
       </Button>
     );
   }

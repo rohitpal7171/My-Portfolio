@@ -60,7 +60,7 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {skills.map((skillCategory) => (
           <motion.div key={skillCategory.category} variants={itemVariants}>
-            <Card className={cn("h-full transition-all hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-2", "glass-effect")}>
+            <Card className={cn("h-full transition-all hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-2 rounded-[10px]", "glass-effect")}>
               <CardHeader>
                 <CardTitle className="flex items-center gap-3">
                   <skillCategory.icon className="h-8 w-8 text-primary" />

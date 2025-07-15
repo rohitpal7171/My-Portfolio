@@ -11,13 +11,13 @@ const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space
 
 
 export const metadata: Metadata = {
-  title: 'CodeSphere by Rohit | Software Developer',
+  title: 'CodeSphere by Rohit',
   description: 'The interactive portfolio of Rohit Singh Pal, a frontend software developer specializing in React.js, modern web technologies, and creating immersive digital experiences.',
   keywords: ['Rohit Singh Pal', 'Portfolio', 'Software Developer', 'Frontend Developer', 'React Developer', 'TypeScript', 'Next.js'],
   authors: [{ name: 'Rohit Singh Pal' }],
   creator: 'Rohit Singh Pal',
   openGraph: {
-    title: 'CodeSphere by Rohit | Software Developer',
+    title: 'CodeSphere by Rohit',
     description: 'Explore the interactive portfolio of Rohit Singh Pal, a creative frontend developer.',
     url: 'https://your-domain.com', // Replace with your actual domain
     siteName: 'CodeSphere by Rohit',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CodeSphere by Rohit | Software Developer',
+    title: 'CodeSphere by Rohit',
     description: 'Explore the interactive portfolio of Rohit Singh Pal, a creative frontend developer.',
     creator: '@your-twitter-handle', // Replace with your Twitter handle
     images: ['https://placehold.co/1200x630.png'], // Replace with a link to your OG image

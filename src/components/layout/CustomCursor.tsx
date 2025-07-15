@@ -59,7 +59,7 @@ const CustomCursor = () => {
     <motion.div
       className="custom-cursor"
       animate={{ x: position.x, y: position.y }}
-      transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+      transition={{ type: "spring", stiffness: 1200, damping: 40 }}
     >
       <motion.div
         key={isPointer ? 'hand' : 'arrow'}

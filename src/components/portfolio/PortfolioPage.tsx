@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { 
@@ -97,6 +97,24 @@ export default function PortfolioPage() {
   const [isNpcLoading, setIsNpcLoading] = useState(false);
   const [isVoiceLoading, setIsVoiceLoading] = useState(false);
   const [audio, setAudio] = useState<string | null>(null);
+  const [typedSubtitle, setTypedSubtitle] = useState('');
+
+  const fullSubtitle = "Frontend Software Developer";
+
+  useEffect(() => {
+    let currentIndex = 0;
+    setTypedSubtitle(''); // Reset on mount
+    const interval = setInterval(() => {
+      if (currentIndex < fullSubtitle.length) {
+        setTypedSubtitle((prev) => prev + fullSubtitle[currentIndex]);
+        currentIndex++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handleNpcSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -134,7 +152,7 @@ export default function PortfolioPage() {
         >
           <motion.div variants={itemVariants}>
             <h1 className="font-headline text-4xl md:text-6xl font-extrabold text-primary">Rohit Singh Pal</h1>
-            <h2 className="text-2xl md:text-3xl font-semibold text-foreground/80 mt-2">Frontend Software Developer</h2>
+            <h2 className="text-2xl md:text-3xl font-semibold text-foreground/80 mt-2 min-h-[40px]">{typedSubtitle}<span className="inline-block w-1 h-8 bg-primary animate-ping ml-1"></span></h2>
             <p className="mt-6 text-lg max-w-2xl text-muted-foreground">
               Welcome to my interactive portfolio. I am a passionate developer with over 4 years of experience building robust, user-focused web applications. Explore my world, ask questions, and get to know my work.
             </p>

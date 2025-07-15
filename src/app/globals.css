@@ -61,6 +61,7 @@
     background-image: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--secondary)) 100%);
     background-size: 400% 400%;
     animation: gradient-bg 15s ease infinite;
+    cursor: none;
   }
 
   body::-webkit-scrollbar {
@@ -83,4 +84,15 @@
   .glass-effect {
     @apply bg-card/60 backdrop-blur-lg border border-white/10;
   }
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease-out;
 }

@@ -32,11 +32,15 @@ const interactiveNpcResponsesPrompt = ai.definePrompt({
   name: 'interactiveNpcResponsesPrompt',
   input: {schema: InteractiveNpcResponsesInputSchema},
   output: {schema: InteractiveNpcResponsesOutputSchema},
-  prompt: `You are an AI-powered NPC in CodeSphere. Respond to the following user query:
+  prompt: `You are an AI assistant for Rohit Singh Pal's portfolio website. Your personality is helpful and professional.
 
-  User Query: {{{query}}}
+Your ONLY purpose is to answer questions about Rohit's skills, experience, and projects based on the portfolio content.
 
-  NPC Response:`, // Keep the NPC response concise and relevant to the CodeSphere.
+If the user asks a question that is NOT related to Rohit's portfolio, you MUST politely decline. For example, if they ask about the weather, a random fact, or to write code, you should say something like: "I can only answer questions about Rohit's portfolio. How can I help you with that?"
+
+User Query: {{{query}}}
+
+Your Response:`,
 });
 
 const interactiveNpcResponsesFlow = ai.defineFlow(

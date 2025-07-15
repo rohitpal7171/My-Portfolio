@@ -28,7 +28,7 @@ export default function Header() {
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
         <div className="font-headline text-2xl font-bold tracking-wider text-primary flex items-center gap-2">
           <Code />
-          <Link href="/" aria-label="Navigate to homepage">CodeSphere</Link>
+          <Link href="/" aria-label="Navigate to homepage">CodeSphere By Rohit</Link>
         </div>
 
         {/* Desktop Navigation */}

@@ -1,22 +1,10 @@
 "use client";
 
-import { FolderGit2 } from "lucide-react";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-
-interface Project {
-  title: string;
-  description: string;
-  tech: string[];
-}
+import { cn } from "@/lib/utils";
+import type { Project } from "@/data/portfolio-data";
+import { FolderGit2 } from "lucide-react";
 
 interface WorkSectionProps {
   projects: Project[];
@@ -47,6 +35,7 @@ const itemVariants = {
   },
 };
 
+
 export default function WorkSection({ projects }: WorkSectionProps) {
   return (
     <motion.section
@@ -56,37 +45,35 @@ export default function WorkSection({ projects }: WorkSectionProps) {
       viewport={{ once: true, amount: 0.2 }}
       variants={sectionVariants}
     >
-      <h2 className="text-3xl font-headline font-bold mb-12 text-center">
-        <FolderGit2 className="inline-block mr-2 h-7 w-7 text-primary" />
-        My Work
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <h2 className="text-3xl font-headline font-bold mb-12 text-center"><FolderGit2 className="inline-block mr-2 h-7 w-7 text-primary" />My Work</h2>
+      <div className="relative pl-6">
+        <div className="absolute left-[31px] -translate-x-1/2 top-0 h-full w-0.5 bg-primary/20"></div>
         {projects.map((project, index) => (
-          <motion.div key={index} variants={itemVariants}>
-            <Card
-              className={cn(
-                "h-full flex flex-col rounded-[20px] overflow-hidden transition-all hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-2",
-                "glass-effect"
-              )}
-            >
-              <CardHeader>
-                <CardTitle className="text-2xl font-bold">
-                  {project.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <p className="text-muted-foreground">{project.description}</p>
-              </CardContent>
-              <CardFooter>
-                <div className="flex flex-wrap gap-2">
+          <motion.div key={index} className="relative pl-8 pb-12" variants={itemVariants}>
+            <div className="absolute left-0 top-0 ml-4">
+              <div className="flex items-center justify-center h-12 w-12 rounded-full bg-background border-2 border-primary text-primary">
+                <project.icon />
+              </div>
+            </div>
+
+            <div className={cn("p-6 rounded-[10px] ml-12", "glass-effect")}>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-2">
+                <h3 className="text-xl font-bold text-primary">{project.title}</h3>
+              </div>
+              <p className="text-foreground/80 mb-4">{project.description}</p>
+              
+              <div className="flex flex-wrap gap-2">
                   {project.tech.map((tech, techIndex) => (
                     <Badge key={techIndex} variant="secondary">
                       {tech}
                     </Badge>
                   ))}
                 </div>
-              </CardFooter>
-            </Card>
+            </div>
+
+            {index < projects.length - 1 && (
+              <div className="absolute left-[31px] -translate-x-1/2 h-full w-0.5 bg-primary/20 top-12"></div>
+            )}
           </motion.div>
         ))}
       </div>

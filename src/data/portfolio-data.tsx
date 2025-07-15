@@ -1,4 +1,5 @@
 import type { FC, SVGProps } from 'react';
+import type { LucideIcon } from 'lucide-react';
 import {
   Briefcase,
   CodeXml,
@@ -142,7 +143,17 @@ export const skills = [
   },
 ];
 
-export const experience = [
+export interface Experience {
+  role: string;
+  company: string;
+  period: string;
+  location: string;
+  isCurrent?: boolean;
+  description: string[];
+  icon: LucideIcon;
+}
+
+export const experience: Experience[] = [
   {
     role: "Software Developer",
     company: "MikeLegal",
@@ -192,7 +203,13 @@ export const experience = [
   },
 ];
 
-export const education = [
+export interface EducationItem {
+  degree: string;
+  institution: string;
+  period: string;
+}
+
+export const education: EducationItem[] = [
   {
     degree: "Bachelor of Technology",
     institution: "ITM Group of Institutions, Computer Science",
@@ -210,20 +227,30 @@ export const education = [
   },
 ];
 
-export const projects = [
+export interface Project {
+  title: string;
+  description: string;
+  tech: string[];
+  icon: LucideIcon;
+}
+
+export const projects: Project[] = [
   {
     title: "Google Scholar DarkMode",
     description: "A personal project that gained over 4,000 users. It's a browser extension that adds a dark mode to Google Scholar.",
     tech: ["JavaScript", "CSS", "Browser Extension"],
+    icon: FolderGit2,
   },
   {
     title: "Pakegai (beta)",
     description: "A book search application built with React Native. I handled everything from branding to development.",
     tech: ["React Native", "TypeScript", "Firebase"],
+    icon: FolderGit2,
   },
   {
     title: "Portfolio Website",
     description: "This very website! An interactive portfolio built with Next.js and featuring a Genkit AI assistant.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Genkit"],
+    icon: FolderGit2,
   }
 ];

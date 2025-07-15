@@ -97,7 +97,9 @@ export default function HeroSection({
         <Card className={cn("w-full mt-4 animate-subtle-pulse rounded-[20px]", "glass-effect")}>
           <CardHeader>
             <CardTitle className="flex items-center gap-2"><Cpu size={20} className="text-primary" /> AI Assistant</CardTitle>
-            <CardDescription>{isNpcLoading ? "Thinking..." : npcResponse}</CardDescription>
+            <CardDescription>
+              <p>{isNpcLoading ? "Thinking..." : npcResponse}</p>
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleNpcSubmit} className="flex gap-2">

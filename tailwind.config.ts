@@ -111,12 +111,12 @@ export default {
           '50%': { transform: 'translateX(-50%) translateY(-50%) rotate(180deg) scale(1.5)' },
           '100%': { transform: 'translateX(-50%) translateY(-50%) rotate(360deg) scale(1.2)' },
         },
-        'top-border-slide': {
+        'border-spin': {
           '0%': {
-            transform: 'translateX(-100%)',
+            transform: 'rotate(0deg)',
           },
           '100%': {
-            transform: 'translateX(200%)',
+            transform: 'rotate(360deg)',
           },
         },
       },
@@ -127,7 +127,7 @@ export default {
         'subtle-pulse': 'subtle-pulse 4s ease-in-out infinite',
         'float': 'float 6s ease-in-out infinite',
         'aurora': 'aurora 30s linear infinite',
-        'top-border-slide': 'top-border-slide 3s linear infinite',
+        'border-spin': 'border-spin 4s linear infinite',
       },
       animationDelay: {
         '100': '100ms',

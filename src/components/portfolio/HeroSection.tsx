@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui
 import { Input } from "../ui/input";
 import { cn } from "@/lib/utils";
 import { GradientButton } from "../ui/gradient-button";
+import { Button } from "../ui/button";
 
 interface HeroSectionProps {
   npcInput: string;

@@ -1,22 +1,21 @@
 "use client";
 
-import { FolderGit2, ExternalLink } from "lucide-react";
+import { FolderGit2 } from "lucide-react";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 interface Project {
   title: string;
   description: string;
-  imageUrl: string;
-  imageHint: string;
-  links: {
-    label: string;
-    href: string;
-  }[];
+  tech: string[];
 }
 
 interface WorkSectionProps {
@@ -61,32 +60,31 @@ export default function WorkSection({ projects }: WorkSectionProps) {
         <FolderGit2 className="inline-block mr-2 h-7 w-7 text-primary" />
         My Work
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
           <motion.div key={index} variants={itemVariants}>
-            <Card className={cn("h-full flex flex-col rounded-[20px] overflow-hidden", "glass-effect")}>
-              <CardHeader className="p-0">
-                <Image
-                  src={project.imageUrl}
-                  alt={project.title}
-                  width={600}
-                  height={400}
-                  className="w-full h-auto object-cover aspect-[3/2]"
-                  data-ai-hint={project.imageHint}
-                />
+            <Card
+              className={cn(
+                "h-full flex flex-col rounded-[20px] overflow-hidden transition-all hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-2",
+                "glass-effect"
+              )}
+            >
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold">
+                  {project.title}
+                </CardTitle>
               </CardHeader>
-              <CardContent className="p-6 flex-grow">
-                <CardTitle className="text-2xl font-bold mb-2">{project.title}</CardTitle>
+              <CardContent className="flex-grow">
                 <p className="text-muted-foreground">{project.description}</p>
               </CardContent>
-              <CardFooter className="p-6 pt-0">
-                {project.links.map((link, linkIndex) => (
-                  <Button key={linkIndex} asChild variant="secondary" className="mr-2 glass-effect hover:bg-primary/20">
-                    <Link href={link.href} target="_blank" rel="noopener noreferrer">
-                      {link.label} <ExternalLink className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                ))}
+              <CardFooter>
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((tech, techIndex) => (
+                    <Badge key={techIndex} variant="secondary">
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
               </CardFooter>
             </Card>
           </motion.div>

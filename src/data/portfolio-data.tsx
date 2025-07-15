@@ -212,20 +212,18 @@ export const education = [
 
 export const projects = [
   {
-    title: "Google Schaler DarkMode",
-    description: "Developed as a personal development project and later released as OSS, it reached 4,000 users in two years.",
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "dark mode browser",
-    links: [
-      { label: "Link", href: "#" },
-      { label: "GitHub", href: "#" },
-    ],
+    title: "Google Scholar DarkMode",
+    description: "A personal project that gained over 4,000 users. It's a browser extension that adds a dark mode to Google Scholar.",
+    tech: ["JavaScript", "CSS", "Browser Extension"],
   },
   {
     title: "Pakegai (beta)",
-    description: "A brand new book search application developed with React Native. From conception to brand design and development, I did it all by myself.",
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "book search",
-    links: [{ label: "Link", href: "#" }],
+    description: "A book search application built with React Native. I handled everything from branding to development.",
+    tech: ["React Native", "TypeScript", "Firebase"],
   },
+  {
+    title: "Portfolio Website",
+    description: "This very website! An interactive portfolio built with Next.js and featuring a Genkit AI assistant.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Genkit"],
+  }
 ];

@@ -1,13 +1,27 @@
+"use client";
+
 import { Mic } from "lucide-react";
 import { motion } from "framer-motion";
 import { GradientButton } from "../ui/gradient-button";
-import { sectionVariants } from './variants';
 
 interface VoiceAssistantSectionProps {
   isVoiceLoading: boolean;
   handleVoiceQuery: (query: string) => void;
   audio: string | null;
 }
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
 
 export default function VoiceAssistantSection({
   isVoiceLoading,

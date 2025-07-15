@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Cpu, Send } from "lucide-react";
@@ -6,7 +8,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
-import { sectionVariants, itemVariants } from './variants';
 
 interface HeroSectionProps {
   npcInput: string;
@@ -15,6 +16,31 @@ interface HeroSectionProps {
   isNpcLoading: boolean;
   handleNpcSubmit: (e: React.FormEvent) => void;
 }
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+    },
+  },
+};
 
 export default function HeroSection({
   npcInput,

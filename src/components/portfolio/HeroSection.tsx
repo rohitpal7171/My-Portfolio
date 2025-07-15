@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -85,11 +86,12 @@ export default function HeroSection({
       </motion.div>
       <motion.div variants={itemVariants} className="flex-shrink-0 flex flex-col items-center justify-center p-4 rounded-lg">
         <Image
-          src="https://i.ibb.co/3sWDBJz/image.png"
+          src="https://placehold.co/400x400.png"
           alt="Rohit Singh Pal"
           width={400}
           height={400}
           className="rounded-lg shadow-2xl shadow-primary/20 animate-float object-cover aspect-square"
+          data-ai-hint="avatar man"
         />
         <Card className={cn("w-full mt-4 animate-subtle-pulse", "glass-effect")}>
           <CardHeader>

@@ -11,6 +11,7 @@ import {
   Mic,
   BookOpen,
   Rocket,
+  FolderGit2,
 } from "lucide-react";
 
 const ReactJsIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
@@ -206,5 +207,25 @@ export const education = [
     degree: "10th Grade",
     institution: "No.1 Air force School",
     period: "Completed in 2015",
+  },
+];
+
+export const projects = [
+  {
+    title: "Google Schaler DarkMode",
+    description: "Developed as a personal development project and later released as OSS, it reached 4,000 users in two years.",
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "dark mode browser",
+    links: [
+      { label: "Link", href: "#" },
+      { label: "GitHub", href: "#" },
+    ],
+  },
+  {
+    title: "Pakegai (beta)",
+    description: "A brand new book search application developed with React Native. From conception to brand design and development, I did it all by myself.",
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "book search",
+    links: [{ label: "Link", href: "#" }],
   },
 ];

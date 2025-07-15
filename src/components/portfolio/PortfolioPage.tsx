@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { getNpcResponse } from "@/app/actions";
-import { skills, experience, education } from '@/data/portfolio-data.tsx';
+import { skills, experience, education, projects } from '@/data/portfolio-data.tsx';
 
 import Header from "../layout/Header";
 import HeroSection from "./HeroSection";
@@ -10,6 +10,7 @@ import AboutSection from "./AboutSection";
 import SkillsSection from "./SkillsSection";
 import ExperienceSection from "./ExperienceSection";
 import EducationSection from "./EducationSection";
+import WorkSection from "./WorkSection";
 import ContactSection from "./ContactSection";
 
 export default function PortfolioPage() {
@@ -43,6 +44,7 @@ export default function PortfolioPage() {
         <SkillsSection skills={skills} />
         <ExperienceSection experience={experience} />
         <EducationSection education={education} />
+        <WorkSection projects={projects} />
       </main>
       <ContactSection />
     </div>

@@ -13,7 +13,7 @@
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
-import { skills, experience, education, projects } from '@/data/portfolio-data';
+import { skills, experience, education, projects } from '@/data/portfolio-data.tsx';
 
 const InteractiveNpcResponsesInputSchema = z.object({
   query: z.string().describe('The user query to the NPC.'),

@@ -1,6 +1,7 @@
 "use client";
-import { Bot, Cpu, Github, Linkedin, Rss } from 'lucide-react';
+import { Bot, Github, Linkedin } from 'lucide-react';
 import Link from 'next/link';
+import { ThemeToggle } from '../theme-toggle';
 
 export default function Header() {
   return (
@@ -14,7 +15,6 @@ export default function Header() {
           <Link href="#about" className="text-foreground/80 hover:text-primary transition-colors">About</Link>
           <Link href="#experience" className="text-foreground/80 hover:text-primary transition-colors">Experience</Link>
           <Link href="#skills" className="text-foreground/80 hover:text-primary transition-colors">Skills</Link>
-          <Link href="#projects" className="text-foreground/80 hover:text-primary transition-colors">Projects</Link>
            <Link href="https://github.com/rohitpal7171" target="_blank" rel="noopener noreferrer">
             <Github className="h-6 w-6 text-foreground/80 hover:text-primary transition-colors"/>
             <span className="sr-only">GitHub</span>
@@ -23,6 +23,7 @@ export default function Header() {
             <Linkedin className="h-6 w-6 text-foreground/80 hover:text-primary transition-colors"/>
              <span className="sr-only">LinkedIn</span>
           </Link>
+          <ThemeToggle />
         </nav>
       </div>
     </header>

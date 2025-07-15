@@ -85,15 +85,23 @@
     @apply bg-card/60 backdrop-blur-lg border border-white/10;
   }
   .custom-cursor {
-    @apply fixed w-5 h-1 bg-primary pointer-events-none z-[9999];
-    animation: cursor-blink 1s infinite;
+    @apply fixed w-6 h-6 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2;
+    background: radial-gradient(circle, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    box-shadow: 0 0 15px hsl(var(--primary)), 0 0 25px hsl(var(--accent));
+    animation: cursor-pulse 2s infinite;
+    transition: transform 0.1s ease-out;
   }
 }
 
 @layer utilities {
-  @keyframes cursor-blink {
+  @keyframes cursor-pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.7;
+    }
     50% {
-      opacity: 0;
+      transform: scale(0.8);
+      opacity: 1;
     }
   }
 }

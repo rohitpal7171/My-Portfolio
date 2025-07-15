@@ -2,7 +2,6 @@
 
 import { GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { cn } from "@/lib/utils";
 
 interface EducationItem {
@@ -54,7 +53,7 @@ export default function EducationSection({ education }: EducationSectionProps) {
         <GraduationCap className="inline-block mr-2 h-7 w-7 text-primary" />
         Education
       </h2>
-      <div className={cn("max-w-4xl mx-auto p-4 rounded-[20px] space-y-4", "glass-effect")}>
+      <div className={cn("p-8 rounded-[20px] space-y-4", "glass-effect")}>
         {education.map((item, index) => (
           <motion.div
             key={index}

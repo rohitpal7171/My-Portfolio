@@ -1,3 +1,4 @@
+
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -147,15 +148,16 @@ export default function PortfolioPage() {
   const fullSubtitle = "Frontend Software Developer";
 
   useEffect(() => {
-    let currentIndex = 0;
-    setTypedSubtitle(''); // Reset on mount
+    setTypedSubtitle(''); 
     const interval = setInterval(() => {
-      if (currentIndex < fullSubtitle.length) {
-        setTypedSubtitle((prev) => prev + fullSubtitle[currentIndex]);
-        currentIndex++;
-      } else {
-        clearInterval(interval);
-      }
+      setTypedSubtitle(prev => {
+        if (prev.length < fullSubtitle.length) {
+          return fullSubtitle.slice(0, prev.length + 1);
+        } else {
+          clearInterval(interval);
+          return prev;
+        }
+      });
     }, 100);
 
     return () => clearInterval(interval);
@@ -411,4 +413,5 @@ export default function PortfolioPage() {
       </footer>
     </div>
   );
-}
+
+    

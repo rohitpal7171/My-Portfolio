@@ -6,7 +6,7 @@ import Link from "next/link";
 import { 
   Briefcase, Code, Cpu, Dna, GraduationCap, Github, Linkedin, Mail, Mic, Send, User, 
   CodeXml, GitBranch, BrainCircuit, Bot, Lightbulb, Users, GitCommit, Link2, 
-  Type, Braces, Rocket, ShieldCheck, Component, ArrowRight, BookOpen
+  Type, Braces, Rocket, ShieldCheck, Component, ArrowRight, BookOpen, Network, Languages, FileCode, Gem
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import Header from "../layout/Header";
@@ -26,12 +26,12 @@ const skills: {
     category: "Frontend Development",
     icon: CodeXml,
     list: [
-      { name: "React.js", icon: Code },
-      { name: "Redux", icon: GitBranch },
+      { name: "React.js", icon: Braces },
+      { name: "Redux", icon: Network },
       { name: "JavaScript", icon: Code },
       { name: "TypeScript", icon: Type },
-      { name: "HTML5", icon: Code },
-      { name: "CSS3", icon: Code },
+      { name: "HTML5", icon: FileCode },
+      { name: "CSS3", icon: Gem },
       { name: "Bootstrap", icon: Component },
     ],
   },

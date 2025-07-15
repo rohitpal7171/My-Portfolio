@@ -1,31 +1,64 @@
+
 "use client";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Briefcase, Code, Cpu, Dna, GraduationCap, Github, Linkedin, Mail, Mic, Send, User, CodeXml, GitBranch, BrainCircuit } from "lucide-react";
+import { 
+  Briefcase, Code, Cpu, Dna, GraduationCap, Github, Linkedin, Mail, Mic, Send, User, 
+  CodeXml, GitBranch, BrainCircuit, Bot, Lightbulb, Users, GitCommit, Link2, 
+  Type, Braces, Rocket, ShieldCheck, Component, ArrowRight, BookOpen
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import Header from "../layout/Header";
-import { Badge } from "../ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { getNpcResponse, getVoiceResponse } from "@/app/actions";
-import { Hexagon } from "./Hexagon";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
-const skills = {
-  "Frontend Development": {
+const skills: {
+  category: string;
+  icon: LucideIcon;
+  list: { name: string; icon: LucideIcon }[];
+}[] = [
+  {
+    category: "Frontend Development",
     icon: CodeXml,
-    skills: ["React.js", "Redux", "JavaScript", "TypeScript", "HTML5", "CSS3", "Bootstrap"],
+    list: [
+      { name: "React.js", icon: Code },
+      { name: "Redux", icon: GitBranch },
+      { name: "JavaScript", icon: Code },
+      { name: "TypeScript", icon: Type },
+      { name: "HTML5", icon: Code },
+      { name: "CSS3", icon: Code },
+      { name: "Bootstrap", icon: Component },
+    ],
   },
-  "Tools & APIs": {
-    icon: GitBranch,
-    skills: ["Git & GitHub", "REST APIs", "Relay", "GraphQL"],
+  {
+    category: "Tools & APIs",
+    icon: GitCommit,
+    list: [
+      { name: "Git & GitHub", icon: Github },
+      { name: "REST APIs", icon: Link2 },
+      { name: "Relay", icon: Rocket },
+      { name: "GraphQL", icon: GitBranch },
+    ],
   },
-  "Soft Skills": {
+  {
+    category: "Soft Skills",
     icon: BrainCircuit,
-    skills: ["Problem-solving", "Team collaboration", "Code reviews", "Rapid learning", "Adaptability", "Communication", "Ownership"]
-  }
-};
+    list: [
+      { name: "Problem-solving", icon: Lightbulb },
+      { name: "Team collaboration", icon: Users },
+      { name: "Code reviews", icon: ShieldCheck },
+      { name: "Rapid learning", icon: Rocket },
+      { name: "Adaptability", icon: ArrowRight },
+      { name: "Communication", icon: Mic },
+      { name: "Ownership", icon: BookOpen },
+    ],
+  },
+];
 
 const experience = [
   { role: "Software Developer", company: "MikeLegal", period: "Jul 2023 – Present" },
@@ -177,41 +210,39 @@ export default function PortfolioPage() {
         {/* Skills Section */}
         <motion.section 
           id="skills" 
-          className="mb-32"
+          className="mb-24"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionVariants}
         >
-          <h2 className="text-3xl font-headline font-bold mb-16 text-center"><Dna className="inline-block mr-2 h-7 w-7 text-primary" />Skills & Technologies</h2>
-          <div className="relative w-full flex justify-center items-center" style={{ minHeight: '450px' }}>
-            {Object.entries(skills).map(([category, { icon: Icon, skills: skillList }], index) => (
-              <motion.div
-                key={category}
-                className="absolute"
-                variants={itemVariants}
-                style={{ 
-                  transform: `rotate(${index * 120}deg) translate(180px) rotate(-${index * 120}deg)`,
-                }}
-              >
-                <Hexagon title={category} Icon={Icon}>
-                  <div className="flex flex-wrap justify-center gap-2">
-                    {skillList.map(skill => (
-                      <Badge key={skill} variant="secondary">{skill}</Badge>
-                    ))}
-                  </div>
-                </Hexagon>
+          <h2 className="text-3xl font-headline font-bold mb-12 text-center"><Dna className="inline-block mr-2 h-7 w-7 text-primary" />Skills & Technologies</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {skills.map((skillCategory) => (
+              <motion.div key={skillCategory.category} variants={itemVariants}>
+                <Card className="bg-secondary/30 border-primary/20 h-full transition-all hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-2">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-3">
+                      <skillCategory.icon className="h-8 w-8 text-primary" />
+                      <span className="text-2xl font-headline">{skillCategory.category}</span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-3">
+                      {skillCategory.list.map((skill) => (
+                        <li key={skill.name} className="flex items-center gap-3 p-2 rounded-md transition-colors hover:bg-primary/10">
+                          <skill.icon className="h-5 w-5 text-accent" />
+                          <span className="font-medium">{skill.name}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
               </motion.div>
             ))}
-             <motion.div variants={itemVariants}>
-              <div className="w-48 h-56 bg-primary/10" style={{clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)'}}>
-                 <div className="w-full h-full flex items-center justify-center">
-                    <Dna className="w-16 h-16 text-primary animate-pulse" />
-                 </div>
-              </div>
-            </motion.div>
           </div>
         </motion.section>
+
 
         {/* Experience Section */}
         <motion.section 
@@ -296,3 +327,5 @@ export default function PortfolioPage() {
     </div>
   );
 }
+
+    

@@ -281,7 +281,8 @@ export default function PortfolioPage() {
                 <CardHeader>
                   <CardTitle>Bachelor of Technology</CardTitle>
                   <CardDescription>ITM Group of Institutions, Computer Science</CardDescription>
-                </Card>
+                </CardHeader>
+              </Card>
             </motion.div>
              <motion.div variants={itemVariants}>
               <Card className="bg-secondary/30 border-primary/20 transition-all hover:scale-105 h-full">

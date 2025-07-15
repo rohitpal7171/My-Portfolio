@@ -33,18 +33,30 @@ export default function PortfolioPage() {
     <div className="bg-transparent text-foreground font-body min-h-screen">
       <Header />
       <main className="container mx-auto px-4 pt-32 pb-16">
-        <HeroSection
-          npcInput={npcInput}
-          setNpcInput={setNpcInput}
-          npcResponse={npcResponse}
-          isNpcLoading={isNpcLoading}
-          handleNpcSubmit={handleNpcSubmit}
-        />
-        <AboutSection />
-        <SkillsSection skills={skills} />
-        <ExperienceSection experience={experience} />
-        <EducationSection education={education} />
-        <WorkSection projects={projects} />
+        <div className="mb-24">
+          <HeroSection
+            npcInput={npcInput}
+            setNpcInput={setNpcInput}
+            npcResponse={npcResponse}
+            isNpcLoading={isNpcLoading}
+            handleNpcSubmit={handleNpcSubmit}
+          />
+        </div>
+        <div className="mb-24">
+          <AboutSection />
+        </div>
+        <div className="mb-24">
+          <SkillsSection skills={skills} />
+        </div>
+        <div className="mb-24">
+          <ExperienceSection experience={experience} />
+        </div>
+        <div className="mb-24">
+          <EducationSection education={education} />
+        </div>
+        <div className="mb-24">
+          <WorkSection projects={projects} />
+        </div>
       </main>
       <ContactSection />
     </div>

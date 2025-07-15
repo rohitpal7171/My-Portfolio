@@ -73,7 +73,7 @@ export default function HeroSection({
   return (
     <motion.section
       id="hero"
-      className="grid md:grid-cols-2 items-center gap-12 mb-24"
+      className="grid md:grid-cols-2 items-center gap-12"
       initial="hidden"
       animate="visible"
       variants={sectionVariants}

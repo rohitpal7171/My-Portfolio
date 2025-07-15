@@ -20,7 +20,7 @@ export default function AboutSection() {
   return (
     <motion.section
       id="about"
-      className={cn("mb-24 p-8 rounded-[20px]", "glass-effect")}
+      className={cn("p-8 rounded-[20px]", "glass-effect")}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}

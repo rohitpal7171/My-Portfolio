@@ -50,7 +50,6 @@ export default function ExperienceSection({ experience }: ExperienceSectionProps
   return (
     <motion.section
       id="experience"
-      className="mb-24"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}

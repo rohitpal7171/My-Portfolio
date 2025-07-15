@@ -43,7 +43,6 @@ export default function EducationSection({ education }: EducationSectionProps) {
   return (
     <motion.section
       id="education"
-      className="mb-24"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}

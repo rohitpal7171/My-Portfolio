@@ -50,7 +50,6 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
   return (
     <motion.section
       id="skills"
-      className="mb-24"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}

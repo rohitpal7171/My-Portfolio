@@ -52,7 +52,6 @@ export default function WorkSection({ projects }: WorkSectionProps) {
   return (
     <motion.section
       id="work"
-      className="mb-24"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}

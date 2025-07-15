@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { getNpcResponse, getVoiceResponse } from "@/app/actions";
-import { skills, experience, education } from '@/data/portfolio-data';
+import { skills, experience, education } from '@/data/portfolio-data.tsx';
 
 import Header from "../layout/Header";
 import HeroSection from "./HeroSection";

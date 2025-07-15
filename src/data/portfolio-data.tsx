@@ -195,13 +195,16 @@ export const education = [
   {
     degree: "Bachelor of Technology",
     institution: "ITM Group of Institutions, Computer Science",
+    period: "2017 - 2021",
   },
   {
     degree: "12th Grade",
     institution: "Delhi Public Academy",
+    period: "Completed in 2017",
   },
   {
     degree: "10th Grade",
     institution: "No.1 Air force School",
+    period: "Completed in 2015",
   },
 ];

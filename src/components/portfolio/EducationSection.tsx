@@ -2,12 +2,13 @@
 
 import { GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
-import { Card, CardDescription, CardHeader, CardTitle } from "../ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { cn } from "@/lib/utils";
 
 interface EducationItem {
   degree: string;
   institution: string;
+  period: string;
 }
 
 interface EducationSectionProps {
@@ -49,16 +50,27 @@ export default function EducationSection({ education }: EducationSectionProps) {
       viewport={{ once: true, amount: 0.2 }}
       variants={sectionVariants}
     >
-      <h2 className="text-3xl font-headline font-bold mb-8 text-center"><GraduationCap className="inline-block mr-2 h-7 w-7 text-primary" />Education</h2>
-      <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+      <h2 className="text-3xl font-headline font-bold mb-8 text-center">
+        <GraduationCap className="inline-block mr-2 h-7 w-7 text-primary" />
+        Education
+      </h2>
+      <div className={cn("max-w-4xl mx-auto p-4 rounded-[20px] space-y-4", "glass-effect")}>
         {education.map((item, index) => (
-          <motion.div key={index} variants={itemVariants}>
-            <Card className={cn("transition-all hover:scale-105 h-full", "glass-effect")}>
-              <CardHeader>
-                <CardTitle>{item.degree}</CardTitle>
-                <CardDescription>{item.institution}</CardDescription>
-              </CardHeader>
-            </Card>
+          <motion.div
+            key={index}
+            variants={itemVariants}
+            className="flex items-center justify-between p-4 rounded-lg transition-colors hover:bg-primary/10"
+          >
+            <div className="flex items-center gap-4">
+              <div className="p-2 bg-primary/20 rounded-full">
+                <GraduationCap className="h-6 w-6 text-primary" />
+              </div>
+              <div>
+                <p className="font-bold text-lg">{item.degree}</p>
+                <p className="text-muted-foreground">{item.institution}</p>
+              </div>
+            </div>
+            <p className="text-muted-foreground text-sm font-medium">{item.period}</p>
           </motion.div>
         ))}
       </div>

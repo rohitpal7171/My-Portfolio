@@ -67,7 +67,7 @@ export default function ExperienceSection({ experience }: ExperienceSectionProps
               </div>
             </div>
 
-            <div className={cn("p-6 rounded-lg ml-12", "glass-effect")}>
+            <div className={cn("p-6 rounded-[10px] ml-12", "glass-effect")}>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-2">
                 <h3 className="text-xl font-bold text-primary">{job.role}</h3>
                 {job.isCurrent && (

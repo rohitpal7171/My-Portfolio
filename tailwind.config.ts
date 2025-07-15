@@ -126,7 +126,7 @@ export default {
         'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
         'subtle-pulse': 'subtle-pulse 4s ease-in-out infinite',
         'float': 'float 6s ease-in-out infinite',
-        'aurora': 'aurora 60s linear infinite',
+        'aurora': 'aurora 30s linear infinite',
         'top-border-slide': 'top-border-slide 3s linear infinite',
       },
       animationDelay: {

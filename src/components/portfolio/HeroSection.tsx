@@ -85,11 +85,10 @@ export default function HeroSection({
       </motion.div>
       <motion.div variants={itemVariants} className="flex-shrink-0 flex flex-col items-center justify-center p-4 rounded-lg">
         <Image
-          src="https://placehold.co/400x400.png"
+          src="https://i.ibb.co/3sWDBJz/image.png"
           alt="Rohit Singh Pal"
           width={400}
           height={400}
-          data-ai-hint="professional man"
           className="rounded-lg shadow-2xl shadow-primary/20 animate-float object-cover aspect-square"
         />
         <Card className={cn("w-full mt-4 animate-subtle-pulse", "glass-effect")}>

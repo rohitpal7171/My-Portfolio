@@ -1,31 +1,75 @@
 "use client";
-import { Code, Github, Linkedin } from 'lucide-react';
+import { useState } from 'react';
+import { Code, Github, Linkedin, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { ThemeToggle } from '../theme-toggle';
+import { Button } from '../ui/button';
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const navLinks = [
+    { href: "#about", label: "About" },
+    { href: "#experience", label: "Experience" },
+    { href: "#skills", label: "Skills" },
+  ];
+
+  const socialLinks = [
+     { href: "https://github.com/rohitpal7171", label: "GitHub", Icon: Github },
+     { href: "https://www.linkedin.com/in/rohit-singh-pal-5895b0146", label: "LinkedIn", Icon: Linkedin },
+  ]
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
         <div className="font-headline text-2xl font-bold tracking-wider text-primary flex items-center gap-2">
           <Code />
-          <Link href="/">CodeSphere</Link>
+          <Link href="/" aria-label="Navigate to homepage">CodeSphere</Link>
         </div>
-        <nav className="flex items-center gap-6">
-          <Link href="#about" className="text-foreground/80 hover:text-primary transition-colors">About</Link>
-          <Link href="#experience" className="text-foreground/80 hover:text-primary transition-colors">Experience</Link>
-          <Link href="#skills" className="text-foreground/80 hover:text-primary transition-colors">Skills</Link>
-           <Link href="https://github.com/rohitpal7171" target="_blank" rel="noopener noreferrer">
-            <Github className="h-6 w-6 text-foreground/80 hover:text-primary transition-colors"/>
-            <span className="sr-only">GitHub</span>
-          </Link>
-          <Link href="https://www.linkedin.com/in/rohit-singh-pal-5895b0146" target="_blank" rel="noopener noreferrer">
-            <Linkedin className="h-6 w-6 text-foreground/80 hover:text-primary transition-colors"/>
-             <span className="sr-only">LinkedIn</span>
-          </Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-6">
+          {navLinks.map((link) => (
+             <Link key={link.href} href={link.href} className="text-foreground/80 hover:text-primary transition-colors">{link.label}</Link>
+          ))}
+          {socialLinks.map((link) => (
+            <Link key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={`View ${link.label} profile`}>
+                <link.Icon className="h-6 w-6 text-foreground/80 hover:text-primary transition-colors"/>
+            </Link>
+          ))}
           <ThemeToggle />
         </nav>
+
+        {/* Mobile Navigation Trigger */}
+        <div className="md:hidden flex items-center">
+           <ThemeToggle />
+           <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Open navigation menu" aria-expanded={isMenuOpen}>
+            {isMenuOpen ? <X /> : <Menu />}
+          </Button>
+        </div>
       </div>
+
+       {/* Mobile Menu */}
+      {isMenuOpen && (
+        <nav className="md:hidden bg-background/95 backdrop-blur-sm pb-4">
+          <ul className="flex flex-col items-center gap-4">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="text-lg text-foreground/80 hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+             <div className="flex gap-4 mt-2">
+               {socialLinks.map((link) => (
+                <Link key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={`View ${link.label} profile`} onClick={() => setIsMenuOpen(false)}>
+                    <link.Icon className="h-8 w-8 text-foreground/80 hover:text-primary transition-colors"/>
+                </Link>
+              ))}
+            </div>
+          </ul>
+        </nav>
+      )}
     </header>
   );
 }

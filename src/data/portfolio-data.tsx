@@ -1,3 +1,4 @@
+
 import type { FC, SVGProps } from 'react';
 import type { LucideIcon } from 'lucide-react';
 import {
@@ -235,7 +236,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "MikeLegal – AI-Powered Legal Intelligence Platform",
+    title: "IPSuite – AI-Powered Legal Intelligence Platform",
     description: [
       "Developed and maintained scalable UI components using React and Ant Design for a legal-tech platform focused on IP and trademark management.",
       "Integrated REST APIs and implemented Redux for efficient state management and data flow.",

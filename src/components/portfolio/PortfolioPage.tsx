@@ -41,10 +41,23 @@ const sectionVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: "easeOut"
+      ease: "easeOut",
+      staggerChildren: 0.2
     }
   }
 };
+
+const itemVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100
+    }
+  }
+}
 
 export default function PortfolioPage() {
   const [npcInput, setNpcInput] = useState("");
@@ -87,14 +100,14 @@ export default function PortfolioPage() {
           animate="visible"
           variants={sectionVariants}
         >
-          <div className="flex-1">
+          <motion.div variants={itemVariants}>
             <h1 className="font-headline text-4xl md:text-6xl font-extrabold text-primary">Rohit Singh Pal</h1>
             <h2 className="text-2xl md:text-3xl font-semibold text-foreground/80 mt-2">Frontend Software Developer</h2>
             <p className="mt-6 text-lg max-w-2xl text-muted-foreground">
               Welcome to my interactive portfolio. I am a passionate developer with over 4 years of experience building robust, user-focused web applications. Explore my world, ask questions, and get to know my work.
             </p>
-          </div>
-          <div className="flex-shrink-0 flex flex-col items-center justify-center p-4 bg-secondary/30 rounded-lg border border-primary/20">
+          </motion.div>
+          <motion.div variants={itemVariants} className="flex-shrink-0 flex flex-col items-center justify-center p-4 bg-secondary/30 rounded-lg border border-primary/20">
              <Image 
               src="https://placehold.co/400x400.png"
               alt="AI NPC"
@@ -122,7 +135,7 @@ export default function PortfolioPage() {
                 </form>
               </CardContent>
             </Card>
-          </div>
+          </motion.div>
         </motion.section>
         
         {/* Voice Assistant Section */}
@@ -164,23 +177,39 @@ export default function PortfolioPage() {
         {/* Skills Section */}
         <motion.section 
           id="skills" 
-          className="mb-24"
+          className="mb-32"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={sectionVariants}
         >
-          <h2 className="text-3xl font-headline font-bold mb-8 text-center"><Dna className="inline-block mr-2 h-7 w-7 text-primary" />Skills & Technologies</h2>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            {Object.entries(skills).map(([category, { icon: Icon, skills: skillList }]) => (
-              <Hexagon key={category} title={category} Icon={Icon}>
-                <div className="flex flex-wrap justify-center gap-2 mt-2">
-                  {skillList.map(skill => (
-                    <Badge key={skill} variant="secondary">{skill}</Badge>
-                  ))}
-                </div>
-              </Hexagon>
+          <h2 className="text-3xl font-headline font-bold mb-16 text-center"><Dna className="inline-block mr-2 h-7 w-7 text-primary" />Skills & Technologies</h2>
+          <div className="relative w-full flex justify-center items-center" style={{ minHeight: '450px' }}>
+            {Object.entries(skills).map(([category, { icon: Icon, skills: skillList }], index) => (
+              <motion.div
+                key={category}
+                className="absolute"
+                variants={itemVariants}
+                style={{ 
+                  transform: `rotate(${index * 120}deg) translate(180px) rotate(-${index * 120}deg)`,
+                }}
+              >
+                <Hexagon title={category} Icon={Icon}>
+                  <div className="flex flex-wrap justify-center gap-2">
+                    {skillList.map(skill => (
+                      <Badge key={skill} variant="secondary">{skill}</Badge>
+                    ))}
+                  </div>
+                </Hexagon>
+              </motion.div>
             ))}
+             <motion.div variants={itemVariants}>
+              <div className="w-48 h-56 bg-primary/10" style={{clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)'}}>
+                 <div className="w-full h-full flex items-center justify-center">
+                    <Dna className="w-16 h-16 text-primary animate-pulse" />
+                 </div>
+              </div>
+            </motion.div>
           </div>
         </motion.section>
 
@@ -196,12 +225,12 @@ export default function PortfolioPage() {
           <h2 className="text-3xl font-headline font-bold mb-12 text-center"><Briefcase className="inline-block mr-2 h-7 w-7 text-primary"/>Professional Experience</h2>
           <div className="relative border-l-2 border-primary/20 pl-8">
             {experience.map((job, index) => (
-              <div key={index} className="mb-10 transition-all hover:ml-4">
+              <motion.div key={index} className="mb-10 transition-all hover:ml-4" variants={itemVariants}>
                 <div className="absolute -left-[11px] top-1 h-5 w-5 rounded-full bg-primary border-4 border-background transition-all group-hover:scale-125"></div>
                 <p className="text-sm text-muted-foreground">{job.period}</p>
                 <h3 className="text-xl font-bold text-primary">{job.role}</h3>
                 <p className="font-semibold text-foreground/80">{job.company}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.section>
@@ -217,24 +246,30 @@ export default function PortfolioPage() {
         >
           <h2 className="text-3xl font-headline font-bold mb-8 text-center"><GraduationCap className="inline-block mr-2 h-7 w-7 text-primary" />Education</h2>
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="bg-secondary/30 border-primary/20 transition-all hover:scale-105">
-              <CardHeader>
-                <CardTitle>Bachelor of Technology</CardTitle>
-                <CardDescription>ITM Group of Institutions, Computer Science</CardDescription>
-              </CardHeader>
-            </Card>
-            <Card className="bg-secondary/30 border-primary/20 transition-all hover:scale-105">
-              <CardHeader>
-                <CardTitle>12th Grade</CardTitle>
-                <CardDescription>Delhi Public Academy</CardDescription>
-              </CardHeader>
-            </Card>
-            <Card className="bg-secondary/30 border-primary/20 transition-all hover:scale-105">
-              <CardHeader>
-                <CardTitle>10th Grade</CardTitle>
-                <CardDescription>No.1 Air force School</CardDescription>
-              </CardHeader>
-            </Card>
+            <motion.div variants={itemVariants}>
+              <Card className="bg-secondary/30 border-primary/20 transition-all hover:scale-105 h-full">
+                <CardHeader>
+                  <CardTitle>Bachelor of Technology</CardTitle>
+                  <CardDescription>ITM Group of Institutions, Computer Science</CardDescription>
+                </CardHeader>
+              </Card>
+            </motion.div>
+             <motion.div variants={itemVariants}>
+              <Card className="bg-secondary/30 border-primary/20 transition-all hover:scale-105 h-full">
+                <CardHeader>
+                  <CardTitle>12th Grade</CardTitle>
+                  <CardDescription>Delhi Public Academy</CardDescription>
+                </CardHeader>
+              </Card>
+            </motion.div>
+             <motion.div variants={itemVariants}>
+              <Card className="bg-secondary/30 border-primary/20 transition-all hover:scale-105 h-full">
+                <CardHeader>
+                  <CardTitle>10th Grade</CardTitle>
+                  <CardDescription>No.1 Air force School</CardDescription>
+                </CardHeader>
+              </Card>
+            </motion.div>
           </div>
         </motion.section>
 
@@ -261,5 +296,3 @@ export default function PortfolioPage() {
     </div>
   );
 }
-
-    

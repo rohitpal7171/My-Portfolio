@@ -5,16 +5,7 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import type { LucideIcon } from "lucide-react";
-
-interface Experience {
-  role: string;
-  company: string;
-  period: string;
-  location: string;
-  isCurrent?: boolean;
-  description: string[];
-  icon: LucideIcon;
-}
+import type { Experience } from "@/data/portfolio-data.tsx";
 
 interface ExperienceSectionProps {
   experience: Experience[];
@@ -50,6 +41,7 @@ export default function ExperienceSection({ experience }: ExperienceSectionProps
   return (
     <motion.section
       id="experience"
+      className="py-12"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}

@@ -3,12 +3,7 @@
 import { GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-
-interface EducationItem {
-  degree: string;
-  institution: string;
-  period: string;
-}
+import type { EducationItem } from "@/data/portfolio-data.tsx";
 
 interface EducationSectionProps {
   education: EducationItem[];
@@ -43,6 +38,7 @@ export default function EducationSection({ education }: EducationSectionProps) {
   return (
     <motion.section
       id="education"
+      className="py-12"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}

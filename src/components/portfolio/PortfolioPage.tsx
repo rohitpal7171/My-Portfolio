@@ -42,7 +42,7 @@ export default function PortfolioPage() {
             handleNpcSubmit={handleNpcSubmit}
           />
         </div>
-        <div className="space-y-24 scroll-mt-20">
+        <div className="scroll-mt-20">
           <AboutSection />
           <ExperienceSection experience={experience} />
           <WorkSection projects={projects} />

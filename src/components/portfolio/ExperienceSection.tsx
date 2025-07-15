@@ -71,7 +71,7 @@ export default function ExperienceSection({ experience }: ExperienceSectionProps
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-2">
                 <h3 className="text-xl font-bold text-primary">{job.role}</h3>
                 {job.isCurrent && (
-                  <Badge variant="outline" className="border-accent bg-accent/20 text-foreground dark:text-background">Current</Badge>
+                  <Badge variant="outline" className="border-accent bg-accent/20 text-foreground dark:text-foreground">Current</Badge>
                 )}
               </div>
               <div className="text-sm text-muted-foreground mb-3">

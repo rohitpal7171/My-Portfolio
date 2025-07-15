@@ -80,7 +80,7 @@
   body::before {
     background-image: radial-gradient(circle at center, hsl(var(--primary)) 0%, transparent 40%),
                       radial-gradient(circle at center, hsl(var(--accent)) 0%, transparent 40%);
-    animation: aurora 20s linear infinite;
+    animation: aurora 30s linear infinite;
   }
 
   body::after {
@@ -109,19 +109,5 @@
 @layer components {
   .glass-effect {
     @apply bg-card/60 backdrop-blur-lg border border-white/10;
-  }
-
-  .gradient-border-button {
-    @apply relative overflow-hidden rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/80;
-  }
-  
-  .gradient-border-button::before {
-    content: '';
-    @apply absolute top-0 left-0 w-1/2 h-0.5 animate-top-border-slide;
-    background: linear-gradient(to right, hsl(var(--accent)), hsl(var(--primary)));
-  }
-
-  .gradient-border-button > :where(span, div) {
-    @apply relative inline-flex h-full w-full items-center justify-center px-4 py-2;
   }
 }

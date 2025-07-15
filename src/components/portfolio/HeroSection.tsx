@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -50,17 +51,16 @@ export default function HeroSection({
   isNpcLoading,
   handleNpcSubmit,
 }: HeroSectionProps) {
+  const fullSubtitle = "Frontend Software Developer.";
   const [typedSubtitle, setTypedSubtitle] = useState('');
-  // This is the string that will be typed out character by character.
-  const fullSubtitle = "Frontend Software Developer";
-
+  
   useEffect(() => {
-    let subtitleIndex = 0;
-    setTypedSubtitle('');
+    // Start with the first character already in place to avoid race conditions
+    setTypedSubtitle(fullSubtitle.charAt(0));
+    let subtitleIndex = 1; // Start typing from the second character
 
     const interval = setInterval(() => {
       if (subtitleIndex < fullSubtitle.length) {
-        // Appends the next character to the typedSubtitle state.
         setTypedSubtitle((prev) => prev + fullSubtitle.charAt(subtitleIndex));
         subtitleIndex++;
       } else {

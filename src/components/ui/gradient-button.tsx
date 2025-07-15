@@ -7,9 +7,10 @@ const GradientButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Button
         ref={ref}
+        variant="secondary"
         className={cn(
-          "relative overflow-hidden rounded-lg",
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+          "relative overflow-hidden",
+          "glass-effect",
           "before:absolute before:top-0 before:left-0 before:w-1/2 before:h-0.5",
           "before:bg-gradient-to-r before:from-accent before:to-primary",
           "before:animate-top-border-slide",

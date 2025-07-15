@@ -15,7 +15,6 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { getNpcResponse, getVoiceResponse } from "@/app/actions";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
 
 const skills: {
   category: string;
@@ -282,8 +281,7 @@ export default function PortfolioPage() {
                 <CardHeader>
                   <CardTitle>Bachelor of Technology</CardTitle>
                   <CardDescription>ITM Group of Institutions, Computer Science</CardDescription>
-                </CardHeader>
-              </Card>
+                </Card>
             </motion.div>
              <motion.div variants={itemVariants}>
               <Card className="bg-secondary/30 border-primary/20 transition-all hover:scale-105 h-full">

@@ -112,21 +112,16 @@
   }
 
   .gradient-border-button {
-    @apply relative overflow-hidden p-[1px] rounded-lg;
+    @apply relative overflow-hidden rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/80;
   }
-
+  
   .gradient-border-button::before {
     content: '';
-    @apply absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-no-repeat animate-border-spin;
-    background-image: conic-gradient(
-      from 180deg at 50% 50%,
-      hsl(var(--accent)) 0%,
-      hsl(var(--primary)) 50%,
-      hsl(var(--accent)) 100%
-    );
+    @apply absolute top-0 left-0 w-1/2 h-0.5 animate-top-border-slide;
+    background: linear-gradient(to right, hsl(var(--accent)), hsl(var(--primary)));
   }
 
   .gradient-border-button > :where(span, div) {
-    @apply relative inline-flex h-full w-full items-center justify-center rounded-[7px] bg-background px-4 py-2;
+    @apply relative inline-flex h-full w-full items-center justify-center px-4 py-2;
   }
 }

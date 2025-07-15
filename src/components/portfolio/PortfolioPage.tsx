@@ -1,4 +1,3 @@
-
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -153,7 +152,7 @@ export default function PortfolioPage() {
   
     const interval = setInterval(() => {
       if (subtitleIndex < fullSubtitle.length) {
-        setTypedSubtitle((prev) => prev + fullSubtitle[subtitleIndex]);
+        setTypedSubtitle((prev) => prev + fullSubtitle.charAt(subtitleIndex));
         subtitleIndex++;
       } else {
         clearInterval(interval);
@@ -246,13 +245,13 @@ export default function PortfolioPage() {
            <h2 className="text-3xl font-headline font-bold mb-4 text-center">Voice Command</h2>
            <p className="text-muted-foreground mb-6">Ask a question and hear a response from the AI assistant.</p>
            <div className="flex justify-center gap-4">
-              <Button onClick={() => handleVoiceQuery("Tell me about Rohit's experience")} disabled={isVoiceLoading} className="gradient-border-button p-0">
-                <span className="flex items-center">
+              <Button onClick={() => handleVoiceQuery("Tell me about Rohit's experience")} disabled={isVoiceLoading} className="gradient-border-button">
+                <span>
                   <Mic className="mr-2"/> Who is Rohit?
                 </span>
                </Button>
-                <Button onClick={() => handleVoiceQuery("What are Rohit's technical skills?")} disabled={isVoiceLoading} className="gradient-border-button p-0">
-                  <span className="flex items-center">
+                <Button onClick={() => handleVoiceQuery("What are Rohit's technical skills?")} disabled={isVoiceLoading} className="gradient-border-button">
+                  <span>
                     <Mic className="mr-2"/> What are his skills?
                   </span>
                </Button>
@@ -336,7 +335,7 @@ export default function PortfolioPage() {
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-2">
                     <h3 className="text-xl font-bold text-primary">{job.role}</h3>
                     {job.isCurrent && (
-                      <Badge variant="outline" className="border-accent bg-accent/20 text-accent-foreground">Current</Badge>
+                      <Badge variant="outline" className="border-accent bg-accent/20 text-foreground dark:text-background">Current</Badge>
                     )}
                   </div>
                   <div className="text-sm text-muted-foreground mb-3">
@@ -419,3 +418,4 @@ export default function PortfolioPage() {
   );
 
     
+

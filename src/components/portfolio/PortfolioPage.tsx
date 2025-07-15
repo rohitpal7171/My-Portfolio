@@ -16,6 +16,7 @@ import { getNpcResponse, getVoiceResponse } from "@/app/actions";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
+import { GradientButton } from "../ui/gradient-button";
 
 const skills: {
   category: string;
@@ -245,16 +246,12 @@ export default function PortfolioPage() {
            <h2 className="text-3xl font-headline font-bold mb-4 text-center">Voice Command</h2>
            <p className="text-muted-foreground mb-6">Ask a question and hear a response from the AI assistant.</p>
            <div className="flex justify-center gap-4">
-              <Button onClick={() => handleVoiceQuery("Tell me about Rohit's experience")} disabled={isVoiceLoading} className="gradient-border-button">
-                <span>
-                  <Mic className="mr-2"/> Who is Rohit?
-                </span>
-               </Button>
-                <Button onClick={() => handleVoiceQuery("What are Rohit's technical skills?")} disabled={isVoiceLoading} className="gradient-border-button">
-                  <span>
-                    <Mic className="mr-2"/> What are his skills?
-                  </span>
-               </Button>
+              <GradientButton onClick={() => handleVoiceQuery("Tell me about Rohit's experience")} disabled={isVoiceLoading}>
+                <Mic className="mr-2"/> Who is Rohit?
+               </GradientButton>
+                <GradientButton onClick={() => handleVoiceQuery("What are Rohit's technical skills?")} disabled={isVoiceLoading}>
+                  <Mic className="mr-2"/> What are his skills?
+               </GradientButton>
            </div>
             {audio && <audio className="mt-6 mx-auto" controls autoPlay src={audio} />}
         </motion.section>
@@ -418,4 +415,5 @@ export default function PortfolioPage() {
   );
 
     
+
 

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const CustomCursor = () => {
-  const [position, setPosition] = useState({ x: -100, y: -100 });
+  const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
@@ -13,13 +13,13 @@ const CustomCursor = () => {
     };
 
     const onMouseOver = (e: MouseEvent) => {
-      if ((e.target as HTMLElement).closest('a, button')) {
+      if ((e.target as HTMLElement).closest('a, button, input[type="submit"], input[type="button"], [role="button"]')) {
         setIsHovering(true);
       }
     };
     
     const onMouseOut = (e: MouseEvent) => {
-       if ((e.target as HTMLElement).closest('a, button')) {
+       if ((e.target as HTMLElement).closest('a, button, input[type="submit"], input[type="button"], [role="button"]')) {
         setIsHovering(false);
       }
     };
@@ -27,7 +27,6 @@ const CustomCursor = () => {
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseover', onMouseOver);
     document.addEventListener('mouseout', onMouseOut);
-
 
     return () => {
       document.removeEventListener('mousemove', onMouseMove);
@@ -44,8 +43,8 @@ const CustomCursor = () => {
     hover: {
       x: position.x,
       y: position.y,
-      scale: 1.5,
-      opacity: 0.9,
+      scale: 1.8,
+      opacity: 1,
     },
   };
 
@@ -54,7 +53,7 @@ const CustomCursor = () => {
       className="custom-cursor"
       variants={variants}
       animate={isHovering ? "hover" : "default"}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      transition={{ type: "spring", stiffness: 400, damping: 25 }}
     />
   );
 };

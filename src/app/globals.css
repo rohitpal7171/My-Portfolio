@@ -23,7 +23,6 @@
     --border: 252 27% 80%;
     --input: 252 27% 85%;
     --ring: 263 62% 48%;
-    --radius: 0.5rem;
   }
  
   .dark {
@@ -57,11 +56,39 @@
     @apply scroll-smooth;
   }
   body {
-    @apply bg-background text-foreground;
-    background-image: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--secondary)) 100%);
-    background-size: 400% 400%;
-    animation: gradient-bg 15s ease infinite;
+    @apply bg-background/80 text-foreground;
+    position: relative;
+    overflow-x: hidden;
   }
+  
+  body::before,
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200vw;
+    height: 200vh;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1;
+    background-size: 400% 400%;
+    background-repeat: no-repeat;
+    filter: blur(100px);
+    opacity: 0.7;
+  }
+  
+  body::before {
+    background-image: radial-gradient(circle at center, hsl(var(--primary)) 0%, transparent 40%),
+                      radial-gradient(circle at center, hsl(var(--accent)) 0%, transparent 40%);
+    animation: aurora 20s linear infinite;
+  }
+
+  body::after {
+    background-image: radial-gradient(circle at center, hsl(var(--destructive)) 0%, transparent 40%);
+    animation: aurora 30s linear infinite reverse;
+    opacity: 0.4;
+  }
+
 
   body::-webkit-scrollbar {
     width: 8px;

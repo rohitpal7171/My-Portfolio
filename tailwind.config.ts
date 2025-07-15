@@ -105,6 +105,11 @@ export default {
           '100%': {
             transform: 'translateY(0px)',
           }
+        },
+        'gradient-bg': {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
         }
       },
       animation: {
@@ -113,6 +118,7 @@ export default {
         'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
         'subtle-pulse': 'subtle-pulse 4s ease-in-out infinite',
         'float': 'float 6s ease-in-out infinite',
+        'gradient-bg': 'gradient-bg 15s ease infinite',
       },
       animationDelay: {
         '100': '100ms',

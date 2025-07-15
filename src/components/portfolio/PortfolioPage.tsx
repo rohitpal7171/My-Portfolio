@@ -1,4 +1,3 @@
-
 "use client";
 import { useState } from "react";
 import Image from "next/image";
@@ -15,6 +14,7 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { getNpcResponse, getVoiceResponse } from "@/app/actions";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const skills: {
   category: string;
@@ -120,7 +120,7 @@ export default function PortfolioPage() {
   };
 
   return (
-    <div className="bg-background text-foreground font-body min-h-screen">
+    <div className="bg-transparent text-foreground font-body min-h-screen">
       <Header />
       <main className="container mx-auto px-4 pt-32 pb-16">
 
@@ -139,7 +139,7 @@ export default function PortfolioPage() {
               Welcome to my interactive portfolio. I am a passionate developer with over 4 years of experience building robust, user-focused web applications. Explore my world, ask questions, and get to know my work.
             </p>
           </motion.div>
-          <motion.div variants={itemVariants} className="flex-shrink-0 flex flex-col items-center justify-center p-4 bg-secondary/30 rounded-lg border border-primary/20">
+          <motion.div variants={itemVariants} className="flex-shrink-0 flex flex-col items-center justify-center p-4 rounded-lg">
              <Image 
               src="https://placehold.co/400x400.png"
               alt="Rohit Singh Pal"
@@ -148,7 +148,7 @@ export default function PortfolioPage() {
               data-ai-hint="professional man"
               className="rounded-lg shadow-2xl shadow-primary/20 animate-float object-cover aspect-square"
             />
-            <Card className="w-full mt-4 bg-transparent border-primary/30 animate-subtle-pulse">
+            <Card className={cn("w-full mt-4 animate-subtle-pulse", "glass-effect")}>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2"><Cpu size={20} className="text-primary"/> AI Assistant</CardTitle>
                 <CardDescription>{isNpcLoading ? "Thinking..." : npcResponse}</CardDescription>
@@ -194,7 +194,7 @@ export default function PortfolioPage() {
         {/* About Section */}
         <motion.section 
           id="about" 
-          className="mb-24 p-8 border border-primary/20 rounded-lg bg-secondary/20"
+          className={cn("mb-24 p-8 rounded-lg", "glass-effect")}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -219,7 +219,7 @@ export default function PortfolioPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skills.map((skillCategory) => (
               <motion.div key={skillCategory.category} variants={itemVariants}>
-                <Card className="bg-secondary/30 border-primary/20 h-full transition-all hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-2">
+                <Card className={cn("h-full transition-all hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-2", "glass-effect")}>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-3">
                       <skillCategory.icon className="h-8 w-8 text-primary" />
@@ -277,7 +277,7 @@ export default function PortfolioPage() {
           <h2 className="text-3xl font-headline font-bold mb-8 text-center"><GraduationCap className="inline-block mr-2 h-7 w-7 text-primary" />Education</h2>
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
             <motion.div variants={itemVariants}>
-              <Card className="bg-secondary/30 border-primary/20 transition-all hover:scale-105 h-full">
+              <Card className={cn("transition-all hover:scale-105 h-full", "glass-effect")}>
                 <CardHeader>
                   <CardTitle>Bachelor of Technology</CardTitle>
                   <CardDescription>ITM Group of Institutions, Computer Science</CardDescription>
@@ -285,7 +285,7 @@ export default function PortfolioPage() {
               </Card>
             </motion.div>
              <motion.div variants={itemVariants}>
-              <Card className="bg-secondary/30 border-primary/20 transition-all hover:scale-105 h-full">
+              <Card className={cn("transition-all hover:scale-105 h-full", "glass-effect")}>
                 <CardHeader>
                   <CardTitle>12th Grade</CardTitle>
                   <CardDescription>Delhi Public Academy</CardDescription>
@@ -293,7 +293,7 @@ export default function PortfolioPage() {
               </Card>
             </motion.div>
              <motion.div variants={itemVariants}>
-              <Card className="bg-secondary/30 border-primary/20 transition-all hover:scale-105 h-full">
+              <Card className={cn("transition-all hover:scale-105 h-full", "glass-effect")}>
                 <CardHeader>
                   <CardTitle>10th Grade</CardTitle>
                   <CardDescription>No.1 Air force School</CardDescription>
@@ -306,7 +306,7 @@ export default function PortfolioPage() {
       </main>
 
        {/* Footer */}
-      <footer className="bg-secondary/50 text-secondary-foreground py-8">
+      <footer className="glass-effect text-secondary-foreground py-8">
         <div className="container mx-auto px-4 text-center">
           <p className="mb-4 text-lg font-headline text-primary">Let&apos;s Connect</p>
           <div className="flex justify-center gap-6 mb-4">

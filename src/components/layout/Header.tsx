@@ -4,6 +4,7 @@ import { Code, Github, Linkedin, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { ThemeToggle } from '../theme-toggle';
 import { Button } from '../ui/button';
+import { cn } from '@/lib/utils';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,7 +21,10 @@ export default function Header() {
   ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
+    <header className={cn(
+      "fixed top-0 left-0 right-0 z-50", 
+      "glass-effect"
+    )}>
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
         <div className="font-headline text-2xl font-bold tracking-wider text-primary flex items-center gap-2">
           <Code />

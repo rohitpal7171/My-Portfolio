@@ -10,7 +10,7 @@ const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space
 
 
 export const metadata: Metadata = {
-  title: 'Rohit Singh Pal | Software Developer',
+  title: 'CodeSphere by Rohit | Software Developer',
   description: 'Personal portfolio of Rohit Singh Pal, a frontend software developer specializing in React.js and modern web technologies.',
 };
 

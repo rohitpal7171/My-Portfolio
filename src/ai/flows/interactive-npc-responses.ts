@@ -1,7 +1,7 @@
 'use server';
 
 /**
- * @fileOverview Implements the AI-powered NPC interaction flow for the NexusVerse website.
+ * @fileOverview Implements the AI-powered NPC interaction flow for the CodeSphere website.
  *
  * This file defines a Genkit flow that allows users to interact with 3D NPCs who respond to their queries.
  * The flow takes a user query as input and returns the NPC's response.
@@ -32,11 +32,11 @@ const interactiveNpcResponsesPrompt = ai.definePrompt({
   name: 'interactiveNpcResponsesPrompt',
   input: {schema: InteractiveNpcResponsesInputSchema},
   output: {schema: InteractiveNpcResponsesOutputSchema},
-  prompt: `You are an AI-powered NPC in the NexusVerse. Respond to the following user query:
+  prompt: `You are an AI-powered NPC in CodeSphere. Respond to the following user query:
 
   User Query: {{{query}}}
 
-  NPC Response:`, // Keep the NPC response concise and relevant to the NexusVerse.
+  NPC Response:`, // Keep the NPC response concise and relevant to the CodeSphere.
 });
 
 const interactiveNpcResponsesFlow = ai.defineFlow(

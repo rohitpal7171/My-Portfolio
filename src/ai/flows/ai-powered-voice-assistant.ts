@@ -28,7 +28,7 @@ export async function aiPoweredVoiceAssistant(input: AiPoweredVoiceAssistantInpu
 const aiPoweredVoiceAssistantPrompt = ai.definePrompt({
   name: 'aiPoweredVoiceAssistantPrompt',
   input: {schema: AiPoweredVoiceAssistantInputSchema},
-  prompt: `You are a voice assistant guiding users through the NexusVerse. Respond to the following user query:
+  prompt: `You are a voice assistant guiding users through CodeSphere. Respond to the following user query:
 
 {{{query}}}`,
 });

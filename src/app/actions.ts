@@ -10,7 +10,7 @@ export async function getNpcResponse(input: InteractiveNpcResponsesInput): Promi
     return await interactiveNpcResponses(input);
   } catch (error) {
     console.error("Error in getNpcResponse:", error);
-    return { response: "I seem to be having trouble connecting to the Nexus. Please try again later." };
+    return { response: "I seem to be having trouble connecting to the CodeSphere. Please try again later." };
   }
 }
 

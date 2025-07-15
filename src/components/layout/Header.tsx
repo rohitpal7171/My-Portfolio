@@ -1,5 +1,5 @@
 "use client";
-import { Bot, Github, Linkedin } from 'lucide-react';
+import { Code, Github, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 import { ThemeToggle } from '../theme-toggle';
 
@@ -8,8 +8,8 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
         <div className="font-headline text-2xl font-bold tracking-wider text-primary flex items-center gap-2">
-          <Bot />
-          <Link href="/">NexusVerse</Link>
+          <Code />
+          <Link href="/">CodeSphere</Link>
         </div>
         <nav className="flex items-center gap-6">
           <Link href="#about" className="text-foreground/80 hover:text-primary transition-colors">About</Link>

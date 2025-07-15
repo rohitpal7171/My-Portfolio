@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -9,7 +8,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui
 import { Input } from "../ui/input";
 import { cn } from "@/lib/utils";
 import { GradientButton } from "../ui/gradient-button";
-import { Button } from "../ui/button";
 import profileImage from '@/components/avatar/3d_profile.png';
 
 interface HeroSectionProps {
@@ -53,6 +51,7 @@ export default function HeroSection({
   handleNpcSubmit,
 }: HeroSectionProps) {
   const [typedSubtitle, setTypedSubtitle] = useState('');
+  // This is the string that will be typed out character by character.
   const fullSubtitle = "Frontend Software Developer";
 
   useEffect(() => {
@@ -61,6 +60,7 @@ export default function HeroSection({
 
     const interval = setInterval(() => {
       if (subtitleIndex < fullSubtitle.length) {
+        // Appends the next character to the typedSubtitle state.
         setTypedSubtitle((prev) => prev + fullSubtitle.charAt(subtitleIndex));
         subtitleIndex++;
       } else {
@@ -69,6 +69,7 @@ export default function HeroSection({
     }, 100);
 
     return () => clearInterval(interval);
+    // The effect runs only once after the initial render.
   }, []);
 
   return (
@@ -81,8 +82,14 @@ export default function HeroSection({
     >
       <motion.div variants={itemVariants}>
         <h1 className="font-headline text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-pink-500 to-cyan-500 bg-clip-text text-transparent">Rohit Singh Pal</h1>
-        <h2 className="text-2xl md:text-3xl font-semibold text-foreground/80 mt-2 min-h-[40px]">{typedSubtitle}<span className="inline-block w-1 h-8 bg-primary animate-ping ml-1"></span></h2>
+        <h2 className="text-2xl md:text-3xl font-semibold text-foreground/80 mt-2 min-h-[40px]">
+          {/* Display the typed subtitle with a blinking cursor */}
+          {typedSubtitle}
+          <span className="inline-block w-1 h-8 bg-primary animate-ping ml-1"></span>
+        </h2>
         <p className="mt-6 text-lg max-w-2xl text-muted-foreground">
+          {/* Introduction text */}
+
           Welcome to my interactive portfolio. I am a passionate developer with over 4 years of experience building robust, user-focused web applications. Explore my world, ask questions, and get to know my work.
         </p>
       </motion.div>
@@ -96,15 +103,20 @@ export default function HeroSection({
           className="rounded-lg shadow-2xl shadow-primary/20 animate-float object-cover aspect-square"
           data-ai-hint="avatar man"
         />
+        {/* AI Assistant Card */}
         <Card className={cn("w-full mt-4 animate-subtle-pulse rounded-[20px]", "glass-effect")}>
           <CardHeader>
+            {/* AI Assistant Title and Description */}
             <CardTitle className="flex items-center gap-2"><Cpu size={20} className="text-primary" /> AI Assistant</CardTitle>
             <CardDescription>
               <p>{isNpcLoading ? "Thinking..." : npcResponse}</p>
             </CardDescription>
           </CardHeader>
           <CardContent>
+            {/* AI Assistant Input Form */}
             <form onSubmit={handleNpcSubmit} className="flex gap-2">
+              {/* Input field for user's question */}
+
               <Input
                 value={npcInput}
                 onChange={(e) => setNpcInput(e.target.value)}

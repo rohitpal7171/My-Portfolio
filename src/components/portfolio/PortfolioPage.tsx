@@ -15,6 +15,7 @@ import { Button } from "../ui/button";
 import { getNpcResponse, getVoiceResponse } from "@/app/actions";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
 
 const skills: {
   category: string;
@@ -60,11 +61,55 @@ const skills: {
 ];
 
 const experience = [
-  { role: "Software Developer", company: "MikeLegal", period: "Jul 2023 – Present" },
-  { role: "Software Developer", company: "Appointy India", period: "Jun 2021 – Jun 2023" },
-  { role: "Web Development Intern", company: "Appointy India", period: "Nov 2020 – Jun 2021" },
-  { role: "Web Development Intern", company: "FIZ Robotic Solutions", period: "Jul 2019 – Nov 2020" }
+  {
+    role: "Software Developer",
+    company: "MikeLegal",
+    period: "Jul 2023 – Present",
+    location: "Remote (Gurugram, India)",
+    isCurrent: true,
+    description: [
+      "Spearheading frontend development in a fast-paced legal-tech team.",
+      "Building scalable, maintainable components using ReactJS, Redux, TypeScript, and JavaScript.",
+      "Collaborating cross-functionally to enhance user experiences for clients in the legal domain.",
+    ],
+    icon: <Briefcase />
+  },
+  {
+    role: "Software Developer",
+    company: "Appointy India",
+    period: "Jun 2021 – Jun 2023",
+    location: "On-site (Bhopal, India)",
+    description: [
+      "Designed and developed intuitive UIs for enterprise products.",
+      "Maintained complex codebases, ensured performance optimization, and adhered to industry best practices.",
+      "Contributed to a stable and modular frontend architecture using React, Redux, and modern tooling.",
+    ],
+    icon: <Briefcase />
+  },
+  {
+    role: "Web Development Intern",
+    company: "Appointy India",
+    period: "Nov 2020 – Jun 2021",
+    location: "Remote",
+    description: [
+      "Gained hands-on experience fixing real-world issues and bugs.",
+      "Explored advanced technologies like GraphQL and Relay while working on live systems.",
+    ],
+    icon: <Briefcase />
+  },
+  {
+    role: "Web Development Intern",
+    company: "FIZ Robotic Solutions",
+    period: "Jul 2019 – Nov 2020",
+    location: "On-site (Gwalior, India)",
+    description: [
+      "Collaborated with UI/UX and backend teams to deliver secure, responsive websites.",
+      "Focused on cross-browser compatibility, web standards, and frontend performance.",
+    ],
+    icon: <Briefcase />
+  }
 ];
+
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -80,10 +125,10 @@ const sectionVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
+  hidden: { opacity: 0, y: 20 },
   visible: { 
     opacity: 1, 
-    scale: 1,
+    y: 0,
     transition: {
       type: "spring",
       stiffness: 100
@@ -271,13 +316,36 @@ export default function PortfolioPage() {
           variants={sectionVariants}
         >
           <h2 className="text-3xl font-headline font-bold mb-12 text-center"><Briefcase className="inline-block mr-2 h-7 w-7 text-primary"/>Professional Experience</h2>
-          <div className="relative border-l-2 border-primary/20 pl-8">
+          <div className="relative pl-10">
+            <div className="absolute left-4 top-0 h-full w-0.5 bg-primary/20"></div>
             {experience.map((job, index) => (
-              <motion.div key={index} className="mb-10 transition-all hover:ml-4" variants={itemVariants}>
-                <div className="absolute -left-[11px] top-1 h-5 w-5 rounded-full bg-primary border-4 border-background transition-all group-hover:scale-125"></div>
-                <p className="text-sm text-muted-foreground">{job.period}</p>
-                <h3 className="text-xl font-bold text-primary">{job.role}</h3>
-                <p className="font-semibold text-foreground/80">{job.company}</p>
+              <motion.div key={index} className="relative pl-8 pb-12" variants={itemVariants}>
+                <div className="absolute -left-[4.2rem] top-0">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-full bg-background border-2 border-primary text-primary">
+                    {job.icon}
+                  </div>
+                </div>
+                
+                <div className={cn("p-6 rounded-lg", "glass-effect")}>
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-2">
+                    <h3 className="text-xl font-bold text-primary">{job.role}</h3>
+                    {job.isCurrent && (
+                      <Badge variant="secondary" className="bg-accent/20 text-accent-foreground border-accent">Current</Badge>
+                    )}
+                  </div>
+                  <div className="text-sm text-muted-foreground mb-3">
+                    <span>{job.company}</span> &bull; <span>{job.period}</span> &bull; <span>{job.location}</span>
+                  </div>
+                  <ul className="list-disc pl-5 space-y-2 text-foreground/80">
+                    {job.description.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
+                
+                {index < experience.length - 1 && (
+                  <div className="absolute left-4 h-full w-0.5 bg-primary/20 top-12"></div>
+                )}
               </motion.div>
             ))}
           </div>

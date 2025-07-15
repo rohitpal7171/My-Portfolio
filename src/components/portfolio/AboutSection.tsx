@@ -27,7 +27,7 @@ export default function AboutSection() {
       variants={sectionVariants}
     >
       <h2 className="text-3xl font-headline font-bold mb-4 text-center"><User className="inline-block mr-2 h-7 w-7 text-primary" /> About Me</h2>
-      <p className="text-lg text-muted-foreground text-center">
+      <p className="text-lg text-muted-foreground text-justify">
         I'm a passionate and dedicated Frontend Software Developer with over 4 years of progressive experience in building robust, user-focused web applications. I specialize in React.js, Redux, and modern frontend technologies, delivering high-performance interfaces for enterprise-grade products. I thrive in fast-paced environments and believe in continuous learning, adaptability, and solving real-world problems through clean and scalable code.
       </p>
     </motion.section>

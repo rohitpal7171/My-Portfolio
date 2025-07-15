@@ -61,7 +61,6 @@
     background-image: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--secondary)) 100%);
     background-size: 400% 400%;
     animation: gradient-bg 15s ease infinite;
-    cursor: none; /* Hide the default cursor */
   }
 
   body::-webkit-scrollbar {
@@ -83,25 +82,5 @@
 @layer components {
   .glass-effect {
     @apply bg-card/60 backdrop-blur-lg border border-white/10;
-  }
-  .custom-cursor {
-    @apply fixed w-6 h-6 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2;
-    background: radial-gradient(circle, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
-    box-shadow: 0 0 15px hsl(var(--primary)), 0 0 25px hsl(var(--accent));
-    animation: cursor-pulse 2s infinite;
-    transition: transform 0.1s ease-out;
-  }
-}
-
-@layer utilities {
-  @keyframes cursor-pulse {
-    0%, 100% {
-      transform: scale(1);
-      opacity: 0.7;
-    }
-    50% {
-      transform: scale(0.8);
-      opacity: 1;
-    }
   }
 }

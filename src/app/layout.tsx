@@ -5,7 +5,6 @@ import { Inter, Space_Grotesk } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/components/theme-provider';
 import { PageTransition } from '@/components/layout/PageTransition';
-import CustomCursor from '@/components/layout/CustomCursor';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' })
@@ -56,7 +55,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <CustomCursor />
           <PageTransition>
             {children}
           </PageTransition>

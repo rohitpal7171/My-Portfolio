@@ -142,10 +142,11 @@ export default function PortfolioPage() {
           </motion.div>
           <motion.div variants={itemVariants} className="flex-shrink-0 flex flex-col items-center justify-center p-4 bg-secondary/30 rounded-lg border border-primary/20">
              <Image 
-              src="/rohit-pal.png"
+              src="https://placehold.co/400x400.png"
               alt="Rohit Singh Pal"
               width={400}
               height={400}
+              data-ai-hint="professional man"
               className="rounded-lg shadow-2xl shadow-primary/20 animate-float object-cover aspect-square"
             />
             <Card className="w-full mt-4 bg-transparent border-primary/30 animate-subtle-pulse">

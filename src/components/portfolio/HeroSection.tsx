@@ -93,7 +93,7 @@ export default function HeroSection({
           className="rounded-lg shadow-2xl shadow-primary/20 animate-float object-cover aspect-square"
           data-ai-hint="avatar man"
         />
-        <Card className={cn("w-full mt-4 animate-subtle-pulse", "glass-effect")}>
+        <Card className={cn("w-full mt-4 animate-subtle-pulse rounded-[20px]", "glass-effect")}>
           <CardHeader>
             <CardTitle className="flex items-center gap-2"><Cpu size={20} className="text-primary" /> AI Assistant</CardTitle>
             <CardDescription>{isNpcLoading ? "Thinking..." : npcResponse}</CardDescription>

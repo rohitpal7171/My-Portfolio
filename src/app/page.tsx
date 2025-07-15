@@ -1,5 +1,5 @@
-import NexusVersePage from '@/components/nexus/NexusVersePage';
+import PortfolioPage from '@/components/portfolio/PortfolioPage';
 
 export default function Home() {
-  return <NexusVersePage />;
+  return <PortfolioPage />;
 }

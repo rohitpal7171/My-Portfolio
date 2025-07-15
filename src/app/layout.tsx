@@ -1,10 +1,16 @@
 import type {Metadata} from 'next';
 import { Toaster } from "@/components/ui/toaster"
 import './globals.css';
+import { Inter, Space_Grotesk } from 'next/font/google';
+import { cn } from '@/lib/utils';
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' })
+
 
 export const metadata: Metadata = {
-  title: 'NexusVerse',
-  description: 'An immersive digital universe blending 3D worlds, AI-driven characters, and next-generation web experiences.',
+  title: 'Rohit Singh Pal | Software Developer',
+  description: 'Personal portfolio of Rohit Singh Pal, a frontend software developer specializing in React.js and modern web technologies.',
 };
 
 export default function RootLayout({
@@ -13,13 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
-      </head>
-      <body className="font-body antialiased" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn(inter.variable, spaceGrotesk.variable, "font-body antialiased")} suppressHydrationWarning>
         {children}
         <Toaster />
       </body>

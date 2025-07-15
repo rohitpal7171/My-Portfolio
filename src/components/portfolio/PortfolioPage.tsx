@@ -148,18 +148,18 @@ export default function PortfolioPage() {
   const fullSubtitle = "Frontend Software Developer";
 
   useEffect(() => {
-    setTypedSubtitle(''); 
+    let subtitleIndex = 0;
+    setTypedSubtitle('');
+  
     const interval = setInterval(() => {
-      setTypedSubtitle(prev => {
-        if (prev.length < fullSubtitle.length) {
-          return fullSubtitle.slice(0, prev.length + 1);
-        } else {
-          clearInterval(interval);
-          return prev;
-        }
-      });
+      if (subtitleIndex < fullSubtitle.length) {
+        setTypedSubtitle((prev) => prev + fullSubtitle[subtitleIndex]);
+        subtitleIndex++;
+      } else {
+        clearInterval(interval);
+      }
     }, 100);
-
+  
     return () => clearInterval(interval);
   }, []);
 
@@ -246,11 +246,15 @@ export default function PortfolioPage() {
            <h2 className="text-3xl font-headline font-bold mb-4 text-center">Voice Command</h2>
            <p className="text-muted-foreground mb-6">Ask a question and hear a response from the AI assistant.</p>
            <div className="flex justify-center gap-4">
-               <Button onClick={() => handleVoiceQuery("Tell me about Rohit's experience")} disabled={isVoiceLoading}>
-                <Mic className="mr-2"/> Who is Rohit?
+              <Button onClick={() => handleVoiceQuery("Tell me about Rohit's experience")} disabled={isVoiceLoading} className="gradient-border-button p-0">
+                <span className="flex items-center">
+                  <Mic className="mr-2"/> Who is Rohit?
+                </span>
                </Button>
-                <Button onClick={() => handleVoiceQuery("What are Rohit's technical skills?")} disabled={isVoiceLoading}>
-                <Mic className="mr-2"/> What are his skills?
+                <Button onClick={() => handleVoiceQuery("What are Rohit's technical skills?")} disabled={isVoiceLoading} className="gradient-border-button p-0">
+                  <span className="flex items-center">
+                    <Mic className="mr-2"/> What are his skills?
+                  </span>
                </Button>
            </div>
             {audio && <audio className="mt-6 mx-auto" controls autoPlay src={audio} />}
@@ -322,8 +326,8 @@ export default function PortfolioPage() {
             <div className="absolute left-[31px] -translate-x-1/2 top-0 h-full w-0.5 bg-primary/20"></div>
             {experience.map((job, index) => (
               <motion.div key={index} className="relative pl-8 pb-12" variants={itemVariants}>
-                <div className="absolute left-0 top-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-full bg-background border-2 border-primary text-primary ml-4">
+                <div className="absolute left-0 top-0 ml-4">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-full bg-background border-2 border-primary text-primary">
                     {job.icon}
                   </div>
                 </div>
@@ -332,7 +336,7 @@ export default function PortfolioPage() {
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-2">
                     <h3 className="text-xl font-bold text-primary">{job.role}</h3>
                     {job.isCurrent && (
-                      <Badge variant="outline" className="bg-accent text-foreground dark:text-background border-transparent">Current</Badge>
+                      <Badge variant="outline" className="border-accent bg-accent/20 text-accent-foreground">Current</Badge>
                     )}
                   </div>
                   <div className="text-sm text-muted-foreground mb-3">

@@ -110,4 +110,23 @@
   .glass-effect {
     @apply bg-card/60 backdrop-blur-lg border border-white/10;
   }
+
+  .gradient-border-button {
+    @apply relative overflow-hidden p-[1px] rounded-lg;
+  }
+
+  .gradient-border-button::before {
+    content: '';
+    @apply absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-no-repeat animate-border-spin;
+    background-image: conic-gradient(
+      from 180deg at 50% 50%,
+      hsl(var(--accent)) 0%,
+      hsl(var(--primary)) 50%,
+      hsl(var(--accent)) 100%
+    );
+  }
+
+  .gradient-border-button > :where(span, div) {
+    @apply relative inline-flex h-full w-full items-center justify-center rounded-[7px] bg-background px-4 py-2;
+  }
 }

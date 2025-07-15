@@ -12,7 +12,6 @@ import {
   Mic,
   BookOpen,
   Rocket,
-  FolderGit2,
 } from "lucide-react";
 
 const ReactJsIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
@@ -229,28 +228,40 @@ export const education: EducationItem[] = [
 
 export interface Project {
   title: string;
-  description: string;
+  description: string[];
   tech: string[];
   icon: LucideIcon;
 }
 
 export const projects: Project[] = [
   {
-    title: "Google Scholar DarkMode",
-    description: "A personal project that gained over 4,000 users. It's a browser extension that adds a dark mode to Google Scholar.",
-    tech: ["JavaScript", "CSS", "Browser Extension"],
-    icon: FolderGit2,
+    title: "MikeLegal – AI-Powered Legal Intelligence Platform",
+    description: [
+      "Developed and maintained scalable UI components using React and Ant Design for a legal-tech platform focused on IP and trademark management.",
+      "Integrated REST APIs and implemented Redux for efficient state management and data flow.",
+      "Delivered intuitive legal dashboards and automation features in collaboration with cross-functional teams."
+    ],
+    tech: ["React.js", "Redux", "Ant Design", "REST APIs"],
+    icon: Briefcase,
   },
   {
-    title: "Pakegai (beta)",
-    description: "A book search application built with React Native. I handled everything from branding to development.",
-    tech: ["React Native", "TypeScript", "Firebase"],
-    icon: FolderGit2,
+    title: "MatterSuite – Legal Practice Management Software",
+    description: [
+      "Built dynamic and responsive UIs for modules like matter tracking, task management, and collaboration tools using React.js and Material UI.",
+      "Used Relay and GraphQL to fetch and manage data efficiently with optimized performance.",
+      "Ensured a consistent user experience by closely working with design and backend teams."
+    ],
+    tech: ["React.js", "Material UI", "Relay", "GraphQL"],
+    icon: Briefcase,
   },
   {
-    title: "Portfolio Website",
-    description: "This very website! An interactive portfolio built with Next.js and featuring a Genkit AI assistant.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Genkit"],
-    icon: FolderGit2,
+    title: "CaseFox – Legal Billing & Case Management SaaS",
+    description: [
+      "Designed and implemented the entire frontend architecture for a legal billing platform from scratch using React.js and Material UI.",
+      "Developed responsive interfaces for case management, billing, time tracking, and client modules.",
+      "Integrated Redux and REST APIs to ensure seamless data interaction and a smooth user experience."
+    ],
+    tech: ["React.js", "Material UI", "Redux", "REST APIs"],
+    icon: Briefcase,
   }
 ];

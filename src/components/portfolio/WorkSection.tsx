@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import type { Project } from "@/data/portfolio-data";
-import { FolderGit2 } from "lucide-react";
+import type { Project } from "@/data/portfolio-data.tsx";
+import { Briefcase } from "lucide-react";
 
 interface WorkSectionProps {
   projects: Project[];
@@ -45,7 +45,7 @@ export default function WorkSection({ projects }: WorkSectionProps) {
       viewport={{ once: true, amount: 0.2 }}
       variants={sectionVariants}
     >
-      <h2 className="text-3xl font-headline font-bold mb-12 text-center"><FolderGit2 className="inline-block mr-2 h-7 w-7 text-primary" />My Work</h2>
+      <h2 className="text-3xl font-headline font-bold mb-12 text-center"><Briefcase className="inline-block mr-2 h-7 w-7 text-primary" />Highlighted Projects</h2>
       <div className="relative pl-6">
         <div className="absolute left-[31px] -translate-x-1/2 top-0 h-full w-0.5 bg-primary/20"></div>
         {projects.map((project, index) => (
@@ -60,7 +60,11 @@ export default function WorkSection({ projects }: WorkSectionProps) {
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-2">
                 <h3 className="text-xl font-bold text-primary">{project.title}</h3>
               </div>
-              <p className="text-foreground/80 mb-4">{project.description}</p>
+              <ul className="list-disc pl-5 space-y-2 text-foreground/80 mb-4">
+                {project.description.map((point, i) => (
+                  <li key={i}>{point}</li>
+                ))}
+              </ul>
               
               <div className="flex flex-wrap gap-2">
                   {project.tech.map((tech, techIndex) => (

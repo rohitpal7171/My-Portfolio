@@ -317,20 +317,20 @@ export default function PortfolioPage() {
         >
           <h2 className="text-3xl font-headline font-bold mb-12 text-center"><Briefcase className="inline-block mr-2 h-7 w-7 text-primary"/>Professional Experience</h2>
           <div className="relative pl-6">
-            <div className="absolute left-[1.18rem] top-0 h-full w-0.5 bg-primary/20"></div>
+            <div className="absolute left-[31px] -translate-x-1/2 top-0 h-full w-0.5 bg-primary/20"></div>
             {experience.map((job, index) => (
               <motion.div key={index} className="relative pl-8 pb-12" variants={itemVariants}>
                 <div className="absolute left-0 top-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-full bg-background border-2 border-primary text-primary">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-full bg-background border-2 border-primary text-primary ml-4">
                     {job.icon}
                   </div>
                 </div>
                 
-                <div className={cn("p-6 rounded-lg ml-6", "glass-effect")}>
+                <div className={cn("p-6 rounded-lg ml-12", "glass-effect")}>
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-2">
                     <h3 className="text-xl font-bold text-primary">{job.role}</h3>
                     {job.isCurrent && (
-                      <Badge variant="secondary" className="bg-accent/20 text-accent-foreground border-accent">Current</Badge>
+                      <Badge variant="outline" className="bg-accent text-foreground dark:text-background border-transparent">Current</Badge>
                     )}
                   </div>
                   <div className="text-sm text-muted-foreground mb-3">
@@ -344,7 +344,7 @@ export default function PortfolioPage() {
                 </div>
                 
                 {index < experience.length - 1 && (
-                  <div className="absolute left-[1.18rem] h-full w-0.5 bg-primary/20 top-12"></div>
+                  <div className="absolute left-[31px] -translate-x-1/2 h-full w-0.5 bg-primary/20 top-12"></div>
                 )}
               </motion.div>
             ))}

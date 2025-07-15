@@ -63,10 +63,6 @@
     animation: gradient-bg 15s ease infinite;
   }
 
-  body, a, button {
-    cursor: none;
-  }
-
   body::-webkit-scrollbar {
     width: 8px;
   }
@@ -87,15 +83,4 @@
   .glass-effect {
     @apply bg-card/60 backdrop-blur-lg border border-white/10;
   }
-}
-
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 28px;
-  height: 28px;
-  pointer-events: none;
-  z-index: 9999;
-  transition: transform 0.1s ease-out;
 }

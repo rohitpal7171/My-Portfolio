@@ -23,25 +23,6 @@ const experience = [
   { role: "Web Development Intern", company: "FIZ Robotic Solutions", period: "Jul 2019 – Nov 2020" }
 ];
 
-const projects = [
-    {
-    title: "Project One",
-    description: "A brief description of a cool project you built. What was the tech stack? What problem did it solve?",
-    image: "https://placehold.co/600x400.png",
-    tags: ["React", "TypeScript", "Tailwind CSS"],
-    liveUrl: "#",
-    githubUrl: "#"
-  },
-   {
-    title: "Project Two",
-    description: "Another awesome project. Highlight your role and the key features you implemented.",
-    image: "https://placehold.co/600x400.png",
-    tags: ["Next.js", "GraphQL", "ShadCN UI"],
-    liveUrl: "#",
-    githubUrl: "#"
-  }
-];
-
 export default function PortfolioPage() {
   const [npcInput, setNpcInput] = useState("");
   const [npcResponse, setNpcResponse] = useState("Ask me about Rohit's portfolio, skills, or experience.");
@@ -169,40 +150,27 @@ export default function PortfolioPage() {
             ))}
           </div>
         </section>
-        
-        {/* Projects Section */}
-        <section id="projects" className="mb-24">
-          <h2 className="text-3xl font-headline font-bold mb-8 text-center"><Projector className="inline-block mr-2 h-7 w-7 text-primary" />Projects</h2>
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <Card key={index} className="overflow-hidden bg-secondary/30 border-primary/20 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all">
-                <Image src={project.image} alt={project.title} width={600} height={400} className="w-full h-48 object-cover" data-ai-hint="technology abstract" />
-                <CardHeader>
-                  <CardTitle>{project.title}</CardTitle>
-                   <div className="flex flex-wrap gap-2 pt-2">
-                    {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>{project.description}</CardDescription>
-                  <div className="mt-4 flex gap-4">
-                     <Link href={project.liveUrl} target="_blank" className="text-primary hover:underline">View Live</Link>
-                     <Link href={project.githubUrl} target="_blank" className="text-primary hover:underline">View Code</Link>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-           </div>
-        </section>
 
         {/* Education Section */}
         <section id="education" className="mb-24">
           <h2 className="text-3xl font-headline font-bold mb-8 text-center"><GraduationCap className="inline-block mr-2 h-7 w-7 text-primary" />Education</h2>
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card className="bg-secondary/30 border-primary/20">
               <CardHeader>
-                <CardTitle>Bachelor of Technology (B.Tech), Computer Science</CardTitle>
-                <CardDescription>ITM Group of Institutions</CardDescription>
+                <CardTitle>Bachelor of Technology</CardTitle>
+                <CardDescription>ITM Group of Institutions, Computer Science</CardDescription>
+              </CardHeader>
+            </Card>
+            <Card className="bg-secondary/30 border-primary/20">
+              <CardHeader>
+                <CardTitle>12th Grade</CardTitle>
+                <CardDescription>Delhi Public Academy</CardDescription>
+              </CardHeader>
+            </Card>
+            <Card className="bg-secondary/30 border-primary/20">
+              <CardHeader>
+                <CardTitle>10th Grade</CardTitle>
+                <CardDescription>No.1 Air force School</CardDescription>
               </CardHeader>
             </Card>
           </div>

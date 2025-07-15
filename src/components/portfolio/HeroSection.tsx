@@ -77,7 +77,7 @@ export default function HeroSection({
       variants={sectionVariants}
     >
       <motion.div variants={itemVariants}>
-        <h1 className="font-headline text-4xl md:text-6xl font-extrabold text-primary">Rohit Singh Pal</h1>
+        <h1 className="font-headline text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-pink-500 to-cyan-500 bg-clip-text text-transparent">Rohit Singh Pal</h1>
         <h2 className="text-2xl md:text-3xl font-semibold text-foreground/80 mt-2 min-h-[40px]">{typedSubtitle}<span className="inline-block w-1 h-8 bg-primary animate-ping ml-1"></span></h2>
         <p className="mt-6 text-lg max-w-2xl text-muted-foreground">
           Welcome to my interactive portfolio. I am a passionate developer with over 4 years of experience building robust, user-focused web applications. Explore my world, ask questions, and get to know my work.

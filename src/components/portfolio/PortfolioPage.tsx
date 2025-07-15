@@ -10,6 +10,7 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { getNpcResponse, getVoiceResponse } from "@/app/actions";
 import { Hexagon } from "./Hexagon";
+import { motion } from "framer-motion";
 
 const skills = {
   "Frontend Development": {
@@ -32,6 +33,18 @@ const experience = [
   { role: "Web Development Intern", company: "Appointy India", period: "Nov 2020 – Jun 2021" },
   { role: "Web Development Intern", company: "FIZ Robotic Solutions", period: "Jul 2019 – Nov 2020" }
 ];
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut"
+    }
+  }
+};
 
 export default function PortfolioPage() {
   const [npcInput, setNpcInput] = useState("");
@@ -67,7 +80,13 @@ export default function PortfolioPage() {
       <main className="container mx-auto px-4 pt-32 pb-16">
 
         {/* Hero Section */}
-        <section id="hero" className="grid md:grid-cols-2 items-center gap-12 mb-24 animate-fade-in-up">
+        <motion.section 
+          id="hero" 
+          className="grid md:grid-cols-2 items-center gap-12 mb-24"
+          initial="hidden"
+          animate="visible"
+          variants={sectionVariants}
+        >
           <div className="flex-1">
             <h1 className="font-headline text-4xl md:text-6xl font-extrabold text-primary">Rohit Singh Pal</h1>
             <h2 className="text-2xl md:text-3xl font-semibold text-foreground/80 mt-2">Frontend Software Developer</h2>
@@ -104,10 +123,16 @@ export default function PortfolioPage() {
               </CardContent>
             </Card>
           </div>
-        </section>
+        </motion.section>
         
         {/* Voice Assistant Section */}
-        <section className="text-center mb-24 animate-fade-in-up animation-delay-300">
+        <motion.section 
+          className="text-center mb-24"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={sectionVariants}
+        >
            <h2 className="text-3xl font-headline font-bold mb-4 text-center">Voice Command</h2>
            <p className="text-muted-foreground mb-6">Ask a question and hear a response from the AI assistant.</p>
            <div className="flex justify-center gap-4">
@@ -119,18 +144,32 @@ export default function PortfolioPage() {
                </Button>
            </div>
             {audio && <audio className="mt-6 mx-auto" controls autoPlay src={audio} />}
-        </section>
+        </motion.section>
 
         {/* About Section */}
-        <section id="about" className="mb-24 p-8 border border-primary/20 rounded-lg bg-secondary/20 animate-fade-in-up animation-delay-500">
+        <motion.section 
+          id="about" 
+          className="mb-24 p-8 border border-primary/20 rounded-lg bg-secondary/20"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={sectionVariants}
+        >
            <h2 className="text-3xl font-headline font-bold mb-4 text-center"><User className="inline-block mr-2 h-7 w-7 text-primary" /> About Me</h2>
            <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto">
              I'm a passionate and dedicated Frontend Software Developer with over 4 years of progressive experience in building robust, user-focused web applications. I specialize in React.js, Redux, and modern frontend technologies, delivering high-performance interfaces for enterprise-grade products. I thrive in fast-paced environments and believe in continuous learning, adaptability, and solving real-world problems through clean and scalable code.
            </p>
-        </section>
+        </motion.section>
 
         {/* Skills Section */}
-        <section id="skills" className="mb-24 animate-fade-in-up animation-delay-700">
+        <motion.section 
+          id="skills" 
+          className="mb-24"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionVariants}
+        >
           <h2 className="text-3xl font-headline font-bold mb-8 text-center"><Dna className="inline-block mr-2 h-7 w-7 text-primary" />Skills & Technologies</h2>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
             {Object.entries(skills).map(([category, { icon: Icon, skills: skillList }]) => (
@@ -143,10 +182,17 @@ export default function PortfolioPage() {
               </Hexagon>
             ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* Experience Section */}
-        <section id="experience" className="mb-24 animate-fade-in-up animation-delay-900">
+        <motion.section 
+          id="experience" 
+          className="mb-24"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionVariants}
+        >
           <h2 className="text-3xl font-headline font-bold mb-12 text-center"><Briefcase className="inline-block mr-2 h-7 w-7 text-primary"/>Professional Experience</h2>
           <div className="relative border-l-2 border-primary/20 pl-8">
             {experience.map((job, index) => (
@@ -158,10 +204,17 @@ export default function PortfolioPage() {
               </div>
             ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* Education Section */}
-        <section id="education" className="mb-24 animate-fade-in-up animation-delay-1000">
+        <motion.section 
+          id="education" 
+          className="mb-24"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionVariants}
+        >
           <h2 className="text-3xl font-headline font-bold mb-8 text-center"><GraduationCap className="inline-block mr-2 h-7 w-7 text-primary" />Education</h2>
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card className="bg-secondary/30 border-primary/20 transition-all hover:scale-105">
@@ -183,7 +236,7 @@ export default function PortfolioPage() {
               </CardHeader>
             </Card>
           </div>
-        </section>
+        </motion.section>
 
       </main>
 
@@ -208,3 +261,5 @@ export default function PortfolioPage() {
     </div>
   );
 }
+
+    

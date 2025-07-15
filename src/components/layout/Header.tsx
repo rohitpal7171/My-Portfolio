@@ -14,6 +14,7 @@ export default function Header() {
     { href: "#experience", label: "Experience" },
     { href: "#work", label: "Projects" },
     { href: "#skills", label: "Skills" },
+    { href: "#education", label: "Education" },
   ];
 
   const socialLinks = [

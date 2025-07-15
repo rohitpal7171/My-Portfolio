@@ -10,6 +10,7 @@ import { Input } from "../ui/input";
 import { cn } from "@/lib/utils";
 import { GradientButton } from "../ui/gradient-button";
 import { Button } from "../ui/button";
+import profileImage from '@/components/avatar/3d_profile.png';
 
 interface HeroSectionProps {
   npcInput: string;
@@ -87,10 +88,11 @@ export default function HeroSection({
       </motion.div>
       <motion.div variants={itemVariants} className="flex-shrink-0 flex flex-col items-center justify-center p-4 rounded-lg">
         <Image
-          src="https://placehold.co/400x400.png"
-          alt="Rohit Singh Pal"
+          src={profileImage}
+          alt="3D avatar of Rohit Singh Pal"
           width={400}
           height={400}
+          priority
           className="rounded-lg shadow-2xl shadow-primary/20 animate-float object-cover aspect-square"
           data-ai-hint="avatar man"
         />

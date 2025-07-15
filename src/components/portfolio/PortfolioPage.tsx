@@ -46,16 +46,16 @@ export default function PortfolioPage() {
           <AboutSection />
         </div>
         <div className="mb-24">
-          <SkillsSection skills={skills} />
-        </div>
-        <div className="mb-24">
           <ExperienceSection experience={experience} />
         </div>
         <div className="mb-24">
-          <EducationSection education={education} />
+          <WorkSection projects={projects} />
         </div>
         <div className="mb-24">
-          <WorkSection projects={projects} />
+          <SkillsSection skills={skills} />
+        </div>
+        <div className="mb-24">
+          <EducationSection education={education} />
         </div>
       </main>
       <ContactSection />

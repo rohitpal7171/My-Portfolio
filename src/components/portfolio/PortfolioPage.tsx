@@ -2,18 +2,28 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Briefcase, Code, Cpu, Dna, GraduationCap, Github, Linkedin, Mail, Mic, Projector, Send, User } from "lucide-react";
+import { Briefcase, Code, Cpu, Dna, GraduationCap, Github, Linkedin, Mail, Mic, Send, User, CodeXml, GitBranch, BrainCircuit } from "lucide-react";
 import Header from "../layout/Header";
 import { Badge } from "../ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { getNpcResponse, getVoiceResponse } from "@/app/actions";
+import { Hexagon } from "./Hexagon";
 
 const skills = {
-  "Frontend Development": ["React.js", "Redux", "JavaScript", "TypeScript", "HTML5", "CSS3", "Bootstrap"],
-  "Tools & APIs": ["Git & GitHub", "REST APIs", "Relay", "GraphQL"],
-  "Soft Skills": ["Problem-solving", "Team collaboration", "Code reviews", "Rapid learning", "Adaptability", "Communication", "Ownership"]
+  "Frontend Development": {
+    icon: CodeXml,
+    skills: ["React.js", "Redux", "JavaScript", "TypeScript", "HTML5", "CSS3", "Bootstrap"],
+  },
+  "Tools & APIs": {
+    icon: GitBranch,
+    skills: ["Git & GitHub", "REST APIs", "Relay", "GraphQL"],
+  },
+  "Soft Skills": {
+    icon: BrainCircuit,
+    skills: ["Problem-solving", "Team collaboration", "Code reviews", "Rapid learning", "Adaptability", "Communication", "Ownership"]
+  }
 };
 
 const experience = [
@@ -122,16 +132,15 @@ export default function PortfolioPage() {
         {/* Skills Section */}
         <section id="skills" className="mb-24 animate-fade-in-up animation-delay-700">
           <h2 className="text-3xl font-headline font-bold mb-8 text-center"><Dna className="inline-block mr-2 h-7 w-7 text-primary" />Skills & Technologies</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {Object.entries(skills).map(([category, skillList]) => (
-              <Card key={category} className="bg-secondary/30 border-primary/20 hover:border-primary/50 transition-all hover:scale-105">
-                <CardHeader>
-                  <CardTitle className="text-primary">{category}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-wrap gap-2">
-                  {skillList.map(skill => <Badge key={skill} variant="secondary">{skill}</Badge>)}
-                </CardContent>
-              </Card>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+            {Object.entries(skills).map(([category, { icon: Icon, skills: skillList }]) => (
+              <Hexagon key={category} title={category} Icon={Icon}>
+                <div className="flex flex-wrap justify-center gap-2 mt-2">
+                  {skillList.map(skill => (
+                    <Badge key={skill} variant="secondary">{skill}</Badge>
+                  ))}
+                </div>
+              </Hexagon>
             ))}
           </div>
         </section>
@@ -199,5 +208,3 @@ export default function PortfolioPage() {
     </div>
   );
 }
-
-    

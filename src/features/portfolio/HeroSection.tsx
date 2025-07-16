@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Download, Bot, Send, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";

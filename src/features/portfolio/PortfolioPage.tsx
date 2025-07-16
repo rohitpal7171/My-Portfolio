@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { skills, experience, education, projects } from '@/data/portfolio-data.tsx';
 
 import Header from "@/layouts/Header";

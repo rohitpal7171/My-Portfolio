@@ -1,4 +1,5 @@
 import type { FC, SVGProps } from 'react';
+import type { LucideIcon } from 'lucide-react';
 import {
   Briefcase,
   CodeXml,
@@ -141,7 +142,17 @@ export const skills = [
   },
 ];
 
-export const experience = [
+export interface Experience {
+  role: string;
+  company: string;
+  period: string;
+  location: string;
+  isCurrent?: boolean;
+  description: string[];
+  icon: LucideIcon;
+}
+
+export const experience: Experience[] = [
   {
     role: "Software Developer",
     company: "MikeLegal",
@@ -191,17 +202,66 @@ export const experience = [
   },
 ];
 
-export const education = [
+export interface EducationItem {
+  degree: string;
+  institution: string;
+  period: string;
+}
+
+export const education: EducationItem[] = [
   {
     degree: "Bachelor of Technology",
     institution: "ITM Group of Institutions, Computer Science",
+    period: "2017 - 2021",
   },
   {
     degree: "12th Grade",
     institution: "Delhi Public Academy",
+    period: "Completed in 2017",
   },
   {
     degree: "10th Grade",
     institution: "No.1 Air force School",
+    period: "Completed in 2015",
   },
+];
+
+export interface Project {
+  title: string;
+  description: string[];
+  tech: string[];
+  icon: LucideIcon;
+}
+
+export const projects: Project[] = [
+  {
+    title: "IPSuite – AI-Powered Legal Intelligence Platform",
+    description: [
+      "Developed and maintained scalable UI components using React and Ant Design for a legal-tech platform focused on IP and trademark management.",
+      "Integrated REST APIs and implemented Redux for efficient state management and data flow.",
+      "Delivered intuitive legal dashboards and automation features in collaboration with cross-functional teams."
+    ],
+    tech: ["React.js", "Redux", "Ant Design", "REST APIs"],
+    icon: Briefcase,
+  },
+  {
+    title: "MatterSuite – Legal Practice Management Software",
+    description: [
+      "Built dynamic and responsive UIs for modules like matter tracking, task management, and collaboration tools using React.js and Material UI.",
+      "Used Relay and GraphQL to fetch and manage data efficiently with optimized performance.",
+      "Ensured a consistent user experience by closely working with design and backend teams."
+    ],
+    tech: ["React.js", "Material UI", "Relay", "GraphQL"],
+    icon: Briefcase,
+  },
+  {
+    title: "CaseFox – Legal Billing & Case Management SaaS",
+    description: [
+      "Designed and implemented the entire frontend architecture for a legal billing platform from scratch using React.js and Material UI.",
+      "Developed responsive interfaces for case management, billing, time tracking, and client modules.",
+      "Integrated Redux and REST APIs to ensure seamless data interaction and a smooth user experience."
+    ],
+    tech: ["React.js", "Material UI", "Redux", "REST APIs"],
+    icon: Briefcase,
+  }
 ];

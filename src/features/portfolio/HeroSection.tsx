@@ -8,9 +8,9 @@ import { motion } from "framer-motion";
 import { GradientButton } from "@/components/ui/gradient-button";
 import profileImage from "@/components/avatar/3d_profile.png";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { useTypewriter } from "@/hooks/use-typewriter";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -71,6 +71,8 @@ export default function HeroSection({
     return () => clearInterval(interval);
   }, []);
 
+  const displayedNpcResponse = useTypewriter(npcResponse);
+
   return (
     <motion.section
       id="hero"
@@ -118,9 +120,10 @@ export default function HeroSection({
                 <p className="font-semibold text-lg">Ask my AI Assistant</p>
             </div>
             
-            <div className="bg-muted/50 p-4 rounded-lg min-h-[100px] mb-4 text-foreground/90">
+            <div className="bg-muted/50 p-4 rounded-lg min-h-[100px] mb-4 text-foreground/90 font-mono">
                 {isNpcLoading && !npcResponse && <Loader2 className="animate-spin" />}
-                {npcResponse ? npcResponse : "Ask me anything about Rohit's skills or experience!"}
+                {displayedNpcResponse ? displayedNpcResponse : "Ask me anything about Rohit's skills or experience!"}
+                {isNpcLoading && <span className="inline-block w-2 h-4 bg-primary animate-ping ml-1"></span>}
             </div>
 
             <form onSubmit={handleNpcSubmit} className="flex gap-2">
@@ -131,9 +134,11 @@ export default function HeroSection({
                 disabled={isNpcLoading}
                 className="text-base"
                 />
-                <Button type="submit" size="icon" disabled={isNpcLoading || !npcInput}>
-                {isNpcLoading ? <Loader2 className="animate-spin" /> : <Send />}
-                </Button>
+                <GradientButton type="submit" size="icon" disabled={isNpcLoading || !npcInput} className="rounded-md w-10 h-10 p-0">
+                    <span className="inline-flex h-full w-full items-center justify-center rounded-[5px]">
+                        {isNpcLoading ? <Loader2 className="animate-spin" /> : <Send />}
+                    </span>
+                </GradientButton>
             </form>
             </CardContent>
         </Card>

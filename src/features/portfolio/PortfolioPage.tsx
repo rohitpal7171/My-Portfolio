@@ -27,11 +27,13 @@ export default function PortfolioPage() {
 
     setIsNpcLoading(true);
     setNpcResponse(""); 
+    let accumulatedResponse = "";
 
     try {
       const stream = await askNpc(npcInput);
       for await (const chunk of stream) {
-        setNpcResponse(chunk);
+        accumulatedResponse += chunk;
+        setNpcResponse(accumulatedResponse);
       }
     } catch (error) {
       console.error("Error asking NPC:", error);
@@ -40,6 +42,7 @@ export default function PortfolioPage() {
         title: "AI Error",
         description: "There was an issue communicating with the AI assistant. Please try again later.",
       });
+      setNpcResponse("Sorry, I'm having trouble connecting to my circuits right now.");
     } finally {
       setIsNpcLoading(false);
       setNpcInput("");

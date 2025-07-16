@@ -11,7 +11,6 @@ interface AiAssistantProps {
   npcInput: string;
   setNpcInput: (value: string) => void;
   handleNpcSubmit: (e: React.FormEvent) => void;
-  npcResponse: string;
   isNpcLoading: boolean;
   displayedNpcResponse: string;
 }
@@ -20,7 +19,6 @@ export default function AiAssistant({
   npcInput,
   setNpcInput,
   handleNpcSubmit,
-  npcResponse,
   isNpcLoading,
   displayedNpcResponse,
 }: AiAssistantProps) {
@@ -33,7 +31,7 @@ export default function AiAssistant({
         </div>
 
         <div className="bg-muted/50 p-4 rounded-lg min-h-[100px] mb-4 text-foreground/90 font-mono">
-          {isNpcLoading && !npcResponse && <Loader2 className="animate-spin" />}
+          {isNpcLoading && !displayedNpcResponse && <Loader2 className="animate-spin" />}
           {displayedNpcResponse
             ? displayedNpcResponse
             : "Ask me anything about Rohit's skills or experience!"}

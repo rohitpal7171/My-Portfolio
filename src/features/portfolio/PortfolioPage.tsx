@@ -14,12 +14,14 @@ import ExperienceSection from "./ExperienceSection";
 import EducationSection from "./EducationSection";
 import WorkSection from "./WorkSection";
 import ContactSection from "./ContactSection";
+import { useTypewriter } from '@/hooks/use-typewriter';
 
 export default function PortfolioPage() {
   const [npcInput, setNpcInput] = useState("");
   const [npcResponse, setNpcResponse] = useState("");
   const [isNpcLoading, setIsNpcLoading] = useState(false);
   const { toast } = useToast();
+  const displayedNpcResponse = useTypewriter(npcResponse);
 
   const handleNpcSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,8 +60,8 @@ export default function PortfolioPage() {
             npcInput={npcInput}
             setNpcInput={setNpcInput}
             handleNpcSubmit={handleNpcSubmit}
-            npcResponse={npcResponse}
             isNpcLoading={isNpcLoading}
+            displayedNpcResponse={displayedNpcResponse}
           />
         </div>
         <div className="scroll-mt-20">

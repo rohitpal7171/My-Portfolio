@@ -7,7 +7,6 @@ import { Download } from "lucide-react";
 import { motion } from "framer-motion";
 import { GradientButton } from "@/components/ui/gradient-button";
 import profileImage from "@/components/avatar/3d_profile.png";
-import { useTypewriter } from "@/hooks/use-typewriter";
 import AiAssistant from "./AiAssistant";
 
 const sectionVariants = {
@@ -39,16 +38,16 @@ interface HeroSectionProps {
   npcInput: string;
   setNpcInput: (value: string) => void;
   handleNpcSubmit: (e: React.FormEvent) => void;
-  npcResponse: string;
   isNpcLoading: boolean;
+  displayedNpcResponse: string;
 }
 
 export default function HeroSection({
   npcInput,
   setNpcInput,
   handleNpcSubmit,
-  npcResponse,
   isNpcLoading,
+  displayedNpcResponse,
 }: HeroSectionProps) {
   const [typedSubtitle, setTypedSubtitle] = useState('');
   const fullSubtitle = "Frontend Software Developer.";
@@ -68,8 +67,6 @@ export default function HeroSection({
 
     return () => clearInterval(interval);
   }, []);
-
-  const displayedNpcResponse = useTypewriter(npcResponse);
 
   return (
     <motion.section
@@ -115,7 +112,6 @@ export default function HeroSection({
           npcInput={npcInput}
           setNpcInput={setNpcInput}
           handleNpcSubmit={handleNpcSubmit}
-          npcResponse={npcResponse}
           isNpcLoading={isNpcLoading}
           displayedNpcResponse={displayedNpcResponse}
         />

@@ -33,7 +33,7 @@ export default function PortfolioPage() {
     <div className="bg-transparent text-foreground font-body min-h-screen">
       <Header />
       <main className="container mx-auto px-4 pt-32 pb-16">
-        <div className="scroll-mt-20">
+        <div className="mb-24">
           <HeroSection
             npcInput={npcInput}
             setNpcInput={setNpcInput}
@@ -42,7 +42,7 @@ export default function PortfolioPage() {
             handleNpcSubmit={handleNpcSubmit}
           />
         </div>
-        <div id="sections-container" className="scroll-mt-20">
+        <div className="scroll-mt-20">
           <AboutSection />
           <ExperienceSection experience={experience} />
           <WorkSection projects={projects} />

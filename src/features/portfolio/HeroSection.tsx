@@ -53,8 +53,9 @@ export default function HeroSection({
   const fullSubtitle = "Frontend Software Developer.";
   
   useEffect(() => {
+    // Start with the first character already in place to avoid race conditions
     setTypedSubtitle(fullSubtitle.charAt(0));
-    let subtitleIndex = 1;
+    let subtitleIndex = 1; // Start typing from the second character
 
     const interval = setInterval(() => {
       if (subtitleIndex < fullSubtitle.length) {
@@ -66,6 +67,7 @@ export default function HeroSection({
     }, 100);
 
     return () => clearInterval(interval);
+    // The effect runs only once after the initial render.
   }, [fullSubtitle]);
 
   return (
@@ -97,7 +99,7 @@ export default function HeroSection({
       <motion.div variants={itemVariants} className="flex-shrink-0 flex flex-col items-center justify-center p-4 rounded-lg">
         <Image
           src="https://placehold.co/400x400.png"
-          alt="3D avatar of Rohit Singh Pal, a software developer"
+          alt="3D avatar of Rohit Singh Pal, a frontend software developer"
           width={400}
           height={400}
           priority

@@ -101,8 +101,18 @@ const GraphQlIcon: FC<SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
+export interface Skill {
+  name: string;
+  icon: FC<SVGProps<SVGSVGElement>> | LucideIcon;
+}
 
-export const skills = [
+export interface SkillCategory {
+  category: string;
+  icon: LucideIcon;
+  list: Skill[];
+}
+
+export const skills: SkillCategory[] = [
   {
     category: "Frontend Development",
     icon: CodeXml,

@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { GradientButton } from "@/components/ui/gradient-button";
 import profileImage from "@/components/avatar/3d_profile.png";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { useTypewriter } from "@/hooks/use-typewriter";
@@ -134,11 +135,9 @@ export default function HeroSection({
                 disabled={isNpcLoading}
                 className="text-base"
                 />
-                <GradientButton type="submit" size="icon" disabled={isNpcLoading || !npcInput} className="rounded-md w-10 h-10 p-0">
-                    <span className="inline-flex h-full w-full items-center justify-center rounded-[5px]">
-                        {isNpcLoading ? <Loader2 className="animate-spin" /> : <Send />}
-                    </span>
-                </GradientButton>
+                <Button type="submit" size="icon" disabled={isNpcLoading || !npcInput}>
+                    {isNpcLoading ? <Loader2 className="animate-spin" /> : <Send />}
+                </Button>
             </form>
             </CardContent>
         </Card>

@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Bot, Send, Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -20,9 +20,11 @@ export default function AiAssistant({
   displayedNpcResponse,
 }: AiAssistantProps) {
   const [input, setInput] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const onSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!input.trim()) return;
     handleNpcSubmit(input);
     setInput("");
   };
@@ -45,8 +47,9 @@ export default function AiAssistant({
           )}
         </div>
 
-        <form onSubmit={onSubmit} className="flex gap-2">
+        <form ref={formRef} onSubmit={handleSubmit} className="flex gap-2">
           <Input
+            name="prompt"
             placeholder="e.g., 'What are his top skills?'"
             value={input}
             onChange={(e) => setInput(e.target.value)}

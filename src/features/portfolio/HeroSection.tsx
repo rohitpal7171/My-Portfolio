@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Download, Bot, User, Send, Loader2 } from "lucide-react";
+import { Download, Bot, Send, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { GradientButton } from "@/components/ui/gradient-button";
 import profileImage from "@/components/avatar/3d_profile.png";
@@ -74,7 +74,7 @@ export default function HeroSection({
   return (
     <motion.section
       id="hero"
-      className="grid md:grid-cols-2 items-start gap-12"
+      className="grid md:grid-cols-2 items-center gap-12"
       initial="hidden"
       animate="visible"
       variants={sectionVariants}

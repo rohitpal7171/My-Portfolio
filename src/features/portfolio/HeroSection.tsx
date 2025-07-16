@@ -56,7 +56,7 @@ export default function HeroSection({
   useEffect(() => {
     // Start with the first character already in place to avoid race conditions
     setTypedSubtitle(fullSubtitle.charAt(0));
-    let subtitleIndex = 1; // Start typing from the second character
+    let subtitleIndex = 0; // Start typing from the second character
 
     const interval = setInterval(() => {
       if (subtitleIndex < fullSubtitle.length) {
@@ -88,7 +88,7 @@ export default function HeroSection({
           Welcome to my interactive portfolio. I am a passionate developer with over 4 years of experience building robust, user-focused web applications. Explore my world, ask questions, and get to know my work.
         </p>
         <motion.div variants={itemVariants} className="mt-8">
-          <a href="/Rohit_Singh_Pal_Resume.pdf" download="Rohit_Singh_Pal_Resume.pdf">
+          <a href="" download="Rohit_Singh_Pal_Resume.pdf">
             <GradientButton>
                 <Download size={18} />
                 Download Resume

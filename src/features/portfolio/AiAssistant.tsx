@@ -1,6 +1,7 @@
 
 "use client";
 
+import { useState } from "react";
 import { Bot, Send, Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -8,20 +9,24 @@ import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 interface AiAssistantProps {
-  npcInput: string;
-  setNpcInput: (value: string) => void;
-  handleNpcSubmit: (e: React.FormEvent) => void;
+  handleNpcSubmit: (prompt: string) => void;
   isNpcLoading: boolean;
   displayedNpcResponse: string;
 }
 
 export default function AiAssistant({
-  npcInput,
-  setNpcInput,
   handleNpcSubmit,
   isNpcLoading,
   displayedNpcResponse,
 }: AiAssistantProps) {
+  const [input, setInput] = useState("");
+
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleNpcSubmit(input);
+    setInput("");
+  };
+
   return (
     <Card className={cn("glass-effect rounded-[20px] shadow-lg w-full")}>
       <CardContent className="p-4">
@@ -40,15 +45,15 @@ export default function AiAssistant({
           )}
         </div>
 
-        <form onSubmit={handleNpcSubmit} className="flex gap-2">
+        <form onSubmit={onSubmit} className="flex gap-2">
           <Input
             placeholder="e.g., 'What are his top skills?'"
-            value={npcInput}
-            onChange={(e) => setNpcInput(e.target.value)}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
             disabled={isNpcLoading}
             className="text-base"
           />
-          <Button type="submit" size="icon" disabled={isNpcLoading || !npcInput}>
+          <Button type="submit" size="icon" disabled={isNpcLoading || !input}>
             {isNpcLoading ? <Loader2 className="animate-spin" /> : <Send />}
           </Button>
         </form>

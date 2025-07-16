@@ -17,22 +17,20 @@ import ContactSection from "./ContactSection";
 import { useTypewriter } from '@/hooks/use-typewriter';
 
 export default function PortfolioPage() {
-  const [npcInput, setNpcInput] = useState("");
   const [npcResponse, setNpcResponse] = useState("");
   const [isNpcLoading, setIsNpcLoading] = useState(false);
   const { toast } = useToast();
   const displayedNpcResponse = useTypewriter(npcResponse);
 
-  const handleNpcSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!npcInput.trim()) return;
+  const handleNpcSubmit = async (prompt: string) => {
+    if (!prompt.trim()) return;
 
     setIsNpcLoading(true);
     setNpcResponse(""); 
     let accumulatedResponse = "";
 
     try {
-      const stream = await askNpc(npcInput);
+      const stream = await askNpc(prompt);
       for await (const chunk of stream) {
         accumulatedResponse += chunk;
         setNpcResponse(accumulatedResponse);
@@ -47,7 +45,6 @@ export default function PortfolioPage() {
       setNpcResponse("Sorry, I'm having trouble connecting to my circuits right now.");
     } finally {
       setIsNpcLoading(false);
-      setNpcInput("");
     }
   };
 
@@ -57,8 +54,6 @@ export default function PortfolioPage() {
       <main className="container mx-auto px-4 pt-32 pb-16">
         <div className="mb-24">
           <HeroSection 
-            npcInput={npcInput}
-            setNpcInput={setNpcInput}
             handleNpcSubmit={handleNpcSubmit}
             isNpcLoading={isNpcLoading}
             displayedNpcResponse={displayedNpcResponse}

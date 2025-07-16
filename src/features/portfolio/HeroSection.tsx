@@ -6,7 +6,6 @@ import Image from "next/image";
 import { Download } from "lucide-react";
 import { motion } from "framer-motion";
 import { GradientButton } from "@/components/ui/gradient-button";
-import profileImage from "@/components/avatar/3d_profile.png";
 import AiAssistant from "./AiAssistant";
 
 const sectionVariants = {
@@ -35,16 +34,12 @@ const itemVariants = {
 };
 
 interface HeroSectionProps {
-  npcInput: string;
-  setNpcInput: (value: string) => void;
-  handleNpcSubmit: (e: React.FormEvent) => void;
+  handleNpcSubmit: (prompt: string) => void;
   isNpcLoading: boolean;
   displayedNpcResponse: string;
 }
 
 export default function HeroSection({
-  npcInput,
-  setNpcInput,
   handleNpcSubmit,
   isNpcLoading,
   displayedNpcResponse,
@@ -100,7 +95,7 @@ export default function HeroSection({
       
       <motion.div variants={itemVariants} className="flex-shrink-0 flex flex-col items-center justify-center gap-8 p-4 rounded-lg sticky top-32">
         <Image
-          src={profileImage}
+          src="/assets/3d_profile.png"
           alt="3D avatar of Rohit Singh Pal, a frontend software developer"
           width={400}
           height={400}
@@ -109,8 +104,6 @@ export default function HeroSection({
           data-ai-hint="avatar man"
         />
         <AiAssistant
-          npcInput={npcInput}
-          setNpcInput={setNpcInput}
           handleNpcSubmit={handleNpcSubmit}
           isNpcLoading={isNpcLoading}
           displayedNpcResponse={displayedNpcResponse}

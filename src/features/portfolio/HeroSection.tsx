@@ -99,38 +99,9 @@ export default function HeroSection({
             </GradientButton>
           </a>
         </motion.div>
-
-        <motion.div variants={itemVariants}>
-           <Card className={cn("glass-effect rounded-[20px] shadow-lg")}>
-              <CardContent className="p-4">
-                <div className="flex items-center gap-3 mb-4">
-                  <Bot className="h-8 w-8 text-primary"/>
-                  <p className="font-semibold text-lg">Ask my AI Assistant</p>
-                </div>
-                
-                <div className="bg-muted/50 p-4 rounded-lg min-h-[100px] mb-4 text-foreground/90">
-                  {isNpcLoading && !npcResponse && <Loader2 className="animate-spin" />}
-                  {npcResponse ? npcResponse : "Ask me anything about Rohit's skills or experience!"}
-                </div>
-
-                <form onSubmit={handleNpcSubmit} className="flex gap-2">
-                  <Input 
-                    placeholder="e.g., 'What are his top skills?'" 
-                    value={npcInput}
-                    onChange={(e) => setNpcInput(e.target.value)}
-                    disabled={isNpcLoading}
-                    className="text-base"
-                  />
-                  <Button type="submit" size="icon" disabled={isNpcLoading || !npcInput}>
-                    {isNpcLoading ? <Loader2 className="animate-spin" /> : <Send />}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-        </motion.div>
       </div>
       
-      <motion.div variants={itemVariants} className="flex-shrink-0 flex flex-col items-center justify-center p-4 rounded-lg sticky top-32">
+      <motion.div variants={itemVariants} className="flex-shrink-0 flex flex-col items-center justify-center gap-8 p-4 rounded-lg sticky top-32">
         <Image
           src={profileImage}
           alt="3D avatar of Rohit Singh Pal, a frontend software developer"
@@ -140,6 +111,32 @@ export default function HeroSection({
           className="rounded-lg shadow-2xl shadow-primary/20 animate-float object-cover aspect-square"
           data-ai-hint="avatar man"
         />
+        <Card className={cn("glass-effect rounded-[20px] shadow-lg w-full")}>
+            <CardContent className="p-4">
+            <div className="flex items-center gap-3 mb-4">
+                <Bot className="h-8 w-8 text-primary"/>
+                <p className="font-semibold text-lg">Ask my AI Assistant</p>
+            </div>
+            
+            <div className="bg-muted/50 p-4 rounded-lg min-h-[100px] mb-4 text-foreground/90">
+                {isNpcLoading && !npcResponse && <Loader2 className="animate-spin" />}
+                {npcResponse ? npcResponse : "Ask me anything about Rohit's skills or experience!"}
+            </div>
+
+            <form onSubmit={handleNpcSubmit} className="flex gap-2">
+                <Input 
+                placeholder="e.g., 'What are his top skills?'" 
+                value={npcInput}
+                onChange={(e) => setNpcInput(e.target.value)}
+                disabled={isNpcLoading}
+                className="text-base"
+                />
+                <Button type="submit" size="icon" disabled={isNpcLoading || !npcInput}>
+                {isNpcLoading ? <Loader2 className="animate-spin" /> : <Send />}
+                </Button>
+            </form>
+            </CardContent>
+        </Card>
       </motion.div>
     </motion.section>
   );

@@ -3,21 +3,10 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Cpu, Send, Download } from "lucide-react";
+import { Download } from "lucide-react";
 import { motion } from "framer-motion";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
 import { GradientButton } from "@/components/ui/gradient-button";
 import profileImage from "@/components/avatar/3d_profile.png";
-
-interface HeroSectionProps {
-  npcInput: string;
-  setNpcInput: (value: string) => void;
-  npcResponse: string;
-  isNpcLoading: boolean;
-  handleNpcSubmit: (e: React.FormEvent) => void;
-}
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -44,13 +33,7 @@ const itemVariants = {
   },
 };
 
-export default function HeroSection({
-  npcInput,
-  setNpcInput,
-  npcResponse,
-  isNpcLoading,
-  handleNpcSubmit,
-}: HeroSectionProps) {
+export default function HeroSection() {
   const [typedSubtitle, setTypedSubtitle] = useState('');
   const fullSubtitle = "Frontend Software Developer.";
   
@@ -86,7 +69,7 @@ export default function HeroSection({
           <span className="inline-block w-1 h-8 bg-primary animate-ping ml-1"></span>
         </h2>
         <p className="mt-6 text-lg max-w-2xl text-muted-foreground">
-          Welcome to my interactive portfolio. I am a passionate developer with over 4 years of experience building robust, user-focused web applications. Explore my world, ask questions, and get to know my work.
+          Welcome to my interactive portfolio. I am a passionate developer with over 4 years of experience building robust, user-focused web applications. Explore my world and get to know my work.
         </p>
         <motion.div variants={itemVariants} className="mt-8">
           <a href="/my_resume.pdf" download={"Rohit_Singh_Pal_Resume.pdf"} target="_blank" rel="noopener noreferrer">
@@ -107,27 +90,6 @@ export default function HeroSection({
           className="rounded-lg shadow-2xl shadow-primary/20 animate-float object-cover aspect-square"
           data-ai-hint="avatar man"
         />
-        <Card className={cn("w-full mt-4 animate-subtle-pulse rounded-[20px]", "glass-effect")}>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2"><Cpu size={20} className="text-primary" /> AI Assistant</CardTitle>
-            <CardDescription aria-live="polite">
-              <p>{isNpcLoading ? "Thinking..." : npcResponse}</p>
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleNpcSubmit} className="flex gap-2">
-              <Input
-                value={npcInput}
-                onChange={(e) => setNpcInput(e.target.value)}
-                placeholder="Type your question..."
-                disabled={isNpcLoading}
-              />
-              <GradientButton type="submit" size="icon" disabled={isNpcLoading}>
-                <Send size={18} />
-              </GradientButton>
-            </form>
-          </CardContent>
-        </Card>
       </motion.div>
     </motion.section>
   );

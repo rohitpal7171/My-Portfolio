@@ -50,7 +50,7 @@ export default function ExperienceSection({ experience }: ExperienceSectionProps
       <div className="relative pl-6">
         <div className="absolute left-[31px] -translate-x-1/2 top-0 h-full w-0.5 bg-primary/20"></div>
         {experience.map((job, index) => (
-          <motion.div key={index} className="relative pl-8 pb-12" variants={itemVariants}>
+          <motion.div key={`${job.role}-${job.company}`} className="relative pl-8 pb-12" variants={itemVariants}>
             <div className="absolute left-0 top-0 ml-4">
               <div className="flex items-center justify-center h-12 w-12 rounded-full bg-background border-2 border-primary text-primary">
                 <job.icon />

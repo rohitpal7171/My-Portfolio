@@ -1,18 +1,12 @@
 import type {NextConfig} from 'next';
 
+const repoName = 'My-Portfolio';
 const isProd = process.env.NODE_ENV === 'production';
-const repoName = process.env.GITHUB_REPOSITORY ? process.env.GITHUB_REPOSITORY.split('/')[1] : '';
 
 const nextConfig: NextConfig = {
-  // Configure Next.js to generate a static site
   output: 'export',
-  
-  // Set the base path for GitHub Pages
   basePath: isProd ? `/${repoName}` : '',
-  
-  // Set the asset prefix for GitHub Pages
   assetPrefix: isProd ? `/${repoName}/` : '',
-
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -20,8 +14,7 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    // Un-optimize images for static export
-    unoptimized: true, 
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',

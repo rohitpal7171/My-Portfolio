@@ -10,7 +10,6 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { GradientButton } from "@/components/ui/gradient-button";
 import profileImage from "@/components/avatar/3d_profile.png";
-import resumePdf from "../../components/resume/my_resume.pdf";
 
 interface HeroSectionProps {
   npcInput: string;
@@ -90,7 +89,7 @@ export default function HeroSection({
           Welcome to my interactive portfolio. I am a passionate developer with over 4 years of experience building robust, user-focused web applications. Explore my world, ask questions, and get to know my work.
         </p>
         <motion.div variants={itemVariants} className="mt-8">
-          <a href={resumePdf} download="Resume.pdf">
+          <a href="/my_resume.pdf" download="Rohit_Singh_Pal_Resume.pdf">
             <GradientButton>
                 <Download size={18} />
                 Download Resume

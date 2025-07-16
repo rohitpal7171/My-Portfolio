@@ -8,8 +8,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { GradientButton } from "@/components/ui/gradient-button";
-import { generateResumePdf } from "@/utils/generate-resume-pdf";
-import { experience, skills, education, projects } from "@/data/portfolio-data";
 import profileImage from "@/components/avatar/3d_profile.png";
 
 interface HeroSectionProps {
@@ -72,10 +70,6 @@ export default function HeroSection({
     return () => clearInterval(interval);
   }, []);
 
-  const handleDownloadResume = () => {
-    generateResumePdf({ skills, experience, education, projects });
-  };
-
   return (
     <motion.section
       id="hero"
@@ -94,10 +88,12 @@ export default function HeroSection({
           Welcome to my interactive portfolio. I am a passionate developer with over 4 years of experience building robust, user-focused web applications. Explore my world, ask questions, and get to know my work.
         </p>
         <motion.div variants={itemVariants} className="mt-8">
-            <GradientButton onClick={handleDownloadResume}>
+          <a href="/Rohit_Singh_Pal_Resume.pdf" download="Rohit_Singh_Pal_Resume.pdf">
+            <GradientButton>
                 <Download size={18} />
                 Download Resume
             </GradientButton>
+          </a>
         </motion.div>
       </motion.div>
       <motion.div variants={itemVariants} className="flex-shrink-0 flex flex-col items-center justify-center p-4 rounded-lg">

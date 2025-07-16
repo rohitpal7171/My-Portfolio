@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Cpu, Send } from "lucide-react";
+import { Cpu, Send, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
@@ -51,8 +51,8 @@ export default function HeroSection({
   isNpcLoading,
   handleNpcSubmit,
 }: HeroSectionProps) {
-  const fullSubtitle = "Frontend Software Developer.";
   const [typedSubtitle, setTypedSubtitle] = useState('');
+  const fullSubtitle = "Frontend Software Developer.";
   
   useEffect(() => {
     // Start with the first character already in place to avoid race conditions
@@ -70,7 +70,7 @@ export default function HeroSection({
 
     return () => clearInterval(interval);
     // The effect runs only once after the initial render.
-  }, []);
+  }, [fullSubtitle]);
 
   return (
     <motion.section
@@ -83,15 +83,20 @@ export default function HeroSection({
       <motion.div variants={itemVariants}>
         <h1 className="font-headline text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-pink-500 to-cyan-500 bg-clip-text text-transparent">Rohit Singh Pal</h1>
         <h2 className="text-2xl md:text-3xl font-semibold text-foreground/80 mt-2 min-h-[40px]">
-          {/* Display the typed subtitle with a blinking cursor */}
           {typedSubtitle}
           <span className="inline-block w-1 h-8 bg-primary animate-ping ml-1"></span>
         </h2>
         <p className="mt-6 text-lg max-w-2xl text-muted-foreground">
-          {/* Introduction text */}
-
           Welcome to my interactive portfolio. I am a passionate developer with over 4 years of experience building robust, user-focused web applications. Explore my world, ask questions, and get to know my work.
         </p>
+        <motion.div variants={itemVariants} className="mt-8">
+            <a href="/Rohit_Singh_Pal_Resume.pdf" download>
+                <GradientButton>
+                    <Download size={18} />
+                    Download Resume
+                </GradientButton>
+            </a>
+        </motion.div>
       </motion.div>
       <motion.div variants={itemVariants} className="flex-shrink-0 flex flex-col items-center justify-center p-4 rounded-lg">
         <Image
@@ -103,20 +108,15 @@ export default function HeroSection({
           className="rounded-lg shadow-2xl shadow-primary/20 animate-float object-cover aspect-square"
           data-ai-hint="avatar man"
         />
-        {/* AI Assistant Card */}
         <Card className={cn("w-full mt-4 animate-subtle-pulse rounded-[20px]", "glass-effect")}>
           <CardHeader>
-            {/* AI Assistant Title and Description */}
             <CardTitle className="flex items-center gap-2"><Cpu size={20} className="text-primary" /> AI Assistant</CardTitle>
             <CardDescription>
               <p>{isNpcLoading ? "Thinking..." : npcResponse}</p>
             </CardDescription>
           </CardHeader>
           <CardContent>
-            {/* AI Assistant Input Form */}
             <form onSubmit={handleNpcSubmit} className="flex gap-2">
-              {/* Input field for user's question */}
-
               <Input
                 value={npcInput}
                 onChange={(e) => setNpcInput(e.target.value)}

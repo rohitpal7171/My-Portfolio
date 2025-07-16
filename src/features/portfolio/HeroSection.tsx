@@ -34,7 +34,7 @@ const itemVariants = {
 };
 
 interface HeroSectionProps {
-  handleNpcSubmit: (prompt: string) => void;
+  handleNpcSubmit: (formData: FormData) => void;
   isNpcLoading: boolean;
   displayedNpcResponse: string;
 }

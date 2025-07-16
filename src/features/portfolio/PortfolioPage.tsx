@@ -22,7 +22,8 @@ export default function PortfolioPage() {
   const { toast } = useToast();
   const displayedNpcResponse = useTypewriter(npcResponse);
 
-  const handleNpcSubmit = async (prompt: string) => {
+  const handleNpcSubmit = async (formData: FormData) => {
+    const prompt = formData.get("prompt") as string;
     if (!prompt.trim()) return;
 
     setIsNpcLoading(true);
@@ -30,7 +31,7 @@ export default function PortfolioPage() {
     let accumulatedResponse = "";
 
     try {
-      const stream = await askNpc(prompt);
+      const stream = await askNpc(formData);
       for await (const chunk of stream) {
         accumulatedResponse += chunk;
         setNpcResponse(accumulatedResponse);

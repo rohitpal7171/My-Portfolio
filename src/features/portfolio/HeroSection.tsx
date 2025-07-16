@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { GradientButton } from "@/components/ui/gradient-button";
+import profileImage from "@/components/avatar/3d_profile.png";
 
 interface HeroSectionProps {
   npcInput: string;
@@ -98,7 +99,7 @@ export default function HeroSection({
       </motion.div>
       <motion.div variants={itemVariants} className="flex-shrink-0 flex flex-col items-center justify-center p-4 rounded-lg">
         <Image
-          src="https://placehold.co/400x400.png"
+          src={profileImage}
           alt="3D avatar of Rohit Singh Pal, a frontend software developer"
           width={400}
           height={400}

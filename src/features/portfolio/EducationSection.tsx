@@ -3,7 +3,7 @@
 import { GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import type { EducationItem } from "@/data/portfolio-data";
+import type { EducationItem } from "@/data/portfolio-data.tsx";
 
 interface EducationSectionProps {
   education: EducationItem[];

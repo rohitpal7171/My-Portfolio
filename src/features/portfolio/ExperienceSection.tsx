@@ -4,7 +4,7 @@ import { Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import type { Experience } from "@/data/portfolio-data";
+import type { Experience } from "@/data/portfolio-data.tsx";
 
 interface ExperienceSectionProps {
   experience: Experience[];

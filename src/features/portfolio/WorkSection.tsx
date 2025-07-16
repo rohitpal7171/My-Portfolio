@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import type { Project } from "@/data/portfolio-data";
+import type { Project } from "@/data/portfolio-data.tsx";
 import { Briefcase } from "lucide-react";
 
 interface WorkSectionProps {

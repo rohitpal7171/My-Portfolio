@@ -4,18 +4,7 @@ import { Dna } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import type { LucideIcon } from "lucide-react";
-
-interface Skill {
-  name: string;
-  icon: LucideIcon;
-}
-
-interface SkillCategory {
-  category: string;
-  icon: LucideIcon;
-  list: Skill[];
-}
+import type { SkillCategory } from "@/data/portfolio-data.tsx";
 
 interface SkillsSectionProps {
   skills: SkillCategory[];

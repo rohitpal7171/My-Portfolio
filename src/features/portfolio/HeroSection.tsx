@@ -68,8 +68,7 @@ export default function HeroSection({
     }, 100);
 
     return () => clearInterval(interval);
-    // The effect runs only once after the initial render.
-  }, [fullSubtitle]);
+  }, []); // Added empty dependency array to fix the error
 
   return (
     <motion.section
@@ -110,7 +109,7 @@ export default function HeroSection({
         <Card className={cn("w-full mt-4 animate-subtle-pulse rounded-[20px]", "glass-effect")}>
           <CardHeader>
             <CardTitle className="flex items-center gap-2"><Cpu size={20} className="text-primary" /> AI Assistant</CardTitle>
-            <CardDescription>
+            <CardDescription aria-live="polite">
               <p>{isNpcLoading ? "Thinking..." : npcResponse}</p>
             </CardDescription>
           </CardHeader>

@@ -1,8 +1,8 @@
 
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import { useFormState, useFormStatus } from 'react-dom';
+import { useRef, useEffect, useState, useActionState } from "react";
+import { useFormStatus } from 'react-dom';
 import { Bot, Send, Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -27,7 +27,7 @@ function SubmitButton() {
 
 
 export default function AiAssistant() {
-  const [state, formAction] = useFormState(askNpc, initialState);
+  const [state, formAction] = useActionState(askNpc, initialState);
   const { pending } = useFormStatus();
   const formRef = useRef<HTMLFormElement>(null);
   const [finalResponse, setFinalResponse] = useState<string | null>(null);

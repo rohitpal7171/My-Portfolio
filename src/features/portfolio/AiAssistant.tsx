@@ -36,12 +36,18 @@ export default function AiAssistant({
         </div>
 
         <div className="bg-muted/50 p-4 rounded-lg min-h-[100px] mb-4 text-foreground/90 font-mono">
-          {isNpcLoading && !displayedNpcResponse && <Loader2 className="animate-spin" />}
-          {displayedNpcResponse
-            ? displayedNpcResponse
-            : "Ask me anything about Rohit's skills or experience!"}
-          {isNpcLoading && (
-            <span className="inline-block w-2 h-4 bg-primary animate-ping ml-1"></span>
+          {isNpcLoading && !displayedNpcResponse ? (
+            <div className="flex items-center gap-2">
+              <Loader2 className="animate-spin h-5 w-5" />
+              <span>Thinking...</span>
+            </div>
+          ) : displayedNpcResponse ? (
+            <>
+              {displayedNpcResponse}
+              {isNpcLoading && <span className="inline-block w-2 h-4 bg-primary animate-ping ml-1"></span>}
+            </>
+          ) : (
+            "Ask me anything about Rohit's skills or experience!"
           )}
         </div>
 

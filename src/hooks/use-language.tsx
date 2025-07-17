@@ -7,8 +7,20 @@ import es from '@/locales/es.json';
 import fr from '@/locales/fr.json';
 import de from '@/locales/de.json';
 import hi from '@/locales/hi.json';
+import it from '@/locales/it.json';
+import pt from '@/locales/pt.json';
+import ja from '@/locales/ja.json';
 
-const translations: Record<string, any> = { English: en, Spanish: es, French: fr, German: de, Hindi: hi };
+const translations: Record<string, any> = { 
+  English: en, 
+  Spanish: es, 
+  French: fr, 
+  German: de, 
+  Hindi: hi,
+  Italian: it,
+  Portuguese: pt,
+  Japanese: ja
+};
 
 interface LanguageContextType {
   language: string;

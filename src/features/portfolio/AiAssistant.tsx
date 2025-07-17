@@ -71,6 +71,9 @@ export default function AiAssistant({ language, setLanguage }: AiAssistantProps)
     { value: "French", label: "Français" },
     { value: "German", label: "Deutsch" },
     { value: "Hindi", label: "हिन्दी" },
+    { value: "Italian", label: "Italiano" },
+    { value: "Portuguese", label: "Português" },
+    { value: "Japanese", label: "日本語" },
   ];
 
   return (

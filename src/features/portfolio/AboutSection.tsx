@@ -4,7 +4,7 @@
 import { User } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { experience } from "@/data/portfolio-data";
+import { useLanguage } from "@/hooks/use-language";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -29,8 +29,8 @@ const getYearsOfExperience = () => {
   return years;
 }
 
-
 export default function AboutSection() {
+  const { t } = useLanguage();
   const yearsOfExperience = getYearsOfExperience();
 
   return (
@@ -43,9 +43,11 @@ export default function AboutSection() {
       variants={sectionVariants}
     >
       <div className={cn("p-8 rounded-[20px]", "glass-effect")}>
-        <h2 className="text-3xl font-headline font-bold mb-4 text-center"><User className="inline-block mr-2 h-7 w-7 text-primary" /> About Me</h2>
+        <h2 className="text-3xl font-headline font-bold mb-4 text-center">
+          <User className="inline-block mr-2 h-7 w-7 text-primary" /> {t('about.title')}
+        </h2>
         <p className="text-lg text-muted-foreground text-justify">
-          I’m a passionate and innovative Frontend Developer with over {yearsOfExperience} years of experience crafting modern, high-performance web applications. I specialize in React.js, Redux, and cutting-edge frontend ecosystems, building clean, scalable, and user-centric interfaces that power enterprise-grade products.  With a strong grasp of design systems, responsive UI/UX, and state-of-the-art tools like Tailwind CSS, GraphQL, and REST APIs, I thrive in fast-paced environments where technology meets creativity. In this new era of AI-driven development, I constantly adapt, automate, and optimize workflows to stay ahead of the curve—delivering solutions that are not just functional, but future-ready.
+          {t('about.description', { years: yearsOfExperience })}
         </p>
       </div>
     </motion.section>

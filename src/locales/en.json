@@ -1,0 +1,43 @@
+
+{
+  "header": {
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "education": "Education"
+  },
+  "hero": {
+    "name": "Rohit Singh Pal",
+    "subtitle": "Frontend Software Developer.",
+    "description": "Welcome to my interactive portfolio. I am a passionate developer with over {{years}} years of experience building robust, user-focused web applications. Explore my world and get to know my work.",
+    "downloadResume": "Download Resume"
+  },
+  "aiAssistant": {
+    "title": "Ask my AI Assistant",
+    "thinking": "Thinking...",
+    "placeholder": "Ask me anything about Rohit's skills or experience!",
+    "inputPlaceholder": "e.g., 'What are his top skills?'"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "I’m a passionate and innovative Frontend Developer with over {{years}} years of experience crafting modern, high-performance web applications. I specialize in React.js, Redux, and cutting-edge frontend ecosystems, building clean, scalable, and user-centric interfaces that power enterprise-grade products. With a strong grasp of design systems, responsive UI/UX, and state-of-the-art tools like Tailwind CSS, GraphQL, and REST APIs, I thrive in fast-paced environments where technology meets creativity. In this new era of AI-driven development, I constantly adapt, automate, and optimize workflows to stay ahead of the curve—delivering solutions that are not just functional, but future-ready."
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "current": "Current"
+  },
+  "work": {
+    "title": "Highlighted Projects"
+  },
+  "skills": {
+    "title": "Skills & Technologies"
+  },
+  "education": {
+    "title": "Education"
+  },
+  "contact": {
+    "title": "Let's Connect",
+    "copyright": "© {{year}} Rohit Singh Pal. All rights reserved."
+  }
+}

@@ -1,9 +1,11 @@
+
 "use client";
 
 import { GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import type { EducationItem } from "@/data/portfolio-data.tsx";
+import { useLanguage } from "@/hooks/use-language";
 
 interface EducationSectionProps {
   education: EducationItem[];
@@ -35,6 +37,7 @@ const itemVariants = {
 };
 
 export default function EducationSection({ education }: EducationSectionProps) {
+  const { t } = useLanguage();
   return (
     <motion.section
       id="education"
@@ -46,7 +49,7 @@ export default function EducationSection({ education }: EducationSectionProps) {
     >
       <h2 className="text-3xl font-headline font-bold mb-8 text-center">
         <GraduationCap className="inline-block mr-2 h-7 w-7 text-primary" />
-        Education
+        {t('education.title')}
       </h2>
       <div className={cn("p-8 rounded-[20px] space-y-4", "glass-effect")}>
         {education.map((item, index) => (

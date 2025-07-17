@@ -12,6 +12,7 @@ import { askNpc } from "@/app/actions";
 import { useTypewriter } from "@/hooks/use-typewriter";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useLanguage } from "@/hooks/use-language";
 
 
 interface FormState {
@@ -35,13 +36,17 @@ function SubmitButton() {
   );
 }
 
+interface AiAssistantProps {
+    language: string;
+    setLanguage: (language: string) => void;
+}
 
-export default function AiAssistant() {
+export default function AiAssistant({ language, setLanguage }: AiAssistantProps) {
+  const { t } = useLanguage();
   const [state, formAction] = useActionState<FormState, FormData>(askNpc, initialState);
   const { pending } = useFormStatus();
   const formRef = useRef<HTMLFormElement>(null);
   const [finalResponse, setFinalResponse] = useState<string | null>(null);
-  const [language, setLanguage] = useState("English");
 
   const displayedNpcResponse = useTypewriter(finalResponse ?? "");
 
@@ -74,7 +79,7 @@ export default function AiAssistant() {
         <div className="flex items-center justify-between gap-3 mb-4">
           <div className="flex items-center gap-3">
             <Bot className="h-8 w-8 text-primary" />
-            <p className="font-semibold text-lg">Ask my AI Assistant</p>
+            <p className="font-semibold text-lg">{t('aiAssistant.title')}</p>
           </div>
           <Select value={language} onValueChange={setLanguage}>
             <SelectTrigger className="w-[120px] h-8 text-xs">
@@ -93,7 +98,7 @@ export default function AiAssistant() {
           {pending && !displayedNpcResponse ? (
             <div className="flex items-center gap-2">
               <Loader2 className="animate-spin h-5 w-5" />
-              <span>Thinking...</span>
+              <span>{t('aiAssistant.thinking')}</span>
             </div>
           ) : displayedNpcResponse ? (
             <>
@@ -101,7 +106,7 @@ export default function AiAssistant() {
               {!pending && displayedNpcResponse === finalResponse && <span className="inline-block w-2 h-4 bg-primary animate-pulse ml-1 align-middle"></span>}
             </>
           ) : (
-             "Ask me anything about Rohit's skills or experience!"
+             t('aiAssistant.placeholder')
           )}
         </div>
 
@@ -116,7 +121,7 @@ export default function AiAssistant() {
         >
           <Input
             name="prompt"
-            placeholder="e.g., 'What are his top skills?'"
+            placeholder={t('aiAssistant.inputPlaceholder')}
             disabled={pending}
             className="text-base"
             required

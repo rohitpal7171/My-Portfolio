@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Dna } from "lucide-react";
@@ -5,6 +6,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import type { SkillCategory } from "@/data/portfolio-data.tsx";
+import { useLanguage } from "@/hooks/use-language";
 
 interface SkillsSectionProps {
   skills: SkillCategory[];
@@ -36,6 +38,7 @@ const itemVariants = {
 };
 
 export default function SkillsSection({ skills }: SkillsSectionProps) {
+  const { t } = useLanguage();
   return (
     <motion.section
       id="skills"
@@ -45,7 +48,10 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
       viewport={{ once: true, amount: 0.2 }}
       variants={sectionVariants}
     >
-      <h2 className="text-3xl font-headline font-bold mb-12 text-center"><Dna className="inline-block mr-2 h-7 w-7 text-primary" />Skills & Technologies</h2>
+      <h2 className="text-3xl font-headline font-bold mb-12 text-center">
+        <Dna className="inline-block mr-2 h-7 w-7 text-primary" />
+        {t('skills.title')}
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {skills.map((skillCategory) => (
           <motion.div key={skillCategory.category} variants={itemVariants}>

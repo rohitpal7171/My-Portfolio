@@ -1,0 +1,43 @@
+
+{
+  "header": {
+    "about": "Sobre mí",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "skills": "Habilidades",
+    "education": "Educación"
+  },
+  "hero": {
+    "name": "Rohit Singh Pal",
+    "subtitle": "Desarrollador de Software Frontend.",
+    "description": "Bienvenido a mi portafolio interactivo. Soy un desarrollador apasionado con más de {{years}} años de experiencia construyendo aplicaciones web robustas y centradas en el usuario. Explora mi mundo y conoce mi trabajo.",
+    "downloadResume": "Descargar CV"
+  },
+  "aiAssistant": {
+    "title": "Pregúntale a mi Asistente IA",
+    "thinking": "Pensando...",
+    "placeholder": "¡Pregúntame cualquier cosa sobre las habilidades o experiencia de Rohit!",
+    "inputPlaceholder": "p.ej., '¿Cuáles son sus mejores habilidades?'"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "description": "Soy un Desarrollador Frontend apasionado e innovador con más de {{years}} años de experiencia creando aplicaciones web modernas y de alto rendimiento. Me especializo en React.js, Redux y ecosistemas frontend de vanguardia, construyendo interfaces limpias, escalables y centradas en el usuario que impulsan productos de nivel empresarial. Con un sólido conocimiento de sistemas de diseño, UI/UX responsivo y herramientas de última generación como Tailwind CSS, GraphQL y APIs REST, prospero en entornos de ritmo rápido donde la tecnología se encuentra con la creatividad. En esta nueva era de desarrollo impulsado por IA, me adapto, automatizo y optimizo constantemente los flujos de trabajo para mantenerme a la vanguardia, ofreciendo soluciones que no solo son funcionales, sino que están preparadas para el futuro."
+  },
+  "experience": {
+    "title": "Experiencia Profesional",
+    "current": "Actual"
+  },
+  "work": {
+    "title": "Proyectos Destacados"
+  },
+  "skills": {
+    "title": "Habilidades y Tecnologías"
+  },
+  "education": {
+    "title": "Educación"
+  },
+  "contact": {
+    "title": "Conectemos",
+    "copyright": "© {{year}} Rohit Singh Pal. Todos los derechos reservados."
+  }
+}

@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Briefcase } from "lucide-react";
@@ -5,6 +6,7 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import type { Experience } from "@/data/portfolio-data.tsx";
+import { useLanguage } from "@/hooks/use-language";
 
 interface ExperienceSectionProps {
   experience: Experience[];
@@ -35,8 +37,8 @@ const itemVariants = {
   },
 };
 
-
 export default function ExperienceSection({ experience }: ExperienceSectionProps) {
+  const { t } = useLanguage();
   return (
     <motion.section
       id="experience"
@@ -46,7 +48,10 @@ export default function ExperienceSection({ experience }: ExperienceSectionProps
       viewport={{ once: true, amount: 0.2 }}
       variants={sectionVariants}
     >
-      <h2 className="text-3xl font-headline font-bold mb-12 text-center"><Briefcase className="inline-block mr-2 h-7 w-7 text-primary" />Professional Experience</h2>
+      <h2 className="text-3xl font-headline font-bold mb-12 text-center">
+        <Briefcase className="inline-block mr-2 h-7 w-7 text-primary" />
+        {t('experience.title')}
+      </h2>
       <div className="relative pl-6">
         <div className="absolute left-[31px] -translate-x-1/2 top-0 h-full w-0.5 bg-primary/20"></div>
         {experience.map((job, index) => (
@@ -61,7 +66,9 @@ export default function ExperienceSection({ experience }: ExperienceSectionProps
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-2">
                 <h3 className="text-xl font-bold text-primary">{job.role}</h3>
                 {job.isCurrent && (
-                  <Badge variant="outline" className="border-accent bg-accent/20 text-foreground dark:text-foreground">Current</Badge>
+                  <Badge variant="outline" className="border-accent bg-accent/20 text-foreground dark:text-foreground">
+                    {t('experience.current')}
+                  </Badge>
                 )}
               </div>
               <div className="text-sm text-muted-foreground mb-3">

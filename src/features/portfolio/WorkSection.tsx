@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -5,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import type { Project } from "@/data/portfolio-data.tsx";
 import { Briefcase } from "lucide-react";
+import { useLanguage } from "@/hooks/use-language";
 
 interface WorkSectionProps {
   projects: Project[];
@@ -35,8 +37,8 @@ const itemVariants = {
   },
 };
 
-
 export default function WorkSection({ projects }: WorkSectionProps) {
+  const { t } = useLanguage();
   return (
     <motion.section
       id="work"
@@ -46,7 +48,10 @@ export default function WorkSection({ projects }: WorkSectionProps) {
       viewport={{ once: true, amount: 0.2 }}
       variants={sectionVariants}
     >
-      <h2 className="text-3xl font-headline font-bold mb-12 text-center"><Briefcase className="inline-block mr-2 h-7 w-7 text-primary" />Highlighted Projects</h2>
+      <h2 className="text-3xl font-headline font-bold mb-12 text-center">
+        <Briefcase className="inline-block mr-2 h-7 w-7 text-primary" />
+        {t('work.title')}
+      </h2>
       <div className="relative pl-6">
         <div className="absolute left-[31px] -translate-x-1/2 top-0 h-full w-0.5 bg-primary/20"></div>
         {projects.map((project, index) => (

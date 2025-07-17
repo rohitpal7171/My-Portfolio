@@ -1,3 +1,4 @@
+
 "use client";
 import { useState } from 'react';
 import { Code, Github, Linkedin, Menu, X } from 'lucide-react';
@@ -5,16 +6,18 @@ import Link from 'next/link';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/hooks/use-language';
 
 export default function Header() {
+  const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "#about", label: "About" },
-    { href: "#experience", label: "Experience" },
-    { href: "#work", label: "Projects" },
-    { href: "#skills", label: "Skills" },
-    { href: "#education", label: "Education" },
+    { href: "#about", label: t('header.about') },
+    { href: "#experience", label: t('header.experience') },
+    { href: "#work", label: t('header.projects') },
+    { href: "#skills", label: t('header.skills') },
+    { href: "#education", label: t('header.education') },
   ];
 
   const socialLinks = [

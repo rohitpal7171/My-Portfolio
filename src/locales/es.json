@@ -25,10 +25,50 @@
   },
   "experience": {
     "title": "Experiencia Profesional",
-    "current": "Actual"
+    "current": "Actual",
+    "mikelegal": {
+      "role": "Desarrollador de Software",
+      "desc1": "Liderando el desarrollo frontend en un equipo de tecnología legal de ritmo rápido.",
+      "desc2": "Construyendo componentes escalables y mantenibles usando ReactJS, Redux, TypeScript y JavaScript.",
+      "desc3": "Colaborando interfuncionalmente para mejorar las experiencias de usuario para clientes en el dominio legal."
+    },
+    "appointy": {
+      "role": "Desarrollador de Software",
+      "desc1": "Diseñé y desarrollé interfaces de usuario intuitivas para productos empresariales.",
+      "desc2": "Mantuve bases de código complejas, aseguré la optimización del rendimiento y me adherí a las mejores prácticas de la industria.",
+      "desc3": "Contribuí a una arquitectura frontend estable y modular utilizando React, Redux y herramientas modernas."
+    },
+    "appointyIntern": {
+      "role": "Pasante de Desarrollo Web",
+      "desc1": "Obtuve experiencia práctica solucionando problemas y errores del mundo real.",
+      "desc2": "Exploré tecnologías avanzadas como GraphQL y Relay mientras trabajaba en sistemas en vivo."
+    },
+    "fiz": {
+      "role": "Pasante de Desarrollo Web",
+      "desc1": "Colaboré con equipos de UI/UX y backend para entregar sitios web seguros y responsivos.",
+      "desc2": "Me centré en la compatibilidad entre navegadores, los estándares web y el rendimiento del frontend."
+    }
   },
   "work": {
-    "title": "Proyectos Destacados"
+    "title": "Proyectos Destacados",
+    "ipsuite": {
+      "title": "IPSuite – Plataforma de Inteligencia Legal Impulsada por IA",
+      "desc1": "Desarrollé y mantuve componentes de UI escalables usando React y Ant Design para una plataforma de tecnología legal centrada en la gestión de propiedad intelectual y marcas registradas.",
+      "desc2": "Integré APIs REST e implementé Redux para una gestión eficiente del estado y del flujo de datos.",
+      "desc3": "Entregué paneles de control legales intuitivos y funciones de automatización en colaboración con equipos interfuncionales."
+    },
+    "mattersuite": {
+      "title": "MatterSuite – Software de Gestión de Prácticas Legales",
+      "desc1": "Construí interfaces de usuario dinámicas y responsivas para módulos como seguimiento de casos, gestión de tareas y herramientas de colaboración usando React.js y Material UI.",
+      "desc2": "Usé Relay y GraphQL para obtener y gestionar datos de manera eficiente con un rendimiento optimizado.",
+      "desc3": "Aseguré una experiencia de usuario consistente trabajando en estrecha colaboración con los equipos de diseño y backend."
+    },
+    "casefox": {
+      "title": "CaseFox – SaaS de Facturación Legal y Gestión de Casos",
+      "desc1": "Diseñé e implementé toda la arquitectura frontend para una plataforma de facturación legal desde cero usando React.js y Material UI.",
+      "desc2": "Desarrollé interfaces responsivas para la gestión de casos, facturación, seguimiento del tiempo y módulos de clientes.",
+      "desc3": "Integré Redux y APIs REST para garantizar una interacción de datos fluida y una experiencia de usuario sin problemas."
+    }
   },
   "skills": {
     "title": "Habilidades y Tecnologías"

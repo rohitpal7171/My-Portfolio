@@ -25,10 +25,50 @@
   },
   "experience": {
     "title": "Berufserfahrung",
-    "current": "Aktuell"
+    "current": "Aktuell",
+    "mikelegal": {
+      "role": "Softwareentwickler",
+      "desc1": "Federführend bei der Frontend-Entwicklung in einem schnelllebigen Legal-Tech-Team.",
+      "desc2": "Erstellung skalierbarer, wartbarer Komponenten mit ReactJS, Redux, TypeScript und JavaScript.",
+      "desc3": "Funktionsübergreifende Zusammenarbeit zur Verbesserung der Benutzererfahrungen für Kunden im Rechtsbereich."
+    },
+    "appointy": {
+      "role": "Softwareentwickler",
+      "desc1": "Entwurf und Entwicklung intuitiver UIs für Unternehmensprodukte.",
+      "desc2": "Wartung komplexer Codebasen, Sicherstellung der Leistungsoptimierung und Einhaltung von Branchen-Best-Practices.",
+      "desc3": "Beitrag zu einer stabilen und modularen Frontend-Architektur unter Verwendung von React, Redux und modernen Tools."
+    },
+    "appointyIntern": {
+      "role": "Webentwicklungs-Praktikant",
+      "desc1": "Praktische Erfahrung bei der Behebung von realen Problemen und Fehlern gesammelt.",
+      "desc2": "Erforschung fortschrittlicher Technologien wie GraphQL und Relay bei der Arbeit an Live-Systemen."
+    },
+    "fiz": {
+      "role": "Webentwicklungs-Praktikant",
+      "desc1": "Zusammenarbeit mit UI/UX- und Backend-Teams zur Bereitstellung sicherer, responsiver Websites.",
+      "desc2": "Fokus auf Cross-Browser-Kompatibilität, Webstandards und Frontend-Performance."
+    }
   },
   "work": {
-    "title": "Hervorgehobene Projekte"
+    "title": "Hervorgehobene Projekte",
+    "ipsuite": {
+      "title": "IPSuite – KI-gestützte juristische Intelligenzplattform",
+      "desc1": "Entwicklung und Wartung skalierbarer UI-Komponenten mit React und Ant Design für eine Legal-Tech-Plattform, die sich auf IP- und Markenmanagement konzentriert.",
+      "desc2": "Integration von REST-APIs und Implementierung von Redux für ein effizientes Zustandsmanagement und Datenfluss.",
+      "desc3": "Bereitstellung intuitiver juristischer Dashboards und Automatisierungsfunktionen in Zusammenarbeit mit funktionsübergreifenden Teams."
+    },
+    "mattersuite": {
+      "title": "MatterSuite – Kanzleimanagement-Software",
+      "desc1": "Erstellung dynamischer und responsiver UIs für Module wie Fallverfolgung, Aufgabenmanagement und Kollaborationstools mit React.js und Material UI.",
+      "desc2": "Verwendung von Relay und GraphQL zum effizienten Abrufen und Verwalten von Daten mit optimierter Leistung.",
+      "desc3": "Gewährleistung einer konsistenten Benutzererfahrung durch enge Zusammenarbeit mit den Design- und Backend-Teams."
+    },
+    "casefox": {
+      "title": "CaseFox – SaaS für juristische Abrechnung und Fallmanagement",
+      "desc1": "Entwurf und Implementierung der gesamten Frontend-Architektur für eine juristische Abrechnungsplattform von Grund auf mit React.js und Material UI.",
+      "desc2": "Entwicklung responsiver Schnittstellen für Fallmanagement, Abrechnung, Zeiterfassung und Kundenmodule.",
+      "desc3": "Integration von Redux und REST-APIs zur Gewährleistung einer nahtlosen Dateninteraktion und einer reibungslosen Benutzererfahrung."
+    }
   },
   "skills": {
     "title": "Fähigkeiten & Technologien"

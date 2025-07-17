@@ -33,17 +33,7 @@ const itemVariants = {
   },
 };
 
-interface HeroSectionProps {
-  handleNpcSubmit: (formData: FormData) => void;
-  isNpcLoading: boolean;
-  displayedNpcResponse: string;
-}
-
-export default function HeroSection({
-  handleNpcSubmit,
-  isNpcLoading,
-  displayedNpcResponse,
-}: HeroSectionProps) {
+export default function HeroSection() {
   const [typedSubtitle, setTypedSubtitle] = useState('');
   const fullSubtitle = "Frontend Software Developer.";
   
@@ -103,11 +93,7 @@ export default function HeroSection({
           className="rounded-lg shadow-2xl shadow-primary/20 animate-float object-cover aspect-square"
           data-ai-hint="avatar man"
         />
-        <AiAssistant
-          handleNpcSubmit={handleNpcSubmit}
-          isNpcLoading={isNpcLoading}
-          displayedNpcResponse={displayedNpcResponse}
-        />
+        <AiAssistant />
       </motion.div>
     </motion.section>
   );

@@ -1,0 +1,83 @@
+
+{
+  "header": {
+    "about": "Sobre mim",
+    "experience": "Experiência",
+    "projects": "Projetos",
+    "skills": "Habilidades",
+    "education": "Educação"
+  },
+  "hero": {
+    "name": "Rohit Singh Pal",
+    "subtitle": "Desenvolvedor de Software Frontend.",
+    "description": "Bem-vindo ao meu portfólio interativo. Sou um desenvolvedor apaixonado com mais de {{years}} anos de experiência na construção de aplicações web robustas e focadas no usuário. Explore meu mundo e conheça meu trabalho.",
+    "downloadResume": "Baixar Currículo"
+  },
+  "aiAssistant": {
+    "title": "Pergunte ao meu Assistente de IA",
+    "thinking": "Pensando...",
+    "placeholder": "Pergunte-me qualquer coisa sobre as habilidades ou experiência de Rohit!",
+    "inputPlaceholder": "ex: 'Quais são suas principais habilidades?'"
+  },
+  "about": {
+    "title": "Sobre Mim",
+    "description": "Sou um Desenvolvedor Frontend apaixonado e inovador com mais de {{years}} anos de experiência na criação de aplicações web modernas e de alto desempenho. Especializo-me em React.js, Redux e ecossistemas frontend de ponta, construindo interfaces limpas, escaláveis e centradas no usuário que alimentam produtos de nível empresarial. Com um forte domínio de sistemas de design, UI/UX responsivo e ferramentas de última geração como Tailwind CSS, GraphQL e APIs REST, prospero em ambientes de ritmo acelerado onde a tecnologia encontra a criatividade. Nesta nova era de desenvolvimento impulsionado por IA, eu constantemente adapto, automatizo e otimizo fluxos de trabalho para me manter à frente da curva - entregando soluções que não são apenas funcionais, mas prontas para o futuro."
+  },
+  "experience": {
+    "title": "Experiência Profissional",
+    "current": "Atual",
+    "mikelegal": {
+      "role": "Desenvolvedor de Software",
+      "desc1": "Liderando o desenvolvimento frontend em uma equipe de tecnologia jurídica de ritmo acelerado.",
+      "desc2": "Construindo componentes escaláveis e de fácil manutenção usando ReactJS, Redux, TypeScript e JavaScript.",
+      "desc3": "Colaborando de forma multifuncional para aprimorar as experiências do usuário para clientes no domínio jurídico."
+    },
+    "appointy": {
+      "role": "Desenvolvedor de Software",
+      "desc1": "Projetei e desenvolvi UIs intuitivas para produtos empresariais.",
+      "desc2": "Mantive bases de código complexas, garanti a otimização de desempenho e aderi às melhores práticas do setor.",
+      "desc3": "Contribuí para uma arquitetura frontend estável e modular usando React, Redux e ferramentas modernas."
+    },
+    "appointyIntern": {
+      "role": "Estagiário de Desenvolvimento Web",
+      "desc1": "Ganhei experiência prática consertando problemas e bugs do mundo real.",
+      "desc2": "Explorei tecnologias avançadas como GraphQL e Relay enquanto trabalhava em sistemas ao vivo."
+    },
+    "fiz": {
+      "role": "Estagiário de Desenvolvimento Web",
+      "desc1": "Colaborei com as equipes de UI/UX e backend para entregar sites seguros e responsivos.",
+      "desc2": "Focado na compatibilidade entre navegadores, padrões da web e desempenho de frontend."
+    }
+  },
+  "work": {
+    "title": "Projetos em Destaque",
+    "ipsuite": {
+      "title": "IPSuite – Plataforma de Inteligência Jurídica com IA",
+      "desc1": "Desenvolvi e mantive componentes de UI escaláveis usando React e Ant Design para uma plataforma de tecnologia jurídica focada em gerenciamento de PI e marcas registradas.",
+      "desc2": "Integrei APIs REST e implementei o Redux para gerenciamento eficiente de estado e fluxo de dados.",
+      "desc3": "Entreguei painéis jurídicos intuitivos e recursos de automação em colaboração com equipes multifuncionais."
+    },
+    "mattersuite": {
+      "title": "MatterSuite – Software de Gestão de Prática Jurídica",
+      "desc1": "Construí UIs dinâmicas e responsivas para módulos como rastreamento de processos, gerenciamento de tarefas e ferramentas de colaboração usando React.js e Material UI.",
+      "desc2": "Usei Relay e GraphQL para buscar e gerenciar dados de forma eficiente com desempenho otimizado.",
+      "desc3": "Garanti uma experiência de usuário consistente trabalhando em estreita colaboração com as equipes de design e backend."
+    },
+    "casefox": {
+      "title": "CaseFox – SaaS de Faturamento Jurídico e Gestão de Casos",
+      "desc1": "Projetei e implementei toda a arquitetura frontend para uma plataforma de faturamento jurídico do zero usando React.js e Material UI.",
+      "desc2": "Desenvolvi interfaces responsivas para gerenciamento de casos, faturamento, controle de tempo e módulos de clientes.",
+      "desc3": "Integrei Redux e APIs REST para garantir interação de dados contínua e uma experiência de usuário tranquila."
+    }
+  },
+  "skills": {
+    "title": "Habilidades e Tecnologias"
+  },
+  "education": {
+    "title": "Educação"
+  },
+  "contact": {
+    "title": "Vamos nos Conectar",
+    "copyright": "© {{year}} Rohit Singh Pal. Todos os direitos reservados."
+  }
+}

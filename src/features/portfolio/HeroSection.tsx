@@ -34,7 +34,7 @@ const itemVariants = {
 };
 
 const getYearsOfExperience = () => {
-  const startDate = new Date("2020-07-01"); // Start date of the first relevant job
+  const startDate = new Date("2021-06-01"); // Start date updated to June 2021
   const today = new Date();
   let years = today.getFullYear() - startDate.getFullYear();
   const m = today.getMonth() - startDate.getMonth();

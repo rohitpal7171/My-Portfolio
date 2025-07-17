@@ -1,15 +1,16 @@
 
 "use client";
 
-import { useRef, useEffect, useState, useActionState } from "react";
+import { useRef, useEffect, useState } from "react";
+import { useActionState } from 'react';
 import { useFormStatus } from 'react-dom';
 import { Bot, Send, Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { askNpc } from "@/app/actions";
 import { useTypewriter } from "@/hooks/use-typewriter";
+import { GradientButton } from "@/components/ui/gradient-button";
 
 interface FormState {
   response: string | null;
@@ -24,15 +25,17 @@ const initialState: FormState = {
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" size="icon" disabled={pending}>
-      {pending ? <Loader2 className="animate-spin" /> : <Send />}
-    </Button>
+    <GradientButton type="submit" disabled={pending} className="px-0.5 py-0.5 h-10 w-auto">
+      <span className="relative z-10 inline-flex items-center justify-center">
+        {pending ? <Loader2 className="animate-spin h-6 w-6" /> : <Send className="h-6 w-6" />}
+      </span>
+    </GradientButton>
   );
 }
 
 
 export default function AiAssistant() {
-  const [state, formAction] = useActionState(askNpc, initialState);
+  const [state, formAction] = useActionState<FormState, FormData>(askNpc, initialState);
   const { pending } = useFormStatus();
   const formRef = useRef<HTMLFormElement>(null);
   const [finalResponse, setFinalResponse] = useState<string | null>(null);

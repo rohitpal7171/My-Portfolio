@@ -25,7 +25,7 @@ const initialState: FormState = {
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <GradientButton type="submit" disabled={pending} className="px-3 py-2 h-10 w-auto">
+    <GradientButton type="submit" disabled={pending} className="px-0.5 py-0.5 h-10 w-auto">
       <span className="relative z-10 inline-flex items-center justify-center">
         {pending ? <Loader2 className="animate-spin h-6 w-6" /> : <Send className="h-6 w-6" />}
       </span>

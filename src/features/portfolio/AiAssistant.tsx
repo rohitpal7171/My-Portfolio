@@ -11,7 +11,12 @@ import { cn } from "@/lib/utils";
 import { askNpc } from "@/app/actions";
 import { useTypewriter } from "@/hooks/use-typewriter";
 
-const initialState = {
+interface FormState {
+  response: string | null;
+  error: string | null;
+}
+
+const initialState: FormState = {
   response: null,
   error: null,
 };
@@ -66,7 +71,7 @@ export default function AiAssistant() {
           ) : displayedNpcResponse ? (
             <>
               {displayedNpcResponse}
-              {pending && <span className="inline-block w-2 h-4 bg-primary animate-ping ml-1"></span>}
+              {!pending && displayedNpcResponse === finalResponse && <span className="inline-block w-2 h-4 bg-primary animate-pulse ml-1 align-middle"></span>}
             </>
           ) : (
              "Ask me anything about Rohit's skills or experience!"

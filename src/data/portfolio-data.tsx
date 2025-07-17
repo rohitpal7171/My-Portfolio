@@ -245,31 +245,31 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    titleKey: "projects.ipsuite.title",
+    titleKey: "work.ipsuite.title",
     descriptionKeys: [
-      "projects.ipsuite.desc1",
-      "projects.ipsuite.desc2",
-      "projects.ipsuite.desc3",
+      "work.ipsuite.desc1",
+      "work.ipsuite.desc2",
+      "work.ipsuite.desc3",
     ],
     tech: ["React.js", "Redux", "Ant Design", "REST APIs"],
     icon: Briefcase,
   },
   {
-    titleKey: "projects.mattersuite.title",
+    titleKey: "work.mattersuite.title",
     descriptionKeys: [
-      "projects.mattersuite.desc1",
-      "projects.mattersuite.desc2",
-      "projects.mattersuite.desc3",
+      "work.mattersuite.desc1",
+      "work.mattersuite.desc2",
+      "work.mattersuite.desc3",
     ],
     tech: ["React.js", "Material UI", "Relay", "GraphQL"],
     icon: Briefcase,
   },
   {
-    titleKey: "projects.casefox.title",
+    titleKey: "work.casefox.title",
     descriptionKeys: [
-      "projects.casefox.desc1",
-      "projects.casefox.desc2",
-      "projects.casefox.desc3",
+      "work.casefox.desc1",
+      "work.casefox.desc2",
+      "work.casefox.desc3",
     ],
     tech: ["React.js", "Material UI", "Redux", "REST APIs"],
     icon: Briefcase,

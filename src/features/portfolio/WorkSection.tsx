@@ -64,11 +64,11 @@ export default function WorkSection({ projects }: WorkSectionProps) {
 
             <div className={cn("p-6 rounded-[10px] ml-12", "glass-effect")}>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-2">
-                <h3 className="text-xl font-bold text-primary">{project.title}</h3>
+                <h3 className="text-xl font-bold text-primary">{t(project.titleKey)}</h3>
               </div>
               <ul className="list-disc pl-5 space-y-2 text-foreground/80 mb-4">
-                {project.description.map((point, i) => (
-                  <li key={i}>{point}</li>
+                {project.descriptionKeys.map((key) => (
+                  <li key={key}>{t(key)}</li>
                 ))}
               </ul>
               

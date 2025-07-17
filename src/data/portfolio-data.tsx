@@ -158,55 +158,55 @@ export interface Experience {
   period: string;
   location: string;
   isCurrent?: boolean;
-  description: string[];
+  descriptionKeys: string[];
   icon: LucideIcon;
 }
 
 export const experience: Experience[] = [
   {
-    role: "Software Developer",
+    role: "experience.mikelegal.role",
     company: "MikeLegal",
     period: "Jul 2023 – Present",
     location: "Remote (Gurugram, India)",
     isCurrent: true,
-    description: [
-      "Spearheading frontend development in a fast-paced legal-tech team.",
-      "Building scalable, maintainable components using ReactJS, Redux, TypeScript, and JavaScript.",
-      "Collaborating cross-functionally to enhance user experiences for clients in the legal domain.",
+    descriptionKeys: [
+      "experience.mikelegal.desc1",
+      "experience.mikelegal.desc2",
+      "experience.mikelegal.desc3",
     ],
     icon: Briefcase,
   },
   {
-    role: "Software Developer",
+    role: "experience.appointy.role",
     company: "Appointy India",
     period: "Jun 2021 – Jun 2023",
     location: "On-site (Bhopal, India)",
-    description: [
-      "Designed and developed intuitive UIs for enterprise products.",
-      "Maintained complex codebases, ensured performance optimization, and adhered to industry best practices.",
-      "Contributed to a stable and modular frontend architecture using React, Redux, and modern tooling.",
+    descriptionKeys: [
+      "experience.appointy.desc1",
+      "experience.appointy.desc2",
+      "experience.appointy.desc3",
     ],
     icon: Briefcase,
   },
   {
-    role: "Web Development Intern",
+    role: "experience.appointyIntern.role",
     company: "Appointy India",
     period: "Nov 2020 – Jun 2021",
     location: "Remote",
-    description: [
-      "Gained hands-on experience fixing real-world issues and bugs.",
-      "Explored advanced technologies like GraphQL and Relay while working on live systems.",
+    descriptionKeys: [
+      "experience.appointyIntern.desc1",
+      "experience.appointyIntern.desc2",
     ],
     icon: Briefcase,
   },
   {
-    role: "Web Development Intern",
+    role: "experience.fiz.role",
     company: "FIZ Robotic Solutions",
     period: "Jul 2019 – Nov 2020",
     location: "On-site (Gwalior, India)",
-    description: [
-      "Collaborated with UI/UX and backend teams to deliver secure, responsive websites.",
-      "Focused on cross-browser compatibility, web standards, and frontend performance.",
+    descriptionKeys: [
+      "experience.fiz.desc1",
+      "experience.fiz.desc2",
     ],
     icon: Briefcase,
   },
@@ -237,39 +237,39 @@ export const education: EducationItem[] = [
 ];
 
 export interface Project {
-  title: string;
-  description: string[];
+  titleKey: string;
+  descriptionKeys: string[];
   tech: string[];
   icon: LucideIcon;
 }
 
 export const projects: Project[] = [
   {
-    title: "IPSuite – AI-Powered Legal Intelligence Platform",
-    description: [
-      "Developed and maintained scalable UI components using React and Ant Design for a legal-tech platform focused on IP and trademark management.",
-      "Integrated REST APIs and implemented Redux for efficient state management and data flow.",
-      "Delivered intuitive legal dashboards and automation features in collaboration with cross-functional teams."
+    titleKey: "work.ipsuite.title",
+    descriptionKeys: [
+      "work.ipsuite.desc1",
+      "work.ipsuite.desc2",
+      "work.ipsuite.desc3",
     ],
     tech: ["React.js", "Redux", "Ant Design", "REST APIs"],
     icon: Briefcase,
   },
   {
-    title: "MatterSuite – Legal Practice Management Software",
-    description: [
-      "Built dynamic and responsive UIs for modules like matter tracking, task management, and collaboration tools using React.js and Material UI.",
-      "Used Relay and GraphQL to fetch and manage data efficiently with optimized performance.",
-      "Ensured a consistent user experience by closely working with design and backend teams."
+    titleKey: "work.mattersuite.title",
+    descriptionKeys: [
+      "work.mattersuite.desc1",
+      "work.mattersuite.desc2",
+      "work.mattersuite.desc3",
     ],
     tech: ["React.js", "Material UI", "Relay", "GraphQL"],
     icon: Briefcase,
   },
   {
-    title: "CaseFox – Legal Billing & Case Management SaaS",
-    description: [
-      "Designed and implemented the entire frontend architecture for a legal billing platform from scratch using React.js and Material UI.",
-      "Developed responsive interfaces for case management, billing, time tracking, and client modules.",
-      "Integrated Redux and REST APIs to ensure seamless data interaction and a smooth user experience."
+    titleKey: "work.casefox.title",
+    descriptionKeys: [
+      "work.casefox.desc1",
+      "work.casefox.desc2",
+      "work.casefox.desc3",
     ],
     tech: ["React.js", "Material UI", "Redux", "REST APIs"],
     icon: Briefcase,

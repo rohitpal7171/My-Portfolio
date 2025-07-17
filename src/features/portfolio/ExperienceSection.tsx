@@ -64,7 +64,7 @@ export default function ExperienceSection({ experience }: ExperienceSectionProps
 
             <div className={cn("p-6 rounded-[10px] ml-12", "glass-effect")}>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-2">
-                <h3 className="text-xl font-bold text-primary">{job.role}</h3>
+                <h3 className="text-xl font-bold text-primary">{t(job.role)}</h3>
                 {job.isCurrent && (
                   <Badge variant="outline" className="border-accent bg-accent/20 text-foreground dark:text-foreground">
                     {t('experience.current')}
@@ -75,8 +75,8 @@ export default function ExperienceSection({ experience }: ExperienceSectionProps
                 <span>{job.company}</span> &bull; <span>{job.period}</span> &bull; <span>{job.location}</span>
               </div>
               <ul className="list-disc pl-5 space-y-2 text-foreground/80">
-                {job.description.map((point, i) => (
-                  <li key={i}>{point}</li>
+                {job.descriptionKeys.map((key) => (
+                  <li key={key}>{t(key)}</li>
                 ))}
               </ul>
             </div>

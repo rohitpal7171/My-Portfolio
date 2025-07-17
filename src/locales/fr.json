@@ -25,10 +25,50 @@
   },
   "experience": {
     "title": "Expérience Professionnelle",
-    "current": "Actuel"
+    "current": "Actuel",
+    "mikelegal": {
+      "role": "Développeur de Logiciels",
+      "desc1": "Fer de lance du développement frontend dans une équipe de technologie juridique au rythme rapide.",
+      "desc2": "Création de composants évolutifs et maintenables avec ReactJS, Redux, TypeScript et JavaScript.",
+      "desc3": "Collaboration interfonctionnelle pour améliorer l'expérience utilisateur des clients du domaine juridique."
+    },
+    "appointy": {
+      "role": "Développeur de Logiciels",
+      "desc1": "Conception et développement d'interfaces utilisateur intuitives pour les produits d'entreprise.",
+      "desc2": "Maintenance de bases de code complexes, optimisation des performances et respect des meilleures pratiques de l'industrie.",
+      "desc3": "Contribution à une architecture frontend stable et modulaire utilisant React, Redux et des outils modernes."
+    },
+    "appointyIntern": {
+      "role": "Stagiaire en Développement Web",
+      "desc1": "Acquisition d'une expérience pratique dans la résolution de problèmes et de bogues du monde réel.",
+      "desc2": "Exploration de technologies avancées comme GraphQL et Relay en travaillant sur des systèmes en direct."
+    },
+    "fiz": {
+      "role": "Stagiaire en Développement Web",
+      "desc1": "Collaboration avec les équipes UI/UX et backend pour livrer des sites web sécurisés et réactifs.",
+      "desc2": "Focalisation sur la compatibilité entre navigateurs, les normes web et les performances frontend."
+    }
   },
   "work": {
-    "title": "Projets Phares"
+    "title": "Projets Phares",
+    "ipsuite": {
+      "title": "IPSuite – Plateforme d'Intelligence Juridique Propulsée par l'IA",
+      "desc1": "Développement et maintenance de composants d'interface utilisateur évolutifs avec React et Ant Design pour une plateforme de technologie juridique axée sur la gestion de la propriété intellectuelle et des marques.",
+      "desc2": "Intégration d'API REST et mise en œuvre de Redux pour une gestion efficace de l'état et du flux de données.",
+      "desc3": "Livraison de tableaux de bord juridiques intuitifs et de fonctionnalités d'automatisation en collaboration avec des équipes interfonctionnelles."
+    },
+    "mattersuite": {
+      "title": "MatterSuite – Logiciel de Gestion de Cabinets d'Avocats",
+      "desc1": "Création d'interfaces utilisateur dynamiques et réactives pour des modules tels que le suivi des dossiers, la gestion des tâches et les outils de collaboration avec React.js et Material UI.",
+      "desc2": "Utilisation de Relay et GraphQL pour récupérer et gérer les données efficacement avec des performances optimisées.",
+      "desc3": "Garantie d'une expérience utilisateur cohérente en travaillant en étroite collaboration avec les équipes de conception et de backend."
+    },
+    "casefox": {
+      "title": "CaseFox – SaaS de Facturation Juridique et de Gestion de Cas",
+      "desc1": "Conception et mise en œuvre de l'architecture frontend complète pour une plateforme de facturation juridique à partir de zéro avec React.js et Material UI.",
+      "desc2": "Développement d'interfaces réactives pour les modules de gestion de cas, de facturation, de suivi du temps et des clients.",
+      "desc3": "Intégration de Redux et des API REST pour assurer une interaction de données transparente et une expérience utilisateur fluide."
+    }
   },
   "skills": {
     "title": "Compétences et Technologies"

@@ -25,10 +25,50 @@
   },
   "experience": {
     "title": "Professional Experience",
-    "current": "Current"
+    "current": "Current",
+    "mikelegal": {
+      "role": "Software Developer",
+      "desc1": "Spearheading frontend development in a fast-paced legal-tech team.",
+      "desc2": "Building scalable, maintainable components using ReactJS, Redux, TypeScript, and JavaScript.",
+      "desc3": "Collaborating cross-functionally to enhance user experiences for clients in the legal domain."
+    },
+    "appointy": {
+      "role": "Software Developer",
+      "desc1": "Designed and developed intuitive UIs for enterprise products.",
+      "desc2": "Maintained complex codebases, ensured performance optimization, and adhered to industry best practices.",
+      "desc3": "Contributed to a stable and modular frontend architecture using React, Redux, and modern tooling."
+    },
+    "appointyIntern": {
+      "role": "Web Development Intern",
+      "desc1": "Gained hands-on experience fixing real-world issues and bugs.",
+      "desc2": "Explored advanced technologies like GraphQL and Relay while working on live systems."
+    },
+    "fiz": {
+      "role": "Web Development Intern",
+      "desc1": "Collaborated with UI/UX and backend teams to deliver secure, responsive websites.",
+      "desc2": "Focused on cross-browser compatibility, web standards, and frontend performance."
+    }
   },
   "work": {
-    "title": "Highlighted Projects"
+    "title": "Highlighted Projects",
+    "ipsuite": {
+      "title": "IPSuite – AI-Powered Legal Intelligence Platform",
+      "desc1": "Developed and maintained scalable UI components using React and Ant Design for a legal-tech platform focused on IP and trademark management.",
+      "desc2": "Integrated REST APIs and implemented Redux for efficient state management and data flow.",
+      "desc3": "Delivered intuitive legal dashboards and automation features in collaboration with cross-functional teams."
+    },
+    "mattersuite": {
+      "title": "MatterSuite – Legal Practice Management Software",
+      "desc1": "Built dynamic and responsive UIs for modules like matter tracking, task management, and collaboration tools using React.js and Material UI.",
+      "desc2": "Used Relay and GraphQL to fetch and manage data efficiently with optimized performance.",
+      "desc3": "Ensured a consistent user experience by closely working with design and backend teams."
+    },
+    "casefox": {
+      "title": "CaseFox – Legal Billing & Case Management SaaS",
+      "desc1": "Designed and implemented the entire frontend architecture for a legal billing platform from scratch using React.js and Material UI.",
+      "desc2": "Developed responsive interfaces for case management, billing, time tracking, and client modules.",
+      "desc3": "Integrated Redux and REST APIs to ensure seamless data interaction and a smooth user experience."
+    }
   },
   "skills": {
     "title": "Skills & Technologies"

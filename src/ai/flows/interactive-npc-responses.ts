@@ -2,7 +2,7 @@
 'use server';
 
 import { ai } from '@/ai/genkit';
-import { z } from 'genkit';
+import { z } from 'zod';
 import { skills, experience, education, projects } from '@/data/portfolio-data';
 
 // Format portfolio context once to avoid bloating prompt at runtime
@@ -20,17 +20,15 @@ Projects:
 ${JSON.stringify(projects, null, 2)}
 `;
 
-export const npcResponseStream = ai.defineFlow(
+export const npcResponseFlow = ai.defineFlow(
   {
-    name: 'npcResponseStream',
+    name: 'npcResponseFlow',
     inputSchema: z.string(),
     outputSchema: z.string(),
-    stream: true,
   },
   async (prompt) => {
     const llmResponse = await ai.generate({
       model: 'googleai/gemini-1.5-flash-latest',
-      stream: true,
       prompt: `You are Rohit's virtual AI assistant integrated into his portfolio.
 
 Your personality is professional yet friendly and helpful. Your goal is to answer questions about Rohit Singh Pal based ONLY on the provided portfolio data below. 
@@ -46,6 +44,6 @@ Now, please answer the following user's question: "${prompt}"
       `,
     });
 
-    return llmResponse.stream;
+    return llmResponse.text;
   }
 );

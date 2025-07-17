@@ -2,24 +2,25 @@
 "use server";
 
 import { npcResponseFlow } from "@/ai/flows/interactive-npc-responses";
-import { z } from 'zod';
-
-const promptSchema = z.string().min(1, { message: "Prompt cannot be empty." });
+import { AskNpcFormSchema } from "@/ai/schemas";
 
 export async function askNpc(previousState: any, formData: FormData) {
-  const prompt = formData.get("prompt");
+  const rawFormData = {
+    prompt: formData.get("prompt"),
+    language: formData.get("language"),
+  };
   
-  const validatedPrompt = promptSchema.safeParse(prompt);
+  const validatedFields = AskNpcFormSchema.safeParse(rawFormData);
 
-  if (!validatedPrompt.success) {
+  if (!validatedFields.success) {
     return {
       response: null,
-      error: validatedPrompt.error.errors.map(e => e.message).join(', '),
+      error: validatedFields.error.errors.map(e => e.message).join(', '),
     }
   }
 
   try {
-    const response = await npcResponseFlow(validatedPrompt.data);
+    const response = await npcResponseFlow(validatedFields.data);
     
     return {
       response: response,

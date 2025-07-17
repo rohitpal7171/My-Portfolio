@@ -4,13 +4,15 @@
 import { useRef, useEffect, useState } from "react";
 import { useActionState } from 'react';
 import { useFormStatus } from 'react-dom';
-import { Bot, Send, Loader2 } from "lucide-react";
+import { Bot, Send, Loader2, Languages } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { askNpc } from "@/app/actions";
 import { useTypewriter } from "@/hooks/use-typewriter";
 import { GradientButton } from "@/components/ui/gradient-button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
 
 interface FormState {
   response: string | null;
@@ -39,6 +41,7 @@ export default function AiAssistant() {
   const { pending } = useFormStatus();
   const formRef = useRef<HTMLFormElement>(null);
   const [finalResponse, setFinalResponse] = useState<string | null>(null);
+  const [language, setLanguage] = useState("English");
 
   const displayedNpcResponse = useTypewriter(finalResponse ?? "");
 
@@ -57,12 +60,33 @@ export default function AiAssistant() {
     }
   }, [pending]);
   
+  const languages = [
+    { value: "English", label: "English" },
+    { value: "Spanish", label: "Español" },
+    { value: "French", label: "Français" },
+    { value: "German", label: "Deutsch" },
+    { value: "Hindi", label: "हिन्दी" },
+  ];
+
   return (
     <Card className={cn("glass-effect rounded-[20px] shadow-lg w-full")}>
       <CardContent className="p-4">
-        <div className="flex items-center gap-3 mb-4">
-          <Bot className="h-8 w-8 text-primary" />
-          <p className="font-semibold text-lg">Ask my AI Assistant</p>
+        <div className="flex items-center justify-between gap-3 mb-4">
+          <div className="flex items-center gap-3">
+            <Bot className="h-8 w-8 text-primary" />
+            <p className="font-semibold text-lg">Ask my AI Assistant</p>
+          </div>
+          <Select value={language} onValueChange={setLanguage}>
+            <SelectTrigger className="w-[120px] h-8 text-xs">
+              <Languages className="h-4 w-4 mr-1" />
+              <SelectValue placeholder="Language" />
+            </SelectTrigger>
+            <SelectContent>
+              {languages.map((lang) => (
+                <SelectItem key={lang.value} value={lang.value}>{lang.label}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
 
         <div className="bg-muted/50 p-4 rounded-lg min-h-[100px] mb-4 text-foreground/90 font-mono">
@@ -85,6 +109,7 @@ export default function AiAssistant() {
           ref={formRef}
           action={(formData) => {
             setFinalResponse("");
+            formData.append("language", language);
             formAction(formData);
           }}
           className="flex gap-2"

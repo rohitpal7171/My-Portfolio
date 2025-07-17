@@ -33,9 +33,21 @@ const itemVariants = {
   },
 };
 
+const getYearsOfExperience = () => {
+  const startDate = new Date("2020-07-01"); // Start date of the first relevant job
+  const today = new Date();
+  let years = today.getFullYear() - startDate.getFullYear();
+  const m = today.getMonth() - startDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < startDate.getDate())) {
+    years--;
+  }
+  return years;
+};
+
 export default function HeroSection() {
   const [typedSubtitle, setTypedSubtitle] = useState('');
   const fullSubtitle = "Frontend Software Developer.";
+  const yearsOfExperience = getYearsOfExperience();
   
   useEffect(() => {
     setTypedSubtitle(fullSubtitle.charAt(0));
@@ -69,7 +81,7 @@ export default function HeroSection() {
             <span className="inline-block w-1 h-8 bg-primary animate-ping ml-1"></span>
           </h2>
           <p className="mt-6 text-lg max-w-2xl text-muted-foreground">
-            Welcome to my interactive portfolio. I am a passionate developer with over 4 years of experience building robust, user-focused web applications. Explore my world and get to know my work.
+            Welcome to my interactive portfolio. I am a passionate developer with over {yearsOfExperience} years of experience building robust, user-focused web applications. Explore my world and get to know my work.
           </p>
         </motion.div>
         

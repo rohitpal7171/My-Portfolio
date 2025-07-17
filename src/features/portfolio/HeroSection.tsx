@@ -1,12 +1,12 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Download } from "lucide-react";
 import { motion } from "framer-motion";
 import { GradientButton } from "@/components/ui/gradient-button";
-import profileImage from "@/components/avatar/3d_profile.png";
+import AiAssistant from "./AiAssistant";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -38,9 +38,8 @@ export default function HeroSection() {
   const fullSubtitle = "Frontend Software Developer.";
   
   useEffect(() => {
-    // Start with the first character already in place to avoid race conditions
     setTypedSubtitle(fullSubtitle.charAt(0));
-    let subtitleIndex = 1; // Start typing from the second character
+    let subtitleIndex = 1;
 
     const interval = setInterval(() => {
       if (subtitleIndex < fullSubtitle.length) {
@@ -62,16 +61,19 @@ export default function HeroSection() {
       animate="visible"
       variants={sectionVariants}
     >
-      <motion.div variants={itemVariants}>
-        <h1 className="font-headline text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-pink-500 to-cyan-500 bg-clip-text text-transparent">Rohit Singh Pal</h1>
-        <h2 className="text-2xl md:text-3xl font-semibold text-foreground/80 mt-2 min-h-[40px]">
-          {typedSubtitle}
-          <span className="inline-block w-1 h-8 bg-primary animate-ping ml-1"></span>
-        </h2>
-        <p className="mt-6 text-lg max-w-2xl text-muted-foreground">
-          Welcome to my interactive portfolio. I am a passionate developer with over 4 years of experience building robust, user-focused web applications. Explore my world and get to know my work.
-        </p>
-        <motion.div variants={itemVariants} className="mt-8">
+      <div className="flex flex-col gap-8">
+        <motion.div variants={itemVariants}>
+          <h1 className="font-headline text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-pink-500 to-cyan-500 bg-clip-text text-transparent">Rohit Singh Pal</h1>
+          <h2 className="text-2xl md:text-3xl font-semibold text-foreground/80 mt-2 min-h-[40px]">
+            {typedSubtitle}
+            <span className="inline-block w-1 h-8 bg-primary animate-ping ml-1"></span>
+          </h2>
+          <p className="mt-6 text-lg max-w-2xl text-muted-foreground">
+            Welcome to my interactive portfolio. I am a passionate developer with over 4 years of experience building robust, user-focused web applications. Explore my world and get to know my work.
+          </p>
+        </motion.div>
+        
+        <motion.div variants={itemVariants}>
           <a href="/my_resume.pdf" download="Rohit_Singh_Pal_Resume.pdf" target="_blank" rel="noopener noreferrer">
             <GradientButton>
                 <Download size={18} />
@@ -79,10 +81,11 @@ export default function HeroSection() {
             </GradientButton>
           </a>
         </motion.div>
-      </motion.div>
-      <motion.div variants={itemVariants} className="flex-shrink-0 flex flex-col items-center justify-center p-4 rounded-lg">
+      </div>
+      
+      <motion.div variants={itemVariants} className="flex-shrink-0 flex flex-col items-center justify-center gap-8 p-4 rounded-lg sticky top-32">
         <Image
-          src={profileImage}
+          src="/assets/3d_profile.png"
           alt="3D avatar of Rohit Singh Pal, a frontend software developer"
           width={400}
           height={400}
@@ -90,6 +93,7 @@ export default function HeroSection() {
           className="rounded-lg shadow-2xl shadow-primary/20 animate-float object-cover aspect-square"
           data-ai-hint="avatar man"
         />
+        <AiAssistant />
       </motion.div>
     </motion.section>
   );

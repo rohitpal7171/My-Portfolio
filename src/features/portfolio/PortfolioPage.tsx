@@ -1,7 +1,7 @@
+
 "use client";
 
-import { skills, experience, education, projects } from '@/data/portfolio-data.tsx';
-
+import { skills, experience, education, projects } from '@/data/portfolio-data';
 import Header from "@/layouts/Header";
 import HeroSection from "./HeroSection";
 import AboutSection from "./AboutSection";

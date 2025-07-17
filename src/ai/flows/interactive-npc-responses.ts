@@ -28,8 +28,8 @@ export const npcResponseStream = ai.defineFlow(
   },
   async (prompt) => {
     const llmResponse = await ai.generate({
-      model: 'googleai/gemini-pro', // ✅ Correct model
-      stream: true, // ✅ Streaming enabled
+      model: 'googleai/gemini-1.0-pro',
+      stream: true,
       prompt: `You are Rohit's virtual AI assistant integrated into his portfolio.
 
 Your personality is professional yet friendly and helpful. Your goal is to answer questions about Rohit Singh Pal based ONLY on the provided portfolio data below. 

@@ -1,3 +1,4 @@
+
 'use server';
 
 import { ai } from '@/ai/genkit';
@@ -28,7 +29,7 @@ export const npcResponseStream = ai.defineFlow(
   },
   async (prompt) => {
     const llmResponse = await ai.generate({
-      model: 'googleai/gemini-1.0-pro',
+      model: 'googleai/gemini-1.5-flash-latest',
       stream: true,
       prompt: `You are Rohit's virtual AI assistant integrated into his portfolio.
 

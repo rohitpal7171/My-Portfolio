@@ -6,7 +6,6 @@ import { useActionState } from 'react';
 import { useFormStatus } from 'react-dom';
 import { Bot, Send, Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { askNpc } from "@/app/actions";
@@ -28,7 +27,7 @@ function SubmitButton() {
   return (
     <GradientButton type="submit" disabled={pending} className="px-3 py-2 h-10 w-auto">
       <span className="relative z-10 inline-flex items-center justify-center">
-        {pending ? <Loader2 className="animate-spin" /> : <Send />}
+        {pending ? <Loader2 className="animate-spin h-6 w-6" /> : <Send className="h-6 w-6" />}
       </span>
     </GradientButton>
   );
